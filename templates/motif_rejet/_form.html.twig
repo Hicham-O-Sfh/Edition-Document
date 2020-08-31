@@ -1,0 +1,26 @@
+{# 
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+{{ form_start(form) }} #}
+{# {{ form_widget(form) }} #}
+{{ form_start(form) }}
+<div class="row">
+    <div class="col">
+        {{ form_label(form.libelleAr, 'libelle Fr : ') }}
+        {{ form_errors(form.libelleFr) }}
+        {{ form_widget(form.libelleFr) }}
+    </div>
+    <div class="col">
+        {{ form_label(form.libelleAr, 'libelle Ar : ') }}
+        {{ form_errors(form.libelleAr) }}
+        {{ form_widget(form.libelleAr) }}
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col text-center">
+        <button class="btn btn-outline-success">{{ button_label|default('Enregistrer') }}</button>
+    </div>
+
+</div>
+{{ form_end(form) }}

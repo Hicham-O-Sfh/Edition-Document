@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rejeter une mission{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+            <button class="btn btn-link">
+                Rejeter une mission
+            </button>
+        </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <div class="w-100">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    {{ form_errors(form.observationDecisionChef) }}
+                                    {{ form_label(form.observationDecisionChef, 'Observation de chef ') }}
+                                    {{ form_widget(form.observationDecisionChef,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.motifAnnulation) }}
+
+                                    {{ form_label(form.motifAnnulation, 'Motif de rejet') }}
+                                    {{ form_widget(form.motifAnnulation,{'attr': {'class': 'form-control'}})
+                                    }}
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <button class="btn btn-outline-primary"onclick="return confirm('Êtes-vous sûr de bien vouloir rejeter cette mission?');">Enregistrer</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

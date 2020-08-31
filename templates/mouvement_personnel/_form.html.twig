@@ -1,0 +1,134 @@
+{{ form_start(form) }}
+
+
+<div class="row">
+
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.personnel) }}
+                                    {{ form_label(form.personnel) }}
+                                    {{ form_widget(form.personnel,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.typeAffectation) }}
+                                   {{ form_label(form.typeAffectation) }}
+                                    {{ form_widget(form.typeAffectation,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.lieuAffectation) }}
+                                   {{ form_label(form.lieuAffectation) }}
+                                    {{ form_widget(form.lieuAffectation,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.dateAffectation) }}
+                                   {{ form_label(form.dateAffectation) }}
+                                    {{ form_widget(form.dateAffectation,{'attr': {'class': 'form-control ' }}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.dateFin) }}
+                                   {{ form_label(form.dateFin) }}
+                                    {{ form_widget(form.dateFin ) }}
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.duree) }}
+                                   {{ form_label(form.duree) }}
+                                    {{ form_widget(form.duree,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.numDecision) }}
+                                   {{ form_label(form.numDecision) }}
+                                    {{ form_widget(form.numDecision,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.decision) }}
+                                   {{ form_label(form.decision) }}
+                                    {{ form_widget(form.decision,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.dateDecision) }}
+                                   {{ form_label(form.dateDecision) }}
+                                    {{ form_widget(form.dateDecision,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.file) }}
+                                   {{ form_label(form.file) }}
+                                    {{ form_widget(form.file,{'attr': {'class': 'form-control', 'novalidate': 'novalidate' }}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.observation) }}
+                                   {{ form_label(form.observation) }}
+                                    {{ form_widget(form.observation,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{ form_end(form) }}

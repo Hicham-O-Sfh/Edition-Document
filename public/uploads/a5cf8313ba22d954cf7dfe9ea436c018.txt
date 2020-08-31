@@ -1,0 +1,72 @@
+ personnel{
+#motif
+
+etat:[present , absent rouge ,congé , mission]
+
+pour ce change se varie si la situation de
+personnelConge: {
+#idpersonnel
+#idnatureconge
+datDemmandeConge
+situationDemmande (en cours [pardefaut],validée,rejetée
+date debut demandé (date)
+date fin demmandé  (date)
+avis de chef ("accepter","rejeté")
+motif-rejetée (text)
+ 
+date debut accordé (date)
+date fin accordé (date)
+}
+
+
+
+natureConge{
+libelle(string)
+ 
+}
+_________________________
+
+fonction{
+
+libilleFr
+libelleFr
+
+}
+
+ListeAffectation{
+code(string)
+libelleAr
+}
+
+ 
+personnelFonction{
+
+#
+#
+#idlisteaffectation
+datedebut (date)
+datefin(date)
+observation(text)
+}
+motif{
+libelleAr
+libelleFR
+
+}
+
+
+
+_______________________
+
+pour un secteur son responsable et animateur
+pour un groupement son responsable et technicien
+
+_____
+
+les champ qui on pas du crud dans perssonel sont :
+
+salaire banque num cin ,etat , est perssonel ? validite cin
+
+
+pour la table misson sera suprimer
+la table mission-personnel: missionFr , missionAr ,decisionchef ,datetimedecisionchef( le chef a le droit de modifier date debug et fin)

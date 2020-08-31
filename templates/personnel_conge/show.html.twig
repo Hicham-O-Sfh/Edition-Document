@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonnelConge{% endblock %}
+
+{% block body %}
+    <h1>PersonnelConge</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnel_conge.id }}</td>
+            </tr>
+            <tr>
+                <th>DateDemandeConge</th>
+                <td>{{ personnel_conge.dateDemandeConge ? personnel_conge.dateDemandeConge|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>SituationDemande</th>
+                <td>{{ personnel_conge.situationDemande }}</td>
+            </tr>
+            <tr>
+                <th>DateDebutDemande</th>
+                <td>{{ personnel_conge.dateDebutDemande ? personnel_conge.dateDebutDemande|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFinDemande</th>
+                <td>{{ personnel_conge.dateFinDemande ? personnel_conge.dateFinDemande|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>AvisChef</th>
+                <td>{{ personnel_conge.avisChef }}</td>
+            </tr>
+            <tr>
+                <th>MotifRejete</th>
+                <td>{{ personnel_conge.motifRejete }}</td>
+            </tr>
+            <tr>
+                <th>DateDebutAccordee</th>
+                <td>{{ personnel_conge.dateDebutAccordee ? personnel_conge.dateDebutAccordee|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFinAccordee</th>
+                <td>{{ personnel_conge.dateFinAccordee ? personnel_conge.dateFinAccordee|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personnel_conge_index') }}">back to list</a>
+
+    <a href="{{ path('personnel_conge_edit', {'id': personnel_conge.id}) }}">edit</a>
+
+    {{ include('personnel_conge/_delete_form.html.twig') }}
+{% endblock %}

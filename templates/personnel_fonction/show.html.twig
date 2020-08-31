@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonnelFonction{% endblock %}
+
+{% block body %}
+
+<div class="row">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="responsive-table">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ personnel_fonction.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>DateDebut</th>
+                        <td>{{ personnel_fonction.dateDebut ? personnel_fonction.dateDebut|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>DateFin</th>
+                        <td>{{ personnel_fonction.dateFin ? personnel_fonction.dateFin|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Observation</th>
+                        <td>{{ personnel_fonction.observation }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a href="{{ path('personnel_fonction_index') }}">back to list</a>
+
+                <a href="{{ path('personnel_fonction_edit', {'id': personnel_fonction.id}) }}">edit</a>
+
+                {{ include('personnel_fonction/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

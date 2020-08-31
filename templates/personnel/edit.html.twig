@@ -1,0 +1,357 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Personnel{% endblock %}
+
+{% block body %}
+
+    {% set action = 'edit' %}
+    {{ include('personnel/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+
+    <!-- Modal pour fonctions -->
+    <div class="modal fade" id="newfonctionmodal" tabindex="-1" role="dialog" aria-labelledby="newfonctionmodal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label >Fonction</label>
+                                <input id="useridfonction" hidden value="{{ personnel.id }}"  >
+                                <input
+                                        id="newpath" hidden value="{{ path('personnel_add_fonc') }}" >
+                                 <select name="fonction" required class="form-control" id="fonctionselect">
+                                     <option value=""></option>
+                                     {% for fonction in fonctions %}
+                                         <option value="{{ fonction.id }}">{{ fonction.libelleFr }}</option>
+                                     {% endfor %}
+                                 </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label >Affectation</label>
+                                <select name="affectaion" required class="form-control" id="affectationselect">
+                                    <option value=""></option>
+                                    {% for a in affectations %}
+                                        <option value="{{ a.id }}">{{ a.libelleFr }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label > Date début</label>
+                            <input type="date" required id="datedebut" class="form-control">
+
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <label > Date fin</label>
+                            <input type="date"  required id="datefin" class="form-control">
+
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label > Obsérvations</label>
+                            <input type="text" required id="observation" class="form-control">
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="fonctionmodalclose" data-dismiss="modal">Close</button>
+                    <button type="button" id="fonctioncomfirm" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal  pour diplomes-->
+    <div class="modal fade" id="diplomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ajouter diplome</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12"><div class="form-group">
+                                <label > Désignation</label>
+                                <input type="text" id="diplomeDesignation" class="form-control">
+
+                            </div></div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label > Date obtention </label>
+                                <input type="number" id="diplomeDate" class="form-control" min="1930" max="2099"
+                                       step="1" value="2016"/>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+
+                                <label >Etablisement </label>
+                                <input type="text" id="diplomeEtablisement" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label > Spécialité</label>
+                                <input type="text" id="diplomeSpecialite" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label > Type de diplome</label>
+                                <select name="" class="form-control" id="diplomeType">
+                                {% for diplome in  diplomes %}
+
+
+                                        <option value="{{ diplome.id }}">{{ diplome.libelleFr }}</option>
+
+                                {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label > piéce joint</label>
+                                <input type="file" id="diplomeFile" class="form-control">
+
+
+                        </div>
+                        <input type="hidden" id="userid" value="{{ personnel.id }}">
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="closemodaleiplome" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button"  id="submitDiplome" class="btn btn-primary">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal document -->
+    <div class="modal fade" id="documentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ajouter document</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <div class="row">
+                       <div id="fileid">
+
+                           <input type="file" class="" name="docfile"
+                                  id="docfile">
+                       </div>
+
+                   </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  id="closemodal" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+                    <button type="button" id="docaddbtn" class="btn btn-primary">enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+        //ajax pour doc
+        function ajaxCall(form) {
+            $.ajax(
+                {
+                    url: "{{ path('personnel_add_doc') }} ",
+                    method: "post",
+                    dataType: 'json',
+                    enctype: 'multipart/form-data',
+                    cache: false,
+                    processData: false,
+                    data: form,
+                    contentType: false,
+                    error: function (err) {
+                       alert("fichier non valid");
+                    },
+                    success: function (data) {
+                        var data = $.parseJSON(data[0]);
+                        $("#docTable tr:last").after("<tr> <td> <a  target='_blank' href='"+"{{ asset('uploads/')}}"+data.path+"' > "+ data.title+" </a></td><tr/>");
+
+                   $("#closemodal").click();
+
+                    },
+                    complete: function () {
+
+
+                    }
+
+                });
+
+
+        }
+//ajax pour diplome
+        function ajaxcalldiplome (form){
+
+            $.ajax(
+                {
+                    url: "{{ path('personnel_add_dip') }} ",
+                    method: "post",
+                    dataType: 'json',
+                    enctype: 'multipart/form-data',
+                    cache: false,
+                    processData: false,
+                    data: form,
+                    contentType: false,
+                    error: function (err) {
+                        console.error(err);
+                    },
+                    success: function (data) {
+
+
+                        var data = $.parseJSON(data[0]);
+
+                        $("#diplomeTable tr:last").after(
+
+
+                            "<tr> <td><a href='#'>edit</a></td>" +
+                            "<td>"+data.dipid+"</td>" +
+                            "<td>"+data.designation+"</td>" +
+                            "<td> "+ new Date(data.dateobtention.date).getFullYear()+"</td>" +
+                            "<td> "+data.etablissement+"</td>" +
+                            "<td> "+data.specialite+"</td>" +
+                            "<td> "+data.typedip+"</td>" +
+                            "<td><a   target='_blank' href='"+{{ asset('uploads/') }} +""+data.chemindoc+"'> <i class=\"fas fa-eye\"></i></a></td>" +
+
+
+                            "<tr/>"
+                        );
+
+                        $('#closemodaleiplome').click();
+                    },
+                    complete: function () {
+
+console.log("finished");
+                    }
+
+                });
+
+        }
+
+
+
+
+        $(document).ready(function() {
+            $('#personnel_situationFamiliale').change(function (e){
+
+                var x = $('#personnel_situationFamiliale').children('option:selected').val();
+                if (x == "Célibataire"){
+
+                    $("#personnelconjiont").css("display","none");
+                }else{
+                    $("#personnelconjiont").css("display","flex");
+
+
+                }
+            });
+//lajour dun document externe
+            $("#docaddbtn").click(function () {
+
+                if (!(($('#docfile').val()) )  ) {
+
+                    alert("champs vide");
+                } else {
+                    var form = new FormData();
+                    var file = $('#docfile')[0].files[0];
+
+                    var userid = $('#userid')[0].value;
+                    form.append('file', file);
+
+                    form.append('user', userid);
+
+                    ajaxCall(form);
+                }
+
+            });
+
+
+// lajout dun diplome
+            $("#submitDiplome").click(function () {
+
+
+                if (!(($('#diplomeFile').val())) ) {
+
+                    alert("champs vide");
+                }else
+                {
+
+
+                    var form = new FormData();
+                    var file = $('#diplomeFile')[0].files[0];
+                    var designation = $('#diplomeDesignation')[0].value;
+                    var diplomeType = $('#diplomeType').children('option:selected')[0].value;
+                    var diplomeEtablisement = $('#diplomeEtablisement')[0].value;
+                    var diplomedate = $('#diplomeDate')[0].value;
+
+                    var diplomeSpecialite = $('#diplomeSpecialite')[0].value;
+                    var userid = $('#userid')[0].value;
+                    form.append('designation', designation);
+                    form.append('type', diplomeType);
+                    form.append('etablissement', diplomeEtablisement);
+                    form.append('date', diplomedate);
+                    form.append('spesialite', diplomeSpecialite);
+                    form.append('file', file);
+                    form.append('user', userid);
+
+                    ajaxcalldiplome(form);
+
+                }
+            });
+
+            $('#docTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
+            $('#fonctionTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
+            $('#diplomeTable').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+                }
+            });
+
+        });
+
+
+    </script>
+
+    <script src="{{ asset('assets/js/personnel_fonction_ajax.js') }}"></script>
+
+{% endblock %}

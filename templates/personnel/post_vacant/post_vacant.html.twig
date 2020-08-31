@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}list Personnel  {% endblock %}
+
+{% block body %}
+<div class="row">   <div class="col-12">
+    <div class="card">
+
+        <div class="card-body">
+
+
+            <table id="example" class="table table-bordered table-striped dataTable" style="width: 100%;">
+
+
+                <thead>
+                <th>Poste</th>
+                <th>Affectation</th>
+                <th>Secteur</th>
+                <th>Besoin</th>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div></div>
+</div>
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+
+        $("#exapmle").dataTable();
+    </script>
+{% endblock %}

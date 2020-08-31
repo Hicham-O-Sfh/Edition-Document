@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MouvementPersonnel{% endblock %}
+
+{% block body %}
+
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+
+                  <div class="card-body">
+
+                      <table class="table dataTable">
+                          <tbody>
+                          <tr>
+                              <th>Id</th>
+                              <td>{{ mouvement_personnel.id }}</td>
+                          </tr>
+                          <tr>
+                              <th>DateAffectation</th>
+                              <td>{{ mouvement_personnel.dateAffectation ? mouvement_personnel.dateAffectation|date('Y-m-d') : '' }}</td>
+                          </tr>
+                          <tr>
+                              <th>DateFin</th>
+                              <td>{{ mouvement_personnel.dateFin ? mouvement_personnel.dateFin|date('Y-m-d') : '' }}</td>
+                          </tr>
+                          <tr>
+                              <th>Observation</th>
+                              <td>{{ mouvement_personnel.observation }}</td>
+                          </tr>
+                          <tr>
+                              <th>Affectation</th>
+                              <td>{{ mouvement_personnel.affectation }}</td>
+                          </tr>
+
+
+
+
+                          <tr>
+                              <th>Decision</th>
+                              <td>{{ mouvement_personnel.decision }}</td>
+                          </tr>
+                          </tbody>
+                      </table>
+
+                      <a href="{{ path('mouvement_personnel_index') }}">retour</a>
+
+                      <a href="{{ path('mouvement_personnel_edit', {'id': mouvement_personnel.id}) }}">editer</a>
+
+                      {{ include('mouvement_personnel/_delete_form.html.twig') }}
+
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+{% endblock %}

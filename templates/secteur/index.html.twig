@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Secteur index{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LibelleFr</th>
+                <th>LibelleAr</th>
+                <th>Code</th>
+                <th>Adresse</th>
+                <th>Email1</th>
+                <th>Email2</th>
+                <th>Fixe1</th>
+                <th>Fixe2</th>
+                <th>Gsm1</th>
+                <th>Gsm2</th>
+                <th>Fax</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for secteur in secteurs %}
+            <tr>
+                <td>{{ secteur.id }}</td>
+                <td>{{ secteur.libelleFr }}</td>
+                <td>{{ secteur.libelleAr }}</td>
+                <td>{{ secteur.code }}</td>
+                <td>{{ secteur.adresse }}</td>
+                <td>{{ secteur.email1 }}</td>
+                <td>{{ secteur.email2 }}</td>
+                <td>{{ secteur.fixe1 }}</td>
+                <td>{{ secteur.fixe2 }}</td>
+                <td>{{ secteur.gsm1 }}</td>
+                <td>{{ secteur.gsm2 }}</td>
+                <td>{{ secteur.fax }}</td>
+                <td>
+                    <a href="{{ path('secteur_show', {'id': secteur.id}) }}">show</a>
+                    <a href="{{ path('secteur_edit', {'id': secteur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('secteur_new') }}">Create new</a>
+{% endblock %}

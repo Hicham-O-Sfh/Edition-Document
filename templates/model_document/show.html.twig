@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ModelDocument{% endblock %}
+
+{% block body %}
+    <h1>ModelDocument</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ model_document.id }}</td>
+            </tr>
+            <tr>
+                <th>Intitule</th>
+                <td>{{ model_document.intitule }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ model_document.dateCreation ? model_document.dateCreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Details</th>
+                <td>{{ model_document.details }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ model_document.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('model_document_index') }}">back to list</a>
+
+    <a href="{{ path('model_document_edit', {'id': model_document.id}) }}">edit</a>
+
+    {{ include('model_document/_delete_form.html.twig') }}
+{% endblock %}

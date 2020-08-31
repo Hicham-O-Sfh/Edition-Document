@@ -1,0 +1,42 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 25, 2020 at 10:53 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `si_anoc_bd1`
+--
+
+
+
+--
+-- Dumping data for table `secteurs`
+--
+
+INSERT INTO `secteur` (`id`, `libelle_fr`, `libelle_ar`, `code`, `adresse`, `email1`, `email2`, `fixe1`, `fixe2`, `gsm1`, `gsm2`, `fax`) VALUES
+(1, '----------', '----------', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'Centre Sud', 'الوسط الجنوبي', 'CS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Moyen Atlas', 'الأطلس المتوسط', 'MA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Nord et Côte Atlantique', 'الشمال والمحيط الأطلسي', 'AT', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'Oriental', 'الشرق', 'OR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'Sud', 'الجنوب', 'SU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

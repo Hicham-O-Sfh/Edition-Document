@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+        {% set action = 'new' %}
+        {{ include('personnel/_form.html.twig') }}
+{% endblock %}
+ 
+{%  block javascripts %}
+        <script src="{{ asset('assets/js/personnel_fonction_add.js') }}"></script>
+        <script>
+        $(document).ready(function() {
+        $('#personnel_situationFamiliale').change(function (e){
+
+        var x = $('#personnel_situationFamiliale').children('option:selected').val();
+        if (x == "Célibataire"){
+
+        $("#personnelconjiont").css("display","none");
+        }else{
+        $("#personnelconjiont").css("display","flex");
+
+
+        }
+        });
+        });
+
+        </script>
+{% endblock %}

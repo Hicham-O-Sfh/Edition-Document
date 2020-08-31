@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd1069dc-e324-4656-b775-54b08e4717f2" name="Default Changelist" comment="fixup! updates">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/personnel_fonction_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/personnel_fonction_add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PersonnelCongeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonnelCongeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PersonnelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonnelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Departement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Departement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Personnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personnel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PersonnelCongeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PersonnelCongeType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PersonnelType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PersonnelType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/PersonnelAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/PersonnelAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mouvement_personnel/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mouvement_personnel/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mouvement_personnel/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mouvement_personnel/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mouvement_personnel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mouvement_personnel/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/parametrage_spe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parametrage_spe/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personnel_mission/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_mission/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1gAkJTt4le0qpUPJrZuB50iA8KO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd1069dc-e324-4656-b775-54b08e4717f2" name="Default Changelist" comment="" />
+      <created>1597564712199</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597564712199</updated>
+      <workItem from="1597564713332" duration="7365000" />
+      <workItem from="1597575235656" duration="636000" />
+      <workItem from="1597575973403" duration="15438000" />
+      <workItem from="1597667144496" duration="12488000" />
+      <workItem from="1597685784819" duration="319000" />
+      <workItem from="1597738769438" duration="7975000" />
+      <workItem from="1597756505884" duration="9546000" />
+      <workItem from="1597824519797" duration="12972000" />
+      <workItem from="1597843129582" duration="735000" />
+      <workItem from="1597849763353" duration="12788000" />
+      <workItem from="1597864991536" duration="572000" />
+      <workItem from="1597909891961" duration="10603000" />
+      <workItem from="1597930890445" duration="7700000" />
+      <workItem from="1597998119169" duration="11854000" />
+      <workItem from="1598016443901" duration="5483000" />
+      <workItem from="1598040998473" duration="8638000" />
+      <workItem from="1598086873547" duration="11510000" />
+      <workItem from="1598167114557" duration="13221000" />
+      <workItem from="1598187956446" duration="17870000" />
+      <workItem from="1598257052100" duration="13292000" />
+      <workItem from="1598287768811" duration="15379000" />
+      <workItem from="1598342249290" duration="5949000" />
+      <workItem from="1598356113105" duration="10217000" />
+      <workItem from="1598368411485" duration="5975000" />
+      <workItem from="1598425471429" duration="16626000" />
+      <workItem from="1598443620899" duration="24000" />
+      <workItem from="1598448719138" duration="2729000" />
+      <workItem from="1598454384399" duration="5232000" />
+      <workItem from="1598467069706" duration="4053000" />
+      <workItem from="1598515229950" duration="8214000" />
+      <workItem from="1598530393308" duration="3418000" />
+      <workItem from="1598558601238" duration="427000" />
+      <workItem from="1598647303622" duration="1151000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="date">
+                    <value>
+                      <list>
+                        <option value="1598560341515" />
+                        <option value="" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixup! updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixup! updates" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="375" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597851355985">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="375" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1597851355985" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598262860591">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598262860591" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1598207477902">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1598207477902" />
+    <state width="255" height="442" key="Diff.GoToChangePopup" timestamp="1598259610546">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="255" height="442" key="Diff.GoToChangePopup/0.0.1366.728@0.0.1366.728" timestamp="1598259610546" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1598647278239">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1598647278239" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597575970209">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597575970209" />
+    <state x="129" y="55" key="MergeDialog" timestamp="1598259452274">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1598259452274" />
+    <state x="321" y="125" key="MultipleFileMergeDialog" timestamp="1598259440387">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="321" y="125" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1598259440387" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1598558646915">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728/-1600.0.1280.680@0.0.1366.728" timestamp="1598451966823" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1598558646915" />
+    <state x="423" y="98" key="VcsDiffUtil.ChangesDialog" timestamp="1598259644037">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="423" y="98" key="VcsDiffUtil.ChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1598259644037" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1598648456479">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598648456479" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1598647988514">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598647988514" />
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1598648297490">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598648297490" />
+    <state x="288" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598366481869">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="288" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1598366481869" />
+    <state x="82" y="0" width="1007" height="715" key="dock-window-1" timestamp="1597825266313">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="82" y="0" width="1007" height="715" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1597825266313" />
+    <state x="552" y="276" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1598259443624">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="552" y="276" key="git4idea.rebase.GitUnstructuredEditor/0.0.1366.728@0.0.1366.728" timestamp="1598259443624" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1598517677643">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1598517677643" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1598460161936">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/-1600.0.1280.680@0.0.1366.728" timestamp="1598451956348" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1598460161936" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/personnel/show1.html.twig</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

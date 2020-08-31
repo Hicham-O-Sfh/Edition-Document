@@ -1,0 +1,1027 @@
+Index: templates/base.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"fr\" xml:lang=\"fr\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n\r\n    <html lang=\"en\">\r\n\r\n\r\n    <head>\r\n        <meta charset=\"utf-8\" />\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n        <meta name=\"description\" content=\"\" />\r\n        <meta name=\"author\" content=\"\" />\r\n\r\n        <title>{% block title %}lassociation-nationale-ovine-et-caprine{% endblock %}</title>\r\n        <title></title>\r\n        <!-- loader-->\r\n\r\n        <link href=\"{{ asset('assets/css/pace.min.css') }}\" rel=\"stylesheet\" />\r\n        <script src=\"{{ asset('assets/js/pace.min.js') }}\"></script>\r\n        <!--favicon-->\r\n        <link rel=\"icon\" href=\"{{ asset('assets/images/favicon.ico') }}\" type=\"image/x-icon\" />\r\n        <!-- Vector CSS -->\r\n        <link href=\"{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}\" rel=\"stylesheet\" />\r\n        <!-- simplebar CSS-->\r\n        <link href=\"{{ asset('assets/plugins/simplebar/css/simplebar.css') }}\" rel=\"stylesheet\" />\r\n        <!-- Bootstrap core CSS-->\r\n        <link href=\"{{ asset('assets/css/bootstrap.min.css') }}\" rel=\"stylesheet\" />\r\n        <!-- animate CSS-->\r\n        <link href=\"{{ asset('assets/css/animate.css') }}\" rel=\"stylesheet\" type=\"text/css\" />\r\n        <!-- Icons CSS-->\r\n        <link href=\"{{ asset('assets/css/icons.css') }}\" rel=\"stylesheet\" type=\"text/css\" />\r\n        <link href=\"{{ asset('assets/css/bootstrap.min.css') }}\" rel=\"stylesheet\" />\r\n\r\n        <!-- Sidebar CSS-->\r\n        <link href=\"{{ asset('assets/css/sidebar-menu.css') }}\" rel=\"stylesheet\" />\r\n        <!-- Custom Style-->\r\n        <link href=\"{{ asset('assets/css/app-style.css') }}\" rel=\"stylesheet\" />\r\n        <!-- skins CSS-->\r\n        <link href=\"{{ asset('assets/css/skins.css') }}\" rel=\"stylesheet\" />\r\n\r\n        <!-- datatable CSS-->\r\n        <link href=\"{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}\"\r\n            rel=\"stylesheet\" type=\"text/css\">\r\n        <link href=\"{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}\" rel=\"stylesheet\"type=\"text/css\">\r\n        <script src=\"{{ asset('assets/js/jquery.min.js') }}\"></script>\r\n\r\n\r\n        <script src=\"https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js\" type=\"text/javascript\"></script>\r\n        <link href=\"https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n    </head>\r\n\r\n    <body>\r\n\r\n\r\n        <!-- Start wrapper-->\r\n        <div id=\"wrapper\">\r\n<!--Start sidebar-wrapper-->\r\n                <div id=\"sidebar-wrapper\" data-simplebar=\"\" data-simplebar-auto-hide=\"true\">\r\n                    <div class=\"brand-logo\">\r\n                        <a href=\"index.html\">\r\n                            <img src=\"{{ asset('assets/images/logo.png') }}\" class=\"logo-icon\" alt=\"logo icon\">\r\n                            <h5 class=\"logo-text\">SI-ANOC</h5>\r\n                        </a>\r\n                    </div>\r\n                    <div class=\"user-details\">\r\n                        <div class=\"media align-items-center user-pointer collapsed\" data-toggle=\"collapse\"\r\n                            data-target=\"#user-dropdown\">\r\n                            <div class=\"avatar\"><img class=\"mr-3 side-user-img\"\r\n                                    src=\"{{ asset('uploads/')~app.user.photo }}\" alt=\"image\"></div>\r\n                            <div class=\"media-body\">\r\n                                <h6 class=\"side-user-name\">{{ app.user.nomFr }}</h6>\r\n                            </div>\r\n                            <!--Start sidebar-wrapper-->\r\n                            <div id=\"sidebar-wrapper\" data-simplebar=\"\" data-simplebar-auto-hide=\"true\">\r\n                                <div class=\"brand-logo\">\r\n                                    <a href=\"index.html\">\r\n                                        <img src=\"assets/images/logo-icon.png\" class=\"logo-icon\" alt=\"logo icon\">\r\n                                        <h5 class=\"logo-text\">SI-ANOC</h5>\r\n                                    </a>\r\n                                </div>\r\n                                <div class=\"user-details\">\r\n                                    <div class=\"media align-items-center user-pointer collapsed\" data-toggle=\"collapse\"\r\n                                        data-target=\"#user-dropdown\">\r\n                                        <div class=\"avatar\"><img class=\"mr-3 side-user-img\"\r\n                                                src=\"{{ asset('uploads/')~app.user.photo }}\" alt=\"image\"></div>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"side-user-name\">{{ app.user.nomFr }}</h6>\r\n                                        </div>\r\n                                    </div>\r\n                                    <div id=\"user-dropdown\" class=\"collapse\">\r\n                                        <ul class=\"user-setting-menu\">\r\n                                            {#\r\n                    <li><a href=\"javaScript:void();\"><i class=\"icon-user\"></i> My Profile</a></li>\r\n                    <li><a href=\"javaScript:void();\"><i class=\"icon-settings\"></i> Setting</a></li> #}\r\n                                            <li><a href=\"{{ path('app_logout') }}\"><i class=\"icon-power\"></i> Se\r\n                                                    deconnecter</a></li>\r\n                                        </ul>\r\n                                    </div>\r\n                                </div>\r\n                                <ul class=\"sidebar-menu\">\r\n                                    <li class=\"sidebar-header\">MAIN NAVIGATION</li>\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-view-dashboard\"></i> <span>Tableau de Bord</span><i\r\n                                                class=\"fa fa-angle-left pull-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"index.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    eCommerce</a></li>\r\n                                            <li><a href=\"dashboard-human-resources.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Human\r\n                                                    Resources</a></li>\r\n                                            <li><a href=\"dashboard-digital-marketing.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Digital\r\n                                                    Marketing</a></li>\r\n                                            <li><a href=\"dashboard-property-listing.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Property\r\n                                                    Listings</a></li>\r\n                                            <li><a href=\"dashboard-service-support.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Services &\r\n                                                    Support</a></li>\r\n                                            <li><a href=\"dashboard-logistics.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Logistics</a>\r\n                                            </li>\r\n                                        </ul>\r\n                                    </li>\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-layers\"></i>\r\n                                            <span>Génétique</span> <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"ui-typography.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Typography</a></li>\r\n                                            <li><a href=\"ui-cards.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Cards</a></li>\r\n                                            <li><a href=\"ui-buttons.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Buttons</a></li>\r\n                                            <li><a href=\"ui-nav-tabs.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Nav\r\n                                                    Tabs</a></li>\r\n                                            <li><a href=\"ui-accordions.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Accordions</a></li>\r\n                                            <li><a href=\"ui-modals.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Modals</a></li>\r\n                                            <li><a href=\"ui-list-groups.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    List Groups</a></li>\r\n                                            <li><a href=\"ui-bootstrap-elements.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> BS\r\n                                                    Elements</a>\r\n                                            </li>\r\n                                            <li><a href=\"ui-pagination.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Pagination</a></li>\r\n                                            <li><a href=\"ui-alerts.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Alerts</a></li>\r\n                                            <li><a href=\"ui-progressbars.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Progress Bars</a>\r\n                                            </li>\r\n                                            <li><a href=\"ui-checkbox-radio.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Checkboxes &\r\n                                                    Radios</a></li>\r\n                                            <li><a href=\"ui-notification.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Notifications</a>\r\n                                            </li>\r\n                                            <li><a href=\"ui-sweet-alert.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Sweet Alerts</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-card-travel\"></i>\r\n                                            <span>Projets</span>\r\n                                            <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"components-range-slider.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Range\r\n                                                    Sliders</a></li>\r\n                                            <li><a href=\"components-image-carousel.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Image\r\n                                                    Carousels</a></li>\r\n                                            <li><a href=\"components-grid-layouts.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Grid\r\n                                                    Layouts</a>\r\n                                            </li>\r\n                                            <li><a href=\"components-switcher-buttons.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Switcher\r\n                                                    Buttons</a></li>\r\n                                            <li><a href=\"components-pricing-table.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Pricing\r\n                                                    Tables</a>\r\n                                            </li>\r\n                                            <li><a href=\"components-vertical-timeline.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Vertical\r\n                                                    Timeline</a></li>\r\n                                            <li><a href=\"components-horizontal-timeline.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Horizontal Timeline</a></li>\r\n                                            <li><a href=\"components-fancy-lightbox.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Fancy\r\n                                                    Lightbox</a>\r\n                                            </li>\r\n                                            <li><a href=\"components-color-palette.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Color\r\n                                                    Palette</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-chart\"></i> <span>Santé Animale</span>\r\n                                            <i class=\"fa fa-angle-left float-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"charts-chartjs.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Chart JS</a></li>\r\n                                            <li><a href=\"charts-apex.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Apex\r\n                                                    Charts</a></li>\r\n                                            <li><a href=\"charts-sparkline.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Sparkline\r\n                                                    Charts</a>\r\n                                            </li>\r\n                                            <li><a href=\"charts-peity.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Peity Charts</a></li>\r\n                                            <li><a href=\"charts-other.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Other Charts</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-widgets\"></i> <span>Formation</span>\r\n                                            <i class=\"fa fa-angle-left float-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"widgets-static.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Static Widgets</a>\r\n                                            </li>\r\n                                            <li><a href=\"widgets-data.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Data Widgets</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-email\"></i>\r\n                                            <span>Gestion Groupement</span>\r\n                                            {# <small class=\"badge float-right badge-warning\">12</small> #}\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"mail-inbox.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Inbox</a></li>\r\n                                            <li><a href=\"mail-compose.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Compose</a></li>\r\n                                            <li><a href=\"mail-read.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Read\r\n                                                    Mail</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-format-list-bulleted\"></i> <span>Comptabilité\r\n                                                Générale</span>\r\n                                            <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"form-inputs.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Basic Inputs</a></li>\r\n                                            <li><a href=\"form-input-group.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Input Groups</a>\r\n                                            </li>\r\n                                            <li><a href=\"form-layouts.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Form Layouts</a></li>\r\n                                            <li><a href=\"form-advanced.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Form Advanced</a></li>\r\n                                            <li><a href=\"form-validation.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Form Validation</a>\r\n                                            </li>\r\n                                            <li><a href=\"form-step-wizard.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Form Wizard</a>\r\n                                            </li>\r\n                                        </ul>\r\n                                    </li>\r\n\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-lock\"></i> <span>Achat Matériel</span>\r\n                                            <i class=\"fa fa-angle-left float-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"authentication-signin.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    SignIn 1</a></li>\r\n                                            <li><a href=\"authentication-signup.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    SignUp 1</a></li>\r\n                                            <li><a href=\"authentication-signin2.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    SignIn 2</a></li>\r\n                                            <li><a href=\"authentication-signup2.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    SignUp 2</a></li>\r\n                                            <li><a href=\"authentication-lock-screen.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Lock Screen</a></li>\r\n                                            <li><a href=\"authentication-reset-password.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Reset Password 1</a></li>\r\n                                            <li><a href=\"authentication-reset-password2.html\" target=\"_blank\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Reset Password 2</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-lock\"></i> <span>RH</span>\r\n                                            <i class=\"fa fa-angle-left float-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li>\r\n                                                <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                                    <i class=\"zmdi zmdi-format-list-bulleted\"></i> <span>Gestion du\r\n                                                        personnel</span>\r\n                                                    <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                                </a>\r\n                                                <ul class=\"sidebar-submenu\">\r\n                                                    <li>\r\n                                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n\r\n                                                            <a href=\"{{ path('personnel_index') }}\">\r\n                                                                <i class=\"zmdi zmdi-dot-circle-alt\"></i> <span>Liste\r\n                                                                    personnel</span></a>\r\n                                                        </a>\r\n                                                    </li>\r\n                                                    <li>\r\n                                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                                            <i class=\"zmdi zmdi-dot-circle-alt\"></i> <span>Mvmt. du\r\n                                                                personnel</span>\r\n                                                        </a>\r\n                                                    </li>\r\n                                                    <li>\r\n                                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                                            <i class=\"zmdi zmdi-dot-circle-alt\"></i> <span>Congés</span>\r\n                                                        </a>\r\n                                                    </li>\r\n                                                    {# <li><a href=\"form-inputs.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Missions</a></li> #}\r\n                                                    <li>\r\n                                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                                            <i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                            <span>Missions</span>\r\n                                                        </a>\r\n\r\n                                                    </li>\r\n                                                </ul>\r\n                                            </li>\r\n\r\n                                            <li>\r\n                                                <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                                    <i class=\"zmdi zmdi-format-list-bulleted\"></i> <span>Editions</span>\r\n                                                    <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                                </a>\r\n                                                <ul class=\"sidebar-submenu\">\r\n                                                    <li><a href=\"form-inputs.html\"><i\r\n                                                                class=\"zmdi zmdi-dot-circle-alt\"></i> Modèles\r\n                                                            documents</a></li>\r\n                                                    <li><a href=\"form-input-group.html\"><i\r\n                                                                class=\"zmdi zmdi-dot-circle-alt\"></i> Liste\r\n                                                            Edition\r\n                                                        </a></li>\r\n                                                </ul>\r\n                                            </li>\r\n                                            <li>\r\n                                                <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                                    <i class=\"zmdi zmdi-format-list-bulleted\"></i>\r\n                                                    <span>Historique</span>\r\n                                                    <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                                </a>\r\n                                                <ul class=\"sidebar-submenu\">\r\n                                                    <li><a href=\"form-inputs.html\"><i\r\n                                                                class=\"zmdi zmdi-dot-circle-alt\"></i> Salariés\r\n                                                            actifs</a>\r\n                                                    </li>\r\n                                                    <li><a href=\"form-input-group.html\"><i\r\n                                                                class=\"zmdi zmdi-dot-circle-alt\"></i> Salariés\r\n                                                            sortants</a></li>\r\n                                                </ul>\r\n                                            </li>\r\n                                            <li>\r\n                                                <a href=\"{{path('parametrage_spe')}}\" class=\"waves-effect\">\r\n                                                    <i class=\"zmdi zmdi-format-list-bulleted\"></i>\r\n                                                    <span>Paramétrage</span>\r\n                                                    <i class=\"fa fa-angle-left pull-right\"></i>\r\n                                                </a>\r\n                                            </li>\r\n                                        </ul>\r\n                                    </li>\r\n                                    {# <li>\r\n                <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                    <i class=\"zmdi zmdi-invert-colors\"></i> <span>UI Icons</span>\r\n                    <i class=\"fa fa-angle-left float-right\"></i>\r\n                </a>\r\n                <ul class=\"sidebar-submenu\">\r\n                    <li><a href=\"icons-font-awesome.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Font Awesome</a></li>\r\n                    <li><a href=\"icons-material-designs.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Material\r\n                            Design</a></li>\r\n                    <li><a href=\"icons-themify.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Themify Icons</a></li>\r\n                    <li><a href=\"icons-simple-line-icons.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Line Icons</a>\r\n                    </li>\r\n                    <li><a href=\"icons-flags.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Flag Icons</a></li>\r\n                </ul>\r\n            </li> #}\r\n\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-grid\"></i> <span>SYS. Informatique</span>\r\n                                            <i class=\"fa fa-angle-left float-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"table-simple-tables.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Simple\r\n                                                    Tables</a>\r\n                                            </li>\r\n                                            <li><a href=\"table-data-tables.html\"><i\r\n                                                        class=\"zmdi zmdi-dot-circle-alt\"></i> Data Tables</a>\r\n                                            </li>\r\n                                        </ul>\r\n                                    </li>\r\n\r\n                                    <li>\r\n                                        <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                                            <i class=\"zmdi zmdi-map\"></i> <span>Parametres Généreaux</span>\r\n                                            <i class=\"fa fa-angle-left float-right\"></i>\r\n                                        </a>\r\n                                        <ul class=\"sidebar-submenu\">\r\n                                            <li><a href=\"maps-google.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Google Maps</a></li>\r\n                                            <li><a href=\"maps-vector.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i>\r\n                                                    Vector Maps</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n\r\n                                    {# <li>\r\n                <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                    <i class=\"zmdi zmdi-collection-folder-image\"></i> <span>Sample Pages</span>\r\n                    <i class=\"fa fa-angle-left float-right\"></i>\r\n                </a>\r\n                <ul class=\"sidebar-submenu\">\r\n                    <li><a href=\"pages-invoice.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Invoice</a></li>\r\n                    <li><a href=\"pages-user-profile.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> User Profile</a></li>\r\n                    <li><a href=\"pages-blank-page.html\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Blank Page</a></li>\r\n                    <li><a href=\"pages-coming-soon.html\" target=\"_blank\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Coming\r\n                            Soon</a></li>\r\n                    <li><a href=\"pages-403.html\" target=\"_blank\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> 403 Error</a>\r\n                    </li>\r\n                    <li><a href=\"pages-404.html\" target=\"_blank\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> 404 Error</a>\r\n                    </li>\r\n                    <li><a href=\"pages-500.html\" target=\"_blank\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> 500 Error</a>\r\n                    </li>\r\n                </ul>\r\n            </li>\r\n\r\n            <li>\r\n                <a href=\"javaScript:void();\" class=\"waves-effect\">\r\n                    <i class=\"fa fa-share\"></i> <span>Multilevel</span>\r\n                    <i class=\"fa fa-angle-left pull-right\"></i>\r\n                </a>\r\n                <ul class=\"sidebar-submenu\">\r\n                    <li><a href=\"javaScript:void();\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level One</a></li>\r\n                    <li>\r\n                        <a href=\"javaScript:void();\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level One <i\r\n                                    class=\"fa fa-angle-left pull-right\"></i></a>\r\n                        <ul class=\"sidebar-submenu\">\r\n                            <li><a href=\"javaScript:void();\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level Two</a></li>\r\n                            <li>\r\n                                <a href=\"javaScript:void();\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level Two <i\r\n                                            class=\"fa fa-angle-left pull-right\"></i></a>\r\n                                <ul class=\"sidebar-submenu\">\r\n                                    <li><a href=\"javaScript:void();\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level\r\n                                            Three</a></li>\r\n                                    <li><a href=\"javaScript:void();\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level\r\n                                            Three</a></li>\r\n                                </ul>\r\n                            </li>\r\n                        </ul>\r\n                    </li>\r\n                    <li><a href=\"javaScript:void();\" class=\"waves-effect\"><i class=\"zmdi zmdi-dot-circle-alt\"></i> Level\r\n                            One</a></li>\r\n                </ul>\r\n            </li>\r\n            <li class=\"sidebar-header\">LABELS</li>\r\n            <li><a href=\"javaScript:void();\" class=\"waves-effect\"><i class=\"zmdi zmdi-coffee text-danger\"></i> <span>Important</span></a>\r\n            </li>\r\n            <li><a href=\"javaScript:void();\" class=\"waves-effect\"><i class=\"zmdi zmdi-chart-donut text-success\"></i>\r\n                    <span>Warning</span></a></li>\r\n            <li><a href=\"javaScript:void();\" class=\"waves-effect\"><i class=\"zmdi zmdi-share text-info\"></i> <span>Information</span></a>\r\n            </li> #}\r\n                                </ul>\r\n\r\n                            </div>\r\n                            <!--End sidebar-wrapper-->\r\n\r\n                            <!--Start topbar header-->\r\n                            <header class=\"topbar-nav\">\r\n                                <nav id=\"header-setting\" class=\"navbar navbar-expand fixed-top\">\r\n                                    <ul class=\"navbar-nav mr-auto align-items-center\">\r\n                                        <li class=\"nav-item\">\r\n                                            <a class=\"nav-link toggle-menu\" href=\"javascript:void();\">\r\n                                                <i class=\"icon-menu menu-icon\"></i>\r\n                                            </a>\r\n                                        </li>\r\n                                        {# <li class=\"nav-item\">\r\n                    <form class=\"search-bar\">\r\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter keywords\">\r\n                        <a href=\"javascript:void();\"><i class=\"icon-magnifier\"></i></a>\r\n                    </form>\r\n                </li> #}\r\n                                    </ul>\r\n\r\n                                    <ul class=\"navbar-nav align-items-center right-nav-link\">\r\n                                        {# <li class=\"nav-item dropdown-lg\">\r\n                    <a class=\"nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect\" data-toggle=\"dropdown\"\r\n                       href=\"javascript:void();\">\r\n                        <i class=\"fa fa-envelope-open-o\"></i><span class=\"badge badge-primary badge-up\">12</span></a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\">\r\n                        <ul class=\"list-group list-group-flush\">\r\n                            <li class=\"list-group-item d-flex justify-content-between align-items-center\">\r\n                                You have 12 new messages\r\n                                <span class=\"badge badge-primary\">12</span>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <div class=\"avatar\"><img class=\"align-self-start mr-3\"\r\n                                                                 src=\"https://via.placeholder.com/110x110\"\r\n                                                                 alt=\"user avatar\"></div>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">Jhon Deo</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet...</p>\r\n                                            <small>Today, 4:10 PM</small>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <div class=\"avatar\"><img class=\"align-self-start mr-3\"\r\n                                                                 src=\"https://via.placeholder.com/110x110\"\r\n                                                                 alt=\"user avatar\"></div>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">Sara Jen</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet...</p>\r\n                                            <small>Yesterday, 8:30 AM</small>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <div class=\"avatar\"><img class=\"align-self-start mr-3\"\r\n                                                                 src=\"https://via.placeholder.com/110x110\"\r\n                                                                 alt=\"user avatar\"></div>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">Dannish Josh</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet...</p>\r\n                                            <small>5/11/2018, 2:50 PM</small>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <div class=\"avatar\"><img class=\"align-self-start mr-3\"\r\n                                                                 src=\"https://via.placeholder.com/110x110\"\r\n                                                                 alt=\"user avatar\"></div>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">Katrina Mccoy</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet.</p>\r\n                                            <small>1/11/2018, 2:50 PM</small>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item text-center\"><a href=\"javaScript:void();\">See All Messages</a>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item dropdown-lg\">\r\n                    <a class=\"nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect\" data-toggle=\"dropdown\"\r\n                       href=\"javascript:void();\">\r\n                        <i class=\"fa fa-bell-o\"></i><span class=\"badge badge-info badge-up\">14</span></a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right\">\r\n                        <ul class=\"list-group list-group-flush\">\r\n                            <li class=\"list-group-item d-flex justify-content-between align-items-center\">\r\n                                You have 14 Notifications\r\n                                <span class=\"badge badge-info\">14</span>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <i class=\"zmdi zmdi-accounts fa-2x mr-3 text-info\"></i>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">New Registered Users</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet...</p>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <i class=\"zmdi zmdi-coffee fa-2x mr-3 text-warning\"></i>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">New Received Orders</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet...</p>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item\">\r\n                                <a href=\"javaScript:void();\">\r\n                                    <div class=\"media\">\r\n                                        <i class=\"zmdi zmdi-notifications-active fa-2x mr-3 text-danger\"></i>\r\n                                        <div class=\"media-body\">\r\n                                            <h6 class=\"mt-0 msg-title\">New Updates</h6>\r\n                                            <p class=\"msg-info\">Lorem ipsum dolor sit amet...</p>\r\n                                        </div>\r\n                                    </div>\r\n                                </a>\r\n                            </li>\r\n                            <li class=\"list-group-item text-center\"><a href=\"javaScript:void();\">See All\r\n                                    Notifications</a></li>\r\n                        </ul>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item language\">\r\n                    <a class=\"nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect\" data-toggle=\"dropdown\"\r\n                       href=\"javascript:void();\"><i class=\"fa fa-flag\"></i></a>\r\n                    <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                        <li class=\"dropdown-item\"><i class=\"flag-icon flag-icon-gb mr-2\"></i> English</li>\r\n                        <li class=\"dropdown-item\"><i class=\"flag-icon flag-icon-fr mr-2\"></i> French</li>\r\n                        <li class=\"dropdown-item\"><i class=\"flag-icon flag-icon-cn mr-2\"></i> Chinese</li>\r\n                        <li class=\"dropdown-item\"><i class=\"flag-icon flag-icon-de mr-2\"></i> German</li>\r\n                    </ul>\r\n                </li> #}\r\n\r\n                                        <li class=\"nav-item\">\r\n                                            <a class=\"nav-link dropdown-toggle dropdown-toggle-nocaret\"\r\n                                                data-toggle=\"dropdown\" href=\"#\">\r\n                                                <span class=\"user-profile\"><img\r\n                                                        src=\"{{ asset('uploads/')~app.user.photo }}\" class=\"img-circle\"\r\n                                                        alt=\"user avatar\"></span>\r\n                                            </a>\r\n                                            <ul class=\"dropdown-menu dropdown-menu-right\">\r\n                                                <li class=\"dropdown-item user-details\">\r\n                                                    <a href=\"\">\r\n                                                        <div class=\"media\">\r\n                                                            <div class=\"avatar\"><img class=\"align-self-start mr-3\"\r\n                                                                    src=\"{{ asset('uploads/')~app.user.photo }}\"\r\n                                                                    alt=\"user avatar\"></div>\r\n                                                            <div class=\"media-body\">\r\n                                                                <h6 class=\"mt-2 user-title\">{{ app.user.nomFr }}</h6>\r\n                                                                <p class=\"user-subtitle\">\r\n                                                                    {{ app.user.emailProfessionnel }}</p>\r\n                                                            </div>\r\n                                                        </div>\r\n                                                    </a>\r\n                                                </li>\r\n                                                <li class=\"dropdown-divider\"></li>\r\n                                                <li class=\"dropdown-item\"><a\r\n                                                        href=\"{{ path('personnel_mission_index') }}\"><i\r\n                                                            class=\"fa fa-th\"></i> Mission</a></li>\r\n                                                <li class=\"dropdown-divider\"></li>\r\n                                                <li class=\"dropdown-item\"><a href=\"\"><i class=\"fa fa-tasks\"></i>\r\n                                                        Congé</a></li>\r\n                                                <li class=\"dropdown-divider\"></li>\r\n                                                <li class=\"dropdown-item\"><a href=\"\"><i class=\"fa fa-file-o\"></i>\r\n                                                        Document</a></li>\r\n                                                <li class=\"dropdown-divider\"></li>\r\n                                                <li class=\"dropdown-item\"><a href=\"{{ path('app_logout') }}\"><i\r\n                                                            class=\"icon-power mr-2\"></i>Se\r\n                                                        Deconnecter</a></li>\r\n                                            </ul>\r\n                                        </li>\r\n                                    </ul>\r\n                                </nav>\r\n                            </header>\r\n                            <!--End topbar header-->\r\n\r\n                            <div class=\"clearfix\"></div>\r\n\r\n                            <div class=\"content-wrapper\">\r\n                                <div class=\"container-fluid\">\r\n\r\n                                    <!--content goes here-->\r\n\r\n                                    {% block body %}\r\n                                    {% endblock %}\r\n\r\n\r\n                                    <!--End Dashboard Content-->\r\n                                    <!--start overlay-->\r\n                                    <div class=\"overlay toggle-menu\"></div>\r\n                                    <!--end overlay-->\r\n                                </div>\r\n                                <!-- End container-fluid-->\r\n\r\n                            </div>\r\n                            <!--End content-wrapper-->\r\n                            <!--Start Back To Top Button-->\r\n                            <a href=\"javaScript:void();\" class=\"back-to-top\"><i class=\"fa fa-angle-double-up\"></i> </a>\r\n                            <!--End Back To Top Button-->\r\n\r\n                            <!--Start footer-->\r\n\r\n                            <!--End footer-->\r\n\r\n                            <!--start color switcher-->\r\n                            {# <div class=\"right-sidebar\">\r\n        <div class=\"switcher-icon\">\r\n            <i class=\"zmdi zmdi-settings zmdi-hc-spin\"></i>\r\n        </div>\r\n        <div class=\"right-sidebar-content\">\r\n\r\n\r\n            <p class=\"mb-0\">Header Colors</p>\r\n            <hr>\r\n\r\n            <div class=\"mb-3\">\r\n                <button type=\"button\" id=\"default-header\" class=\"btn btn-outline-primary\">Default Header</button>\r\n            </div>\r\n\r\n            <ul class=\"switcher\">\r\n                <li id=\"header1\"></li>\r\n                <li id=\"header2\"></li>\r\n                <li id=\"header3\"></li>\r\n                <li id=\"header4\"></li>\r\n                <li id=\"header5\"></li>\r\n                <li id=\"header6\"></li>\r\n            </ul>\r\n\r\n            <p class=\"mb-0\">Sidebar Colors</p>\r\n            <hr>\r\n\r\n            <div class=\"mb-3\">\r\n                <button type=\"button\" id=\"default-sidebar\" class=\"btn btn-outline-primary\">Default Sidebar</button>\r\n            </div>\r\n\r\n            <ul class=\"switcher\">\r\n                <li id=\"theme1\"></li>\r\n                <li id=\"theme2\"></li>\r\n                <li id=\"theme3\"></li>\r\n                <li id=\"theme4\"></li>\r\n                <li id=\"theme5\"></li>\r\n                <li id=\"theme6\"></li>\r\n            </ul>\r\n\r\n        </div>\r\n    </div> #}\r\n                            <!--end color switcher-->\r\n\r\n                        </div>\r\n                        </div>\r\n                        <!--End wrapper-->\r\n\r\n                        <!-- Bootstrap core JavaScript-->\r\n                        <script src=\"{{ asset('assets/js/popper.min.js') }}\"></script>\r\n                        <script src=\"{{ asset('assets/js/bootstrap.min.js') }}\"></script>\r\n\r\n                        <!-- simplebar js -->\r\n                        <script src=\"{{ asset('assets/plugins/simplebar/js/simplebar.js') }}\"></script>\r\n                        <!-- sidebar-menu js -->\r\n                        <script src=\"{{ asset('assets/js/sidebar-menu.js') }}\"></script>\r\n                        <!-- loader scripts -->\r\n                        <script src=\"{{ asset('assets/js/jquery.loading-indicator.js') }}\"></script>\r\n                        <!-- Custom scripts -->\r\n                        <script src=\"{{ asset('assets/js/app-script.js') }}\"></script>\r\n                        <!-- Chart js -->\r\n\r\n                        <!--Data Tables js-->\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js') }}\">\r\n                        </script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js') }}\">\r\n                        </script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js') }}\">\r\n                        </script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js') }}\">\r\n                        </script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/jszip.min.js') }}\"></script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/pdfmake.min.js') }}\"></script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/vfs_fonts.js') }}\"></script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}\">\r\n                        </script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}\">\r\n                        </script>\r\n                        <script src=\"{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}\">\r\n                        </script>\r\n                        {% block javascripts %}\r\n\r\n\r\n                        {% endblock %}\r\n\r\n                    \r\n    </body>\r\n    </html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/base.html.twig	(revision 150f9a06bed8419de3955b2f3959dc31cfdc4a87)
++++ templates/base.html.twig	(date 1598259452248)
+@@ -1,395 +1,318 @@
+ <!DOCTYPE html>
+-<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+-
+-    <html lang="en">
++<html lang="en">
+ 
+-
+-    <head>
+-        <meta charset="utf-8" />
+-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+-        <meta name="description" content="" />
+-        <meta name="author" content="" />
++<head>
++    <meta charset="utf-8" />
++    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
++    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
++    <meta name="description" content="" />
++    <meta name="author" content="" />
+ 
+-        <title>{% block title %}lassociation-nationale-ovine-et-caprine{% endblock %}</title>
+-        <title></title>
+-        <!-- loader-->
++    <title>{% block title %}lassociation-nationale-ovine-et-caprine{% endblock %}</title>
++    <title></title>
++    <!-- loader-->
+ 
+-        <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet" />
+-        <script src="{{ asset('assets/js/pace.min.js') }}"></script>
+-        <!--favicon-->
+-        <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon" />
+-        <!-- Vector CSS -->
+-        <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+-        <!-- simplebar CSS-->
+-        <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+-        <!-- Bootstrap core CSS-->
+-        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+-        <!-- animate CSS-->
+-        <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css" />
+-        <!-- Icons CSS-->
+-        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+-        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
++    <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet" />
++    <script src="{{ asset('assets/js/pace.min.js') }}"></script>
++    <!--favicon-->
++    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon" />
++    <!-- Vector CSS -->
++    <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
++    <!-- simplebar CSS-->
++    <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
++    <!-- Bootstrap core CSS-->
++    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
++    <!-- animate CSS-->
++    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css" />
++    <!-- Icons CSS-->
++    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
++    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+ 
+-        <!-- Sidebar CSS-->
+-        <link href="{{ asset('assets/css/sidebar-menu.css') }}" rel="stylesheet" />
+-        <!-- Custom Style-->
+-        <link href="{{ asset('assets/css/app-style.css') }}" rel="stylesheet" />
+-        <!-- skins CSS-->
+-        <link href="{{ asset('assets/css/skins.css') }}" rel="stylesheet" />
++    <!-- Sidebar CSS-->
++    <link href="{{ asset('assets/css/sidebar-menu.css') }}" rel="stylesheet" />
++    <!-- Custom Style-->
++    <link href="{{ asset('assets/css/app-style.css') }}" rel="stylesheet" />
++    <!-- skins CSS-->
++    <link href="{{ asset('assets/css/skins.css') }}" rel="stylesheet" />
+ 
+-        <!-- datatable CSS-->
+-        <link href="{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}"
+-            rel="stylesheet" type="text/css">
+-        <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"type="text/css">
+-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+-
+-
+-        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+-        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+-    </head>
++    <!-- datatable CSS-->
++    <link href="{{ asset('assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
++          type="text/css">
++    <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
++          type="text/css">
++
++    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
++</head>
+ 
+-    <body>
++<body>
+ 
+ 
+-        <!-- Start wrapper-->
+-        <div id="wrapper">
+-<!--Start sidebar-wrapper-->
+-                <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+-                    <div class="brand-logo">
+-                        <a href="index.html">
+-                            <img src="{{ asset('assets/images/logo.png') }}" class="logo-icon" alt="logo icon">
+-                            <h5 class="logo-text">SI-ANOC</h5>
+-                        </a>
+-                    </div>
+-                    <div class="user-details">
+-                        <div class="media align-items-center user-pointer collapsed" data-toggle="collapse"
+-                            data-target="#user-dropdown">
+-                            <div class="avatar"><img class="mr-3 side-user-img"
+-                                    src="{{ asset('uploads/')~app.user.photo }}" alt="image"></div>
+-                            <div class="media-body">
+-                                <h6 class="side-user-name">{{ app.user.nomFr }}</h6>
+-                            </div>
+-                            <!--Start sidebar-wrapper-->
+-                            <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+-                                <div class="brand-logo">
+-                                    <a href="index.html">
+-                                        <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+-                                        <h5 class="logo-text">SI-ANOC</h5>
+-                                    </a>
+-                                </div>
+-                                <div class="user-details">
+-                                    <div class="media align-items-center user-pointer collapsed" data-toggle="collapse"
+-                                        data-target="#user-dropdown">
+-                                        <div class="avatar"><img class="mr-3 side-user-img"
+-                                                src="{{ asset('uploads/')~app.user.photo }}" alt="image"></div>
+-                                        <div class="media-body">
+-                                            <h6 class="side-user-name">{{ app.user.nomFr }}</h6>
+-                                        </div>
+-                                    </div>
+-                                    <div id="user-dropdown" class="collapse">
+-                                        <ul class="user-setting-menu">
+-                                            {#
++<!-- Start wrapper-->
++<div id="wrapper">
++
++    <!--Start sidebar-wrapper-->
++    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
++        <div class="brand-logo">
++            <a href="index.html">
++                <img src="assets/images/logo-icon.png" class="logo-icon" alt="">
++                <h5 class="logo-text">SI-ANOC</h5>
++            </a>
++        </div>
++        <div class="user-details">
++            <div class="media align-items-center user-pointer collapsed" data-toggle="collapse"
++                 data-target="#user-dropdown">
++                <div class="avatar"><img class="mr-3 side-user-img" src="{{ asset('uploads/')~app.user.photo }}"
++                                         alt=""></div>
++                <div class="media-body">
++                    <h6 class="side-user-name">{{ app.user.nomFr }}</h6>
++                </div>
++            </div>
++            <div id="user-dropdown" class="collapse">
++                <ul class="user-setting-menu">
++                    {#
+                     <li><a href="javaScript:void();"><i class="icon-user"></i> My Profile</a></li>
+                     <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li> #}
+-                                            <li><a href="{{ path('app_logout') }}"><i class="icon-power"></i> Se
+-                                                    deconnecter</a></li>
+-                                        </ul>
+-                                    </div>
+-                                </div>
+-                                <ul class="sidebar-menu">
+-                                    <li class="sidebar-header">MAIN NAVIGATION</li>
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-view-dashboard"></i> <span>Tableau de Bord</span><i
+-                                                class="fa fa-angle-left pull-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="index.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    eCommerce</a></li>
+-                                            <li><a href="dashboard-human-resources.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Human
+-                                                    Resources</a></li>
+-                                            <li><a href="dashboard-digital-marketing.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Digital
+-                                                    Marketing</a></li>
+-                                            <li><a href="dashboard-property-listing.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Property
+-                                                    Listings</a></li>
+-                                            <li><a href="dashboard-service-support.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Services &
+-                                                    Support</a></li>
+-                                            <li><a href="dashboard-logistics.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Logistics</a>
+-                                            </li>
+-                                        </ul>
+-                                    </li>
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-layers"></i>
+-                                            <span>Génétique</span> <i class="fa fa-angle-left pull-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="ui-typography.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Typography</a></li>
+-                                            <li><a href="ui-cards.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Cards</a></li>
+-                                            <li><a href="ui-buttons.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Buttons</a></li>
+-                                            <li><a href="ui-nav-tabs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Nav
+-                                                    Tabs</a></li>
+-                                            <li><a href="ui-accordions.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Accordions</a></li>
+-                                            <li><a href="ui-modals.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Modals</a></li>
+-                                            <li><a href="ui-list-groups.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    List Groups</a></li>
+-                                            <li><a href="ui-bootstrap-elements.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> BS
+-                                                    Elements</a>
+-                                            </li>
+-                                            <li><a href="ui-pagination.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Pagination</a></li>
+-                                            <li><a href="ui-alerts.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Alerts</a></li>
+-                                            <li><a href="ui-progressbars.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Progress Bars</a>
+-                                            </li>
+-                                            <li><a href="ui-checkbox-radio.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Checkboxes &
+-                                                    Radios</a></li>
+-                                            <li><a href="ui-notification.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Notifications</a>
+-                                            </li>
+-                                            <li><a href="ui-sweet-alert.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Sweet Alerts</a></li>
+-                                        </ul>
+-                                    </li>
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-card-travel"></i>
+-                                            <span>Projets</span>
+-                                            <i class="fa fa-angle-left pull-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="components-range-slider.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Range
+-                                                    Sliders</a></li>
+-                                            <li><a href="components-image-carousel.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Image
+-                                                    Carousels</a></li>
+-                                            <li><a href="components-grid-layouts.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Grid
+-                                                    Layouts</a>
+-                                            </li>
+-                                            <li><a href="components-switcher-buttons.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Switcher
+-                                                    Buttons</a></li>
+-                                            <li><a href="components-pricing-table.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Pricing
+-                                                    Tables</a>
+-                                            </li>
+-                                            <li><a href="components-vertical-timeline.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Vertical
+-                                                    Timeline</a></li>
+-                                            <li><a href="components-horizontal-timeline.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Horizontal Timeline</a></li>
+-                                            <li><a href="components-fancy-lightbox.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Fancy
+-                                                    Lightbox</a>
+-                                            </li>
+-                                            <li><a href="components-color-palette.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Color
+-                                                    Palette</a></li>
+-                                        </ul>
+-                                    </li>
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-chart"></i> <span>Santé Animale</span>
+-                                            <i class="fa fa-angle-left float-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="charts-chartjs.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Chart JS</a></li>
+-                                            <li><a href="charts-apex.html"><i class="zmdi zmdi-dot-circle-alt"></i> Apex
+-                                                    Charts</a></li>
+-                                            <li><a href="charts-sparkline.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Sparkline
+-                                                    Charts</a>
+-                                            </li>
+-                                            <li><a href="charts-peity.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Peity Charts</a></li>
+-                                            <li><a href="charts-other.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Other Charts</a></li>
+-                                        </ul>
+-                                    </li>
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-widgets"></i> <span>Formation</span>
+-                                            <i class="fa fa-angle-left float-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="widgets-static.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Static Widgets</a>
+-                                            </li>
+-                                            <li><a href="widgets-data.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Data Widgets</a></li>
+-                                        </ul>
+-                                    </li>
++                    <li><a href="{{ path('app_logout') }}"><i class="icon-power"></i> Se deconnecter</a></li>
++                </ul>
++            </div>
++        </div>
++        <ul class="sidebar-menu">
++            <li class="sidebar-header">MAIN NAVIGATION</li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-view-dashboard"></i> <span>Tableau de Bord</span><i
++                            class="fa fa-angle-left pull-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="index.html"><i class="zmdi zmdi-dot-circle-alt"></i> eCommerce</a></li>
++                    <li><a href="dashboard-human-resources.html"><i class="zmdi zmdi-dot-circle-alt"></i> Human
++                            Resources</a></li>
++                    <li><a href="dashboard-digital-marketing.html"><i class="zmdi zmdi-dot-circle-alt"></i> Digital
++                            Marketing</a></li>
++                    <li><a href="dashboard-property-listing.html"><i class="zmdi zmdi-dot-circle-alt"></i> Property
++                            Listings</a></li>
++                    <li><a href="dashboard-service-support.html"><i class="zmdi zmdi-dot-circle-alt"></i> Services &
++                            Support</a></li>
++                    <li><a href="dashboard-logistics.html"><i class="zmdi zmdi-dot-circle-alt"></i> Logistics</a>
++                    </li>
++                </ul>
++            </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-layers"></i>
++                    <span>Génétique</span> <i class="fa fa-angle-left pull-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="ui-typography.html"><i class="zmdi zmdi-dot-circle-alt"></i> Typography</a></li>
++                    <li><a href="ui-cards.html"><i class="zmdi zmdi-dot-circle-alt"></i> Cards</a></li>
++                    <li><a href="ui-buttons.html"><i class="zmdi zmdi-dot-circle-alt"></i> Buttons</a></li>
++                    <li><a href="ui-nav-tabs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Nav Tabs</a></li>
++                    <li><a href="ui-accordions.html"><i class="zmdi zmdi-dot-circle-alt"></i> Accordions</a></li>
++                    <li><a href="ui-modals.html"><i class="zmdi zmdi-dot-circle-alt"></i> Modals</a></li>
++                    <li><a href="ui-list-groups.html"><i class="zmdi zmdi-dot-circle-alt"></i> List Groups</a></li>
++                    <li><a href="ui-bootstrap-elements.html"><i class="zmdi zmdi-dot-circle-alt"></i> BS
++                            Elements</a>
++                    </li>
++                    <li><a href="ui-pagination.html"><i class="zmdi zmdi-dot-circle-alt"></i> Pagination</a></li>
++                    <li><a href="ui-alerts.html"><i class="zmdi zmdi-dot-circle-alt"></i> Alerts</a></li>
++                    <li><a href="ui-progressbars.html"><i class="zmdi zmdi-dot-circle-alt"></i> Progress Bars</a>
++                    </li>
++                    <li><a href="ui-checkbox-radio.html"><i class="zmdi zmdi-dot-circle-alt"></i> Checkboxes &
++                            Radios</a></li>
++                    <li><a href="ui-notification.html"><i class="zmdi zmdi-dot-circle-alt"></i> Notifications</a>
++                    </li>
++                    <li><a href="ui-sweet-alert.html"><i class="zmdi zmdi-dot-circle-alt"></i> Sweet Alerts</a></li>
++                </ul>
++            </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-card-travel"></i>
++                    <span>Projets</span>
++                    <i class="fa fa-angle-left pull-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="components-range-slider.html"><i class="zmdi zmdi-dot-circle-alt"></i> Range
++                            Sliders</a></li>
++                    <li><a href="components-image-carousel.html"><i class="zmdi zmdi-dot-circle-alt"></i> Image
++                            Carousels</a></li>
++                    <li><a href="components-grid-layouts.html"><i class="zmdi zmdi-dot-circle-alt"></i> Grid
++                            Layouts</a>
++                    </li>
++                    <li><a href="components-switcher-buttons.html"><i class="zmdi zmdi-dot-circle-alt"></i> Switcher
++                            Buttons</a></li>
++                    <li><a href="components-pricing-table.html"><i class="zmdi zmdi-dot-circle-alt"></i> Pricing
++                            Tables</a>
++                    </li>
++                    <li><a href="components-vertical-timeline.html"><i class="zmdi zmdi-dot-circle-alt"></i>
++                            Vertical
++                            Timeline</a></li>
++                    <li><a href="components-horizontal-timeline.html"><i class="zmdi zmdi-dot-circle-alt"></i>
++                            Horizontal Timeline</a></li>
++                    <li><a href="components-fancy-lightbox.html"><i class="zmdi zmdi-dot-circle-alt"></i> Fancy
++                            Lightbox</a>
++                    </li>
++                    <li><a href="components-color-palette.html"><i class="zmdi zmdi-dot-circle-alt"></i> Color
++                            Palette</a></li>
++                </ul>
++            </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-chart"></i> <span>Santé Animale</span>
++                    <i class="fa fa-angle-left float-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="charts-chartjs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Chart JS</a></li>
++                    <li><a href="charts-apex.html"><i class="zmdi zmdi-dot-circle-alt"></i> Apex Charts</a></li>
++                    <li><a href="charts-sparkline.html"><i class="zmdi zmdi-dot-circle-alt"></i> Sparkline
++                            Charts</a>
++                    </li>
++                    <li><a href="charts-peity.html"><i class="zmdi zmdi-dot-circle-alt"></i> Peity Charts</a></li>
++                    <li><a href="charts-other.html"><i class="zmdi zmdi-dot-circle-alt"></i> Other Charts</a></li>
++                </ul>
++            </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-widgets"></i> <span>Formation</span>
++                    <i class="fa fa-angle-left float-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="widgets-static.html"><i class="zmdi zmdi-dot-circle-alt"></i> Static Widgets</a>
++                    </li>
++                    <li><a href="widgets-data.html"><i class="zmdi zmdi-dot-circle-alt"></i> Data Widgets</a></li>
++                </ul>
++            </li>
+ 
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-email"></i>
+-                                            <span>Gestion Groupement</span>
+-                                            {# <small class="badge float-right badge-warning">12</small> #}
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="mail-inbox.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Inbox</a></li>
+-                                            <li><a href="mail-compose.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Compose</a></li>
+-                                            <li><a href="mail-read.html"><i class="zmdi zmdi-dot-circle-alt"></i> Read
+-                                                    Mail</a></li>
+-                                        </ul>
+-                                    </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-email"></i>
++                    <span>Gestion Groupement</span>
++                    {# <small class="badge float-right badge-warning">12</small> #}
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="mail-inbox.html"><i class="zmdi zmdi-dot-circle-alt"></i> Inbox</a></li>
++                    <li><a href="mail-compose.html"><i class="zmdi zmdi-dot-circle-alt"></i> Compose</a></li>
++                    <li><a href="mail-read.html"><i class="zmdi zmdi-dot-circle-alt"></i> Read Mail</a></li>
++                </ul>
++            </li>
+ 
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Comptabilité
+-                                                Générale</span>
+-                                            <i class="fa fa-angle-left pull-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="form-inputs.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Basic Inputs</a></li>
+-                                            <li><a href="form-input-group.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Input Groups</a>
+-                                            </li>
+-                                            <li><a href="form-layouts.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Form Layouts</a></li>
+-                                            <li><a href="form-advanced.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Form Advanced</a></li>
+-                                            <li><a href="form-validation.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Form Validation</a>
+-                                            </li>
+-                                            <li><a href="form-step-wizard.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Form Wizard</a>
+-                                            </li>
+-                                        </ul>
+-                                    </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Comptabilité Générale</span>
++                    <i class="fa fa-angle-left pull-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="form-inputs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Basic Inputs</a></li>
++                    <li><a href="form-input-group.html"><i class="zmdi zmdi-dot-circle-alt"></i> Input Groups</a>
++                    </li>
++                    <li><a href="form-layouts.html"><i class="zmdi zmdi-dot-circle-alt"></i> Form Layouts</a></li>
++                    <li><a href="form-advanced.html"><i class="zmdi zmdi-dot-circle-alt"></i> Form Advanced</a></li>
++                    <li><a href="form-validation.html"><i class="zmdi zmdi-dot-circle-alt"></i> Form Validation</a>
++                    </li>
++                    <li><a href="form-step-wizard.html"><i class="zmdi zmdi-dot-circle-alt"></i> Form Wizard</a>
++                    </li>
++                </ul>
++            </li>
+ 
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-lock"></i> <span>Achat Matériel</span>
+-                                            <i class="fa fa-angle-left float-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="authentication-signin.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    SignIn 1</a></li>
+-                                            <li><a href="authentication-signup.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    SignUp 1</a></li>
+-                                            <li><a href="authentication-signin2.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    SignIn 2</a></li>
+-                                            <li><a href="authentication-signup2.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    SignUp 2</a></li>
+-                                            <li><a href="authentication-lock-screen.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Lock Screen</a></li>
+-                                            <li><a href="authentication-reset-password.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Reset Password 1</a></li>
+-                                            <li><a href="authentication-reset-password2.html" target="_blank"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Reset Password 2</a></li>
+-                                        </ul>
+-                                    </li>
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-lock"></i> <span>RH</span>
+-                                            <i class="fa fa-angle-left float-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li>
+-                                                <a href="javaScript:void();" class="waves-effect">
+-                                                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Gestion du
+-                                                        personnel</span>
+-                                                    <i class="fa fa-angle-left pull-right"></i>
+-                                                </a>
+-                                                <ul class="sidebar-submenu">
+-                                                    <li>
+-                                                        <a href="javaScript:void();" class="waves-effect">
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-lock"></i> <span>Achat Matériel</span>
++                    <i class="fa fa-angle-left float-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="authentication-signin.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i>
++                            SignIn 1</a></li>
++                    <li><a href="authentication-signup.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i>
++                            SignUp 1</a></li>
++                    <li><a href="authentication-signin2.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i>
++                            SignIn 2</a></li>
++                    <li><a href="authentication-signup2.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i>
++                            SignUp 2</a></li>
++                    <li><a href="authentication-lock-screen.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i> Lock Screen</a></li>
++                    <li><a href="authentication-reset-password.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i> Reset Password 1</a></li>
++                    <li><a href="authentication-reset-password2.html" target="_blank"><i
++                                    class="zmdi zmdi-dot-circle-alt"></i> Reset Password 2</a></li>
++                </ul>
++            </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-lock"></i> <span>RH</span>
++                    <i class="fa fa-angle-left float-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li>
++                        <a href="javaScript:void();" class="waves-effect">
++                            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Gestion du personnel</span>
++                            <i class="fa fa-angle-left pull-right"></i>
++                        </a>
++                        <ul class="sidebar-submenu">
++                            <li>
++                                <a href="javaScript:void();" class="waves-effect">
+ 
+-                                                            <a href="{{ path('personnel_index') }}">
+-                                                                <i class="zmdi zmdi-dot-circle-alt"></i> <span>Liste
+-                                                                    personnel</span></a>
+-                                                        </a>
+-                                                    </li>
+-                                                    <li>
+-                                                        <a href="javaScript:void();" class="waves-effect">
+-                                                            <i class="zmdi zmdi-dot-circle-alt"></i> <span>Mvmt. du
+-                                                                personnel</span>
+-                                                        </a>
+-                                                    </li>
+-                                                    <li>
+-                                                        <a href="javaScript:void();" class="waves-effect">
+-                                                            <i class="zmdi zmdi-dot-circle-alt"></i> <span>Congés</span>
+-                                                        </a>
+-                                                    </li>
+-                                                    {# <li><a href="form-inputs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Missions</a></li> #}
+-                                                    <li>
+-                                                        <a href="javaScript:void();" class="waves-effect">
+-                                                            <i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                            <span>Missions</span>
+-                                                        </a>
++                                    <a href="{{ path('personnel_index') }}">
++                                        <i class="zmdi zmdi-dot-circle-alt"></i> <span>Liste personnel</span></a>
++                                </a>
++                            </li>
++                            <li>
++                                <a href="javaScript:void();" class="waves-effect">
++                                    <i class="zmdi zmdi-dot-circle-alt"></i> <span>Mvmt. du personnel</span>
++                                </a>
++                            </li>
++                            <li>
++                                <a href="javaScript:void();" class="waves-effect">
++                                    <i class="zmdi zmdi-dot-circle-alt"></i> <span>Congés</span>
++                                </a>
++                            </li>
++                            {# <li><a href="form-inputs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Missions</a></li> #}
++                            <li>
++                                <a href="javaScript:void();" class="waves-effect">
++                                    <i class="zmdi zmdi-dot-circle-alt"></i> <span>Missions</span>
++                                </a>
+ 
+-                                                    </li>
+-                                                </ul>
+-                                            </li>
++                            </li>
++                        </ul>
++                    </li>
+ 
+-                                            <li>
+-                                                <a href="javaScript:void();" class="waves-effect">
+-                                                    <i class="zmdi zmdi-format-list-bulleted"></i> <span>Editions</span>
+-                                                    <i class="fa fa-angle-left pull-right"></i>
+-                                                </a>
+-                                                <ul class="sidebar-submenu">
+-                                                    <li><a href="form-inputs.html"><i
+-                                                                class="zmdi zmdi-dot-circle-alt"></i> Modèles
+-                                                            documents</a></li>
+-                                                    <li><a href="form-input-group.html"><i
+-                                                                class="zmdi zmdi-dot-circle-alt"></i> Liste
+-                                                            Edition
+-                                                        </a></li>
+-                                                </ul>
+-                                            </li>
+-                                            <li>
+-                                                <a href="javaScript:void();" class="waves-effect">
+-                                                    <i class="zmdi zmdi-format-list-bulleted"></i>
+-                                                    <span>Historique</span>
+-                                                    <i class="fa fa-angle-left pull-right"></i>
+-                                                </a>
+-                                                <ul class="sidebar-submenu">
+-                                                    <li><a href="form-inputs.html"><i
+-                                                                class="zmdi zmdi-dot-circle-alt"></i> Salariés
+-                                                            actifs</a>
+-                                                    </li>
+-                                                    <li><a href="form-input-group.html"><i
+-                                                                class="zmdi zmdi-dot-circle-alt"></i> Salariés
+-                                                            sortants</a></li>
+-                                                </ul>
+-                                            </li>
+-                                            <li>
+-                                                <a href="{{path('parametrage_spe')}}" class="waves-effect">
+-                                                    <i class="zmdi zmdi-format-list-bulleted"></i>
+-                                                    <span>Paramétrage</span>
+-                                                    <i class="fa fa-angle-left pull-right"></i>
+-                                                </a>
+-                                            </li>
+-                                        </ul>
+-                                    </li>
+-                                    {# <li>
++                    <li>
++                        <a href="javaScript:void();" class="waves-effect">
++                            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Editions</span>
++                            <i class="fa fa-angle-left pull-right"></i>
++                        </a>
++                        <ul class="sidebar-submenu">
++                            <li><a href="form-inputs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Modèles
++                                    documents</a></li>
++                            <li><a href="form-input-group.html"><i class="zmdi zmdi-dot-circle-alt"></i> Liste
++                                    Edition
++                                </a></li>
++                        </ul>
++                    </li>
++                    <li>
++                        <a href="javaScript:void();" class="waves-effect">
++                            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Historique</span>
++                            <i class="fa fa-angle-left pull-right"></i>
++                        </a>
++                        <ul class="sidebar-submenu">
++                            <li><a href="form-inputs.html"><i class="zmdi zmdi-dot-circle-alt"></i> Salariés
++                                    actifs</a>
++                            </li>
++                            <li><a href="form-input-group.html"><i class="zmdi zmdi-dot-circle-alt"></i> Salariés
++                                    sortants</a></li>
++                        </ul>
++                    </li>
++                    <li>
++                        <a href="{{path('parametrage_spe')}}" class="waves-effect">
++                            <i class="zmdi zmdi-format-list-bulleted"></i> <span>Paramétrage</span>
++                            <i class="fa fa-angle-left pull-right"></i>
++                        </a>
++                    </li>
++                </ul>
++            </li>
++            {# <li>
+                 <a href="javaScript:void();" class="waves-effect">
+                     <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+                     <i class="fa fa-angle-left float-right"></i>
+@@ -405,36 +328,32 @@
+                 </ul>
+             </li> #}
+ 
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-grid"></i> <span>SYS. Informatique</span>
+-                                            <i class="fa fa-angle-left float-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="table-simple-tables.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Simple
+-                                                    Tables</a>
+-                                            </li>
+-                                            <li><a href="table-data-tables.html"><i
+-                                                        class="zmdi zmdi-dot-circle-alt"></i> Data Tables</a>
+-                                            </li>
+-                                        </ul>
+-                                    </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-grid"></i> <span>SYS. Informatique</span>
++                    <i class="fa fa-angle-left float-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="table-simple-tables.html"><i class="zmdi zmdi-dot-circle-alt"></i> Simple
++                            Tables</a>
++                    </li>
++                    <li><a href="table-data-tables.html"><i class="zmdi zmdi-dot-circle-alt"></i> Data Tables</a>
++                    </li>
++                </ul>
++            </li>
+ 
+-                                    <li>
+-                                        <a href="javaScript:void();" class="waves-effect">
+-                                            <i class="zmdi zmdi-map"></i> <span>Parametres Généreaux</span>
+-                                            <i class="fa fa-angle-left float-right"></i>
+-                                        </a>
+-                                        <ul class="sidebar-submenu">
+-                                            <li><a href="maps-google.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Google Maps</a></li>
+-                                            <li><a href="maps-vector.html"><i class="zmdi zmdi-dot-circle-alt"></i>
+-                                                    Vector Maps</a></li>
+-                                        </ul>
+-                                    </li>
++            <li>
++                <a href="javaScript:void();" class="waves-effect">
++                    <i class="zmdi zmdi-map"></i> <span>Parametres Généreaux</span>
++                    <i class="fa fa-angle-left float-right"></i>
++                </a>
++                <ul class="sidebar-submenu">
++                    <li><a href="maps-google.html"><i class="zmdi zmdi-dot-circle-alt"></i> Google Maps</a></li>
++                    <li><a href="maps-vector.html"><i class="zmdi zmdi-dot-circle-alt"></i> Vector Maps</a></li>
++                </ul>
++            </li>
+ 
+-                                    {# <li>
++            {# <li>
+                 <a href="javaScript:void();" class="waves-effect">
+                     <i class="zmdi zmdi-collection-folder-image"></i> <span>Sample Pages</span>
+                     <i class="fa fa-angle-left float-right"></i>
+@@ -489,30 +408,30 @@
+                     <span>Warning</span></a></li>
+             <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a>
+             </li> #}
+-                                </ul>
++        </ul>
+ 
+-                            </div>
+-                            <!--End sidebar-wrapper-->
++    </div>
++    <!--End sidebar-wrapper-->
+ 
+-                            <!--Start topbar header-->
+-                            <header class="topbar-nav">
+-                                <nav id="header-setting" class="navbar navbar-expand fixed-top">
+-                                    <ul class="navbar-nav mr-auto align-items-center">
+-                                        <li class="nav-item">
+-                                            <a class="nav-link toggle-menu" href="javascript:void();">
+-                                                <i class="icon-menu menu-icon"></i>
+-                                            </a>
+-                                        </li>
+-                                        {# <li class="nav-item">
++    <!--Start topbar header-->
++    <header class="topbar-nav">
++        <nav id="header-setting" class="navbar navbar-expand fixed-top">
++            <ul class="navbar-nav mr-auto align-items-center">
++                <li class="nav-item">
++                    <a class="nav-link toggle-menu" href="javascript:void();">
++                        <i class="icon-menu menu-icon"></i>
++                    </a>
++                </li>
++                {# <li class="nav-item">
+                     <form class="search-bar">
+                         <input type="text" class="form-control" placeholder="Enter keywords">
+                         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+                     </form>
+                 </li> #}
+-                                    </ul>
++            </ul>
+ 
+-                                    <ul class="navbar-nav align-items-center right-nav-link">
+-                                        {# <li class="nav-item dropdown-lg">
++            <ul class="navbar-nav align-items-center right-nav-link">
++                {# <li class="nav-item dropdown-lg">
+                     <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown"
+                        href="javascript:void();">
+                         <i class="fa fa-envelope-open-o"></i><span class="badge badge-primary badge-up">12</span></a>
+@@ -642,79 +561,71 @@
+                     </ul>
+                 </li> #}
+ 
+-                                        <li class="nav-item">
+-                                            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret"
+-                                                data-toggle="dropdown" href="#">
+-                                                <span class="user-profile"><img
+-                                                        src="{{ asset('uploads/')~app.user.photo }}" class="img-circle"
+-                                                        alt="user avatar"></span>
+-                                            </a>
+-                                            <ul class="dropdown-menu dropdown-menu-right">
+-                                                <li class="dropdown-item user-details">
+-                                                    <a href="">
+-                                                        <div class="media">
+-                                                            <div class="avatar"><img class="align-self-start mr-3"
+-                                                                    src="{{ asset('uploads/')~app.user.photo }}"
+-                                                                    alt="user avatar"></div>
+-                                                            <div class="media-body">
+-                                                                <h6 class="mt-2 user-title">{{ app.user.nomFr }}</h6>
+-                                                                <p class="user-subtitle">
+-                                                                    {{ app.user.emailProfessionnel }}</p>
+-                                                            </div>
+-                                                        </div>
+-                                                    </a>
+-                                                </li>
+-                                                <li class="dropdown-divider"></li>
+-                                                <li class="dropdown-item"><a
+-                                                        href="{{ path('personnel_mission_index') }}"><i
+-                                                            class="fa fa-th"></i> Mission</a></li>
+-                                                <li class="dropdown-divider"></li>
+-                                                <li class="dropdown-item"><a href=""><i class="fa fa-tasks"></i>
+-                                                        Congé</a></li>
+-                                                <li class="dropdown-divider"></li>
+-                                                <li class="dropdown-item"><a href=""><i class="fa fa-file-o"></i>
+-                                                        Document</a></li>
+-                                                <li class="dropdown-divider"></li>
+-                                                <li class="dropdown-item"><a href="{{ path('app_logout') }}"><i
+-                                                            class="icon-power mr-2"></i>Se
+-                                                        Deconnecter</a></li>
+-                                            </ul>
+-                                        </li>
+-                                    </ul>
+-                                </nav>
+-                            </header>
+-                            <!--End topbar header-->
++                <li class="nav-item">
++                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
++                            <span class="user-profile"><img src="{{ asset('uploads/')~app.user.photo }}"
++                                                            class="img-circle" alt=""></span>
++                    </a>
++                    <ul class="dropdown-menu dropdown-menu-right">
++                        <li class="dropdown-item user-details">
++                            <a href="">
++                                <div class="media">
++                                    <div class="avatar"><img class="align-self-start mr-3"
++                                                             src="{{ asset('uploads/')~app.user.photo }}" alt=""></div>
++                                    <div class="media-body">
++                                        <h6 class="mt-2 user-title">{{ app.user.nomFr }}</h6>
++                                        <p class="user-subtitle">{{ app.user.emailProfessionnel }}</p>
++                                    </div>
++                                </div>
++                            </a>
++                        </li>
++                        <li class="dropdown-divider"></li>
++                        <li class="dropdown-item"><a href="{{ path('personnel_mission_index') }}"><i class="fa fa-th"></i> Mission</a></li>
++                        <li class="dropdown-divider"></li>
++                        <li class="dropdown-item"><a href=""><i class="fa fa-tasks"></i> Congé</a></li>
++                        <li class="dropdown-divider"></li>
++                        <li class="dropdown-item"><a href=""><i class="fa fa-file-o"></i> Document</a></li>
++                        <li class="dropdown-divider"></li>
++                        <li class="dropdown-item"><a href="{{ path('app_logout') }}"><i
++                                        class="icon-power mr-2"></i>Se
++                                Deconnecter</a></li>
++                    </ul>
++                </li>
++            </ul>
++        </nav>
++    </header>
++    <!--End topbar header-->
+ 
+-                            <div class="clearfix"></div>
++    <div class="clearfix"></div>
+ 
+-                            <div class="content-wrapper">
+-                                <div class="container-fluid">
++    <div class="content-wrapper">
++        <div class="container-fluid">
+ 
+-                                    <!--content goes here-->
++            <!--content goes here-->
+ 
+-                                    {% block body %}
+-                                    {% endblock %}
++            {% block body %}
++            {% endblock %}
+ 
+ 
+-                                    <!--End Dashboard Content-->
+-                                    <!--start overlay-->
+-                                    <div class="overlay toggle-menu"></div>
+-                                    <!--end overlay-->
+-                                </div>
+-                                <!-- End container-fluid-->
++            <!--End Dashboard Content-->
++            <!--start overlay-->
++            <div class="overlay toggle-menu"></div>
++            <!--end overlay-->
++        </div>
++        <!-- End container-fluid-->
+ 
+-                            </div>
+-                            <!--End content-wrapper-->
+-                            <!--Start Back To Top Button-->
+-                            <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+-                            <!--End Back To Top Button-->
++    </div>
++    <!--End content-wrapper-->
++    <!--Start Back To Top Button-->
++    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
++    <!--End Back To Top Button-->
+ 
+-                            <!--Start footer-->
++    <!--Start footer-->
+ 
+-                            <!--End footer-->
++    <!--End footer-->
+ 
+-                            <!--start color switcher-->
+-                            {# <div class="right-sidebar">
++    <!--start color switcher-->
++    {# <div class="right-sidebar">
+         <div class="switcher-icon">
+             <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+         </div>
+@@ -755,49 +666,40 @@
+ 
+         </div>
+     </div> #}
+-                            <!--end color switcher-->
++    <!--end color switcher-->
+ 
+-                        </div>
+-                        </div>
+-                        <!--End wrapper-->
++</div>
++<!--End wrapper-->
+ 
+-                        <!-- Bootstrap core JavaScript-->
+-                        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+-                        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
++<!-- Bootstrap core JavaScript-->
++
++<script src="{{ asset('assets/js/popper.min.js') }}"></script>
++<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+ 
+-                        <!-- simplebar js -->
+-                        <script src="{{ asset('assets/plugins/simplebar/js/simplebar.js') }}"></script>
+-                        <!-- sidebar-menu js -->
+-                        <script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
+-                        <!-- loader scripts -->
+-                        <script src="{{ asset('assets/js/jquery.loading-indicator.js') }}"></script>
+-                        <!-- Custom scripts -->
+-                        <script src="{{ asset('assets/js/app-script.js') }}"></script>
+-                        <!-- Chart js -->
++<!-- simplebar js -->
++<script src="{{ asset('assets/plugins/simplebar/js/simplebar.js') }}"></script>
++<!-- sidebar-menu js -->
++<script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
++<!-- loader scripts -->
++<script src="{{ asset('assets/js/jquery.loading-indicator.js') }}"></script>
++<!-- Custom scripts -->
++<script src="{{ asset('assets/js/app-script.js') }}"></script>
++<!-- Chart js -->
+ 
+-                        <!--Data Tables js-->
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js') }}">
+-                        </script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js') }}">
+-                        </script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js') }}">
+-                        </script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js') }}">
+-                        </script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/jszip.min.js') }}"></script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/pdfmake.min.js') }}"></script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/vfs_fonts.js') }}"></script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}">
+-                        </script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}">
+-                        </script>
+-                        <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}">
+-                        </script>
+-                        {% block javascripts %}
++<!--Data Tables js-->
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/jszip.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/pdfmake.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/vfs_fonts.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}"></script>
++<script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}"></script>
++{% block javascripts %}
+ 
+ 
+-                        {% endblock %}
++{% endblock %}
+ 
+-                    
+-    </body>
+-    </html>
+\ No newline at end of file
++</body>

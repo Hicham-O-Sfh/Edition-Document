@@ -1,0 +1,452 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnel{% endblock %}
+
+{% block body %}
+    <style>
+
+        .row>div{
+
+            margin-bottom: 10px;
+
+        }
+    </style>
+    <div class="row mb-3">
+        <div class="d-flex">
+
+            <a href="{{ path('personnel_index') }}" class="btn btn-outline-primary">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-left" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M5.854 5.646a.5.5 0 0 1 0 .708L3.207 9l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"></path>
+                    <path fill-rule="evenodd"
+                          d="M13.5 2.5a.5.5 0 0 1 .5.5v4a2.5 2.5 0 0 1-2.5 2.5H3a.5.5 0 0 1 0-1h8.5A1.5 1.5 0 0 0 13 7V3a.5.5 0 0 1 .5-.5z"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <div id="accordion">
+
+
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                        Etat Civil
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+
+                    {# etat civil #}
+                    <div class="row mb-2">
+                        <div class="col-md-6 col-sm-12">
+
+                            <img src="{{ asset('uploads/')~ p.photo }}"
+                                 style="height: 150px;width: 150px;" alt="avatar">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <label> Nom</label>
+
+                            <input type="text" disabled value="{{ p.nomFr }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label> الإسم العائلي</label>
+
+                            <input type="text" disabled value="{{ p.nomAr }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label> Prénom</label>
+
+                            <input type="text" disabled value="{{ p.PrenomFr }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label> الإسم الشخصي</label>
+
+                            <input type="text" disabled value="{{ p.prenomAr }}" class="form-control">
+                        </div>
+                    </div>
+
+                    {# row #}
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                            <label>CIN</label>
+
+                            <input type="text" disabled value="{{ p.numCin }}" class="form-control">
+                        </div>
+
+
+                        <div class="col-md-3 col-sm-12">
+                            <label>Validité CIN</label>
+
+                            <input type="text" disabled value="{{ p.validiteCin|date('d/m/Y') }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label>Sexe</label>
+
+                            <input type="text" disabled value="{{ p.sexe }}" class="form-control">
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <label>Nationalité</label>
+
+                            <input type="text" disabled value="{{ p.nationalite }}" class="form-control">
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-12">
+                            <label>date de naissance</label>
+
+                            <input type="text" disabled value="{{ p.dateNaissance|date('d/m/Y') }}"
+                                   class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label>Lieu naissance</label>
+
+                            <input type="text" disabled value="{{ p.lieuNaissance }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label>Situation familliale</label>
+
+                            <input type="text" disabled value="{{ p.situationFamiliale }}" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>Adresse</label>
+
+                            <input type="text" disabled value="{{ p.adresseFr }}" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>Adresse</label>
+
+                            <input type="text" disabled value="{{ p.adresseAr }}" class="form-control">
+                        </div>
+
+
+                        {% if p.situationFamiliale != "Célibataire" %}
+
+
+                        <div class="col-md-6 col-sm-12">
+                            <label>nom conjoint</label>
+
+                            <input type="text" disabled value="{{ p.nomConjointFr }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <label>prénom conjoint</label>
+
+                            <input type="text" disabled value="{{ p.prenomConjointFr }}" class="form-control">
+                        </div>
+
+
+                        <div class="col-md-6 col-sm-12">
+                            <label>الإسم العائلي للزوج(ة)</label>
+
+                            <input type="text" disabled value="{{ p.nomConjointAr }}" class="form-control">
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label>الإسم الشخصي للزوج(ة)</label>
+
+                            <input type="text" disabled value="{{ p.prenomConjointAr }}" class="form-control">
+                        </div>
+
+                        <div class="col-md-3 col-sm-12">
+                            <label>nombre d'enfants</label>
+
+                            <input type="text" disabled value="{{ p.nombreEnfants }}" class="form-control">
+                        </div>
+
+                        {% endif %}
+                    </div>
+
+                    {# document table #}
+                    <div class="row">
+                        <div class="card-body">
+                            <table id="docTable" class="dataTable table table-bordered table-striped"
+                                   style="width: 100%;">
+                                <thead>
+
+                                <th>Document Externe</th>
+
+
+                                </thead>
+                                <tbody>
+
+
+                                {% for document in p.personnelDocumentExternes %}
+                                <tr>
+
+
+                                    <td>
+                                        <a href="{{ asset('uploads/')~document.cheminDoc }}"
+                                           target="_blank">{{ document.titre }}</a>
+                                    </td> {% endfor %}
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    {# situation administrative #}
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                    Situation Administrative
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                 <div class="row">
+                     <div class="col-md-3 col-sm-12">
+                         <label> Matricule</label>
+
+                         <input type="text" disabled value="{{ p.matricule }}" class="form-control">
+                     </div>
+                     <div class="col-md-3 col-sm-12">
+                         <label> num cnss</label>
+
+                         <input type="text" disabled value="{{ p.numCnss }}" class="form-control">
+                     </div>
+                     <div class="col-md-3 col-sm-12">
+                         <label> num cimr </label>
+
+                         <input type="text" disabled value="{{ p.numCimr }}" class="form-control">
+                     </div>
+                     <div class="col-md-3 col-sm-12">
+                         <label> Date d'entrée</label>
+
+                         <input type="text" disabled value="{{ p.dateEntree|date('d/m/Y') }}" class="form-control">
+                     </div>
+                     <div class="col-md-3 col-sm-12">
+                         <label> DATE TITULARISATION</label>
+
+                         <input type="text" disabled value="{{ p.dateTitularisation|date('d/m/Y') }}" class="form-control">
+                     </div>
+
+                     <div class="col-md-3 col-sm-12">
+                         <label> TYPE DE CONTRAT</label>
+
+                         <input type="text" disabled value="{{ p.typeContrat }}" class="form-control">
+                     </div>
+
+                     <div class="col-md-3 col-sm-12">
+                         <label> secteur</label>
+
+                         <input type="text" disabled value="{{ p.secteur}}" class="form-control">
+                     </div>
+
+                     <div class="col-md-3 col-sm-12">
+                         <label>SON CHEF HIÉRARCHIQUE </label>
+
+                         <input type="text" disabled value="{{ p.chef }}" class="form-control">
+                     </div>
+
+
+
+
+
+
+                {% if p.dateDepart and p.motif %}
+
+
+
+                        <div class="col-md-6 col-sm-12">
+
+                            <div class="form-group">
+                                <label> date de départ </label>
+                                <input type="text" disabled value="{{ p.dateDepart|date('d/m/Y') }}"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+
+                            <div class="form-group">
+                                <label> motif </label>
+                                <input type="text" disabled value="{{ p.motif.libelleFr }}" class="form-control">
+                            </div>
+                        </div>
+
+                {% endif %}
+                 </div>
+
+                <div class="row">
+                    <label >Fonction</label>
+                    <div class="table-responsive">
+                        <table id="fonctionTable" class="dataTable table table-bordered table-striped"
+                               style="width: 100%;">
+                            <thead>
+                            <th>Fonction</th>
+                            <th>Affectation</th>
+                            <th>Date Début</th>
+                            <th>Date fin</th>
+                            <th>durée</th>
+                            <th>Observation</th>
+
+                            </thead>
+                            <tbody>
+
+                            {% for fonction in p.personnelFonctions %}
+                                <tr>
+                                    <td>{{ fonction.fonction.libelleFr }}</td>
+                                    <td>{{ fonction.lieuAffectation.libelleFr }}</td>
+                                    <td>{{ fonction.dateDebut? fonction.dateDebut|date('d/m/Y'):"-" }}</td>
+                                    <td>{{ fonction.dateFin ? fonction.dateFin|date('d/m/Y'):"-" }}</td>
+                                    <td>{{  date(fonction.dateFin ).diff(date(fonction.dateDebut)).m}}  mois</td>
+                                    <td>{{ fonction.observation }}</td>
+
+
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                    Diplômes
+
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <table id="diplomeTable" class="table table-bordered  table-striped" style="width: 100%;">
+                        <thead>
+                        <th>N°</th>
+                        <th>Désignation</th>
+                        <th>Date Obtention</th>
+                        <th>Etablissement</th>
+                        <th>Specialité</th>
+                        <th>Lien</th>
+                        </thead>
+                        <tbody>
+                        {% for diplome in p.personnelDiplomes %}
+
+
+                            <tr>
+                                <td>{{ diplome.id }}</td>
+                                <td>{{ diplome.designation }}</td>
+                                <td>{{ diplome.dateObtention|date('Y') }}</td>
+                                <td>{{ diplome.etablissement }}</td>
+                                <td>{{ diplome.specialite }}</td>
+                                <td><a target="_blank"
+                                       href="{{ asset('uploads/')~diplome.chemindoc }}">{{ diplome.designation }}</a>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingfor">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefor"
+                        aria-expanded="false" aria-controls="collapsefor">
+                    Contact
+
+                </button>
+            </h5>
+        </div>
+        <div id="collapsefor" class="collapse" aria-labelledby="headingfor" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+
+                        <div class="form-group">
+                            <label> téléphone personnel </label>
+                            <input type="text" disabled value="{{ p.telPersonnel }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label> email personnel </label>
+                            <input type="text" disabled value="{{ p.emailPersonnel }}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> Télephone professionel </label>
+                            <input type="text" disabled value="{{ p.telProfessionnel }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label> email professionnel</label>
+                            <input type="text" disabled value="{{ p.emailProfessionnel }}" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+        $('#diplomeTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            }
+        });
+
+        $('#fonctionTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            }
+        });
+        $('#docTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+            }
+        });
+
+    </script>
+
+{% endblock %}

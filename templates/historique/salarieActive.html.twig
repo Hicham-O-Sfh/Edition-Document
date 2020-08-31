@@ -1,0 +1,703 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+  <div class="row justify-content-center"> <h5>Historique</h5></div>
+    <div class="row">
+
+        <div class="col-12">
+        <div class="card">
+            <div class="card-header"><i class="fa fa-table"></i>  Adresse</div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table id="adresseTable" class="table table-bordered  table-striped display" style="width: 100%;">
+                        <thead>
+                        <tr>
+
+
+
+                            <th> Mat</th>
+                            <th> Nom</th>
+                            <th> Prénom</th>
+                            <th> adresse</th>
+                            <th> de</th>
+                            <th> jusqu'à</th>
+
+
+
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+
+                        {% for h in history %}
+
+
+                            {% if h.property == "adresse" %}
+                                
+
+                            <tr>
+
+
+                                <td>{{ h.personnel.matricule }}</td>
+                                <td>{{ h.personnel.nomFr }}</td>
+                                <td>{{ h.personnel.prenomFr }}</td>
+                                <td>{{ h.value }}</td>
+                                <td>{{ h.dateDebut ? h.dateDebut|date('d/m/Y')  }}</td>
+                                <td>{{ h.Datefin ? h.Datefin|date('d/m/Y') : "jusqu'à aujourd'hui"  }}</td>
+
+
+
+
+
+                            </tr>
+                            {% endif %}
+                        {% else %}
+                            <tr>
+                                <td colspan="35"> rien à afficher</td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header"><i class="fa fa-table"></i>  situation familliale</div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table id="situationtable" class="table table-bordered  table-striped display" style="width: 100%;">
+                            <thead>
+                            <tr>
+
+
+                                <th> Mat</th>
+                                <th> Nom</th>
+                                <th> Prénom</th>
+                                <th> Situation familliale</th>
+                                <th> de</th>
+                                <th> jusqu'à</th>
+
+
+
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            {% for h in history %}
+
+
+                                {% if h.property == "situation familliale" %}
+
+
+                                    <tr>
+
+
+                                        <td>{{ h.personnel.matricule }}</td>
+                                        <td>{{ h.personnel.nomFr }}</td>
+                                        <td>{{ h.personnel.prenomFr }}</td>
+                                        <td>{{ h.value }}</td>
+                                        <td>{{ h.dateDebut ? h.dateDebut|date('d/m/Y')  }}</td>
+                                        <td>{{ h.Datefin ? h.Datefin|date('d/m/Y') : "jusqu'à aujourd'hui"  }}</td>
+
+
+
+
+
+                                    </tr>
+                                {% endif %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="35"> rien à afficher</td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header"><i class="fa fa-table"></i>  Nombre d'enfants</div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table id="nombreenfanttable" class="table table-bordered  table-striped display" style="width: 100%;">
+                            <thead>
+                            <tr>
+
+
+
+                                <th> Mat</th>
+                                <th> Nom</th>
+                                <th> Prénom</th>
+                                <th> nombre d'enfants</th>
+                                <th> de</th>
+                                <th> jusqu'à</th>
+
+
+
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            {% for h in history %}
+
+
+                                {% if h.property == "nombre enfants" %}
+
+
+                                    <tr>
+
+
+                                        <td>{{ h.personnel.matricule }}</td>
+                                        <td>{{ h.personnel.nomFr }}</td>
+                                        <td>{{ h.personnel.prenomFr }}</td>
+                                        <td>{{ h.value }}</td>
+                                        <td>{{ h.dateDebut ? h.dateDebut|date('d/m/Y')  }}</td>
+                                        <td>{{ h.Datefin ? h.Datefin|date('d/m/Y') : "jusqu'à aujourd'hui"  }}</td>
+
+
+
+
+
+                                    </tr>
+                                {% endif %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="35"> rien à afficher</td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{# contrat de travail #}
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header"><i class="fa fa-table"></i>  Contrat de travail</div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table id="contrattable" class="table table-bordered  table-striped display" style="width: 100%;">
+                            <thead>
+                            <tr>
+
+
+
+                                <th> Mat</th>
+                                <th> Nom</th>
+                                <th> Prénom</th>
+                                <th> type de contrat</th>
+                                <th> de</th>
+                                <th> jusqu'à</th>
+
+
+
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            {% for h in history %}
+
+
+                                {% if h.property == "contrat de travail" %}
+
+
+                                    <tr>
+
+
+                                        <td>{{ h.personnel.matricule }}</td>
+                                        <td>{{ h.personnel.nomFr }}</td>
+                                        <td>{{ h.personnel.prenomFr }}</td>
+                                        <td>{{ h.value }}</td>
+                                        <td>{{ h.dateDebut ? h.dateDebut|date('d/m/Y')  }}</td>
+                                        <td>{{ h.Datefin ? h.Datefin|date('d/m/Y') : "jusqu'à aujourd'hui"  }}</td>
+
+
+
+
+
+                                    </tr>
+                                {% endif %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="35"> rien à afficher</td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{# mission table #}
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header"><i class="fa fa-table"></i>  missions</div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table id="missiontable" class="table table-bordered  table-striped" style="width: 100%;">
+                            <thead>
+                            <tr class="text-center">
+
+                                <th>Personnel</th>
+                                <th>Mission</th>
+                                <th>Destination</th>
+                                <th>Moyen de transport</th>
+                                <th>Observation</th>
+                                <th>Date de départ</th>
+                                <th>Date de retour</th>
+                                <th>Nombre de jours</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for personnel_mission in missions %}
+                                {% if (personnel_mission.decisionChef == "encours") %}
+                                    <tr class="text-center">
+
+                                        <td>{{ personnel_mission.personnel }}</td>
+                                        <td>{{ personnel_mission.libeleMissionFR }}</td>
+                                        <td>{{ personnel_mission.destination }}</td>
+                                        <td>{{ personnel_mission.moyenTransport }}</td>
+                                        <td>{{ personnel_mission.observation }}</td>
+                                        <td>{{ personnel_mission.dateDepart ? personnel_mission.dateDepart|date('Y-m-d') : '' }}
+                                        </td>
+                                        <td>{{ personnel_mission.dateRetour ? personnel_mission.dateRetour|date('Y-m-d') : '' }}
+                                        </td>
+                                        <td>{{  date(personnel_mission.dateRetour ).diff(date(personnel_mission.dateDepart)).d}}
+                                            jours</td>
+                                    </tr>
+                                {% endif %}
+                            {% else %}
+                                <tr>
+                                    <td>pas de historique</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {# fonction table #}
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header"><i class="fa fa-table"></i>  Fonctions et affectations</div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table id="fonctionTable" class="dataTable table table-bordered table-striped"
+                               style="width: 100%;">
+                            <thead>
+                            <th>Personnel</th>
+                            <th>Fonction</th>
+                            <th>Affectation</th>
+                            <th>Date Début</th>
+                            <th>Date fin</th>
+                            <th>durée</th>
+                            <th>Observation</th>
+
+
+                            </thead>
+                            <tbody>
+
+                            {% for fonction in fonctions%}
+                                <tr>
+                                     <td>{{ fonction.personnel }}</td>
+                                    <td>{{ fonction.fonction?fonction.fonction.libelleFr: "pas de fonction" }}</td>
+                                    <td>{{ fonction.lieuAffectation?fonction.lieuAffectation.libelleFr }}</td>
+                                    <td>{{ fonction.dateDebut|date('d/m/Y') }}</td>
+                                    <td>{{ fonction.dateFin|date('d/m/Y') }}</td>
+                                    <td>A faire</td>
+                                    <td>{{ fonction.observation }}</td>
+
+
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{%  endblock %}
+
+{%  block javascripts %}
+    <script>
+
+        $('#adresseTable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 lignes', '25 lignes', '50 lignes', 'afficher tous']
+            ],
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'imprimer'
+                }, {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }, 'excel',
+
+                {
+                    extend: 'colvis',
+                    text: "visibilité"
+                }
+            ],
+
+            "language": {
+
+
+                buttons: {
+                    pageLength: {
+                        _: "Afficher %d éléments",
+                        '-1': "Tout afficher"
+                    }
+                },
+
+                "paginate": {
+                    "previous": "&lt",
+                    "next": "&gt",
+
+                },
+                "info": "Affiche  _START_ à  _END_ de _TOTAL_ entrées",
+            }
+
+        });
+        $('#nombreenfanttable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 lignes', '25 lignes', '50 lignes', 'afficher tous']
+            ],
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'imprimer'
+                }, {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }, 'excel',
+
+                {
+                    extend: 'colvis',
+                    text: "visibilité"
+                }
+            ],
+
+            "language": {
+
+
+                buttons: {
+                    pageLength: {
+                        _: "Afficher %d éléments",
+                        '-1': "Tout afficher"
+                    }
+                },
+
+                "paginate": {
+                    "previous": "&lt",
+                    "next": "&gt",
+
+                },
+                "info": "Affiche  _START_ à  _END_ de _TOTAL_ entrées",
+            }
+
+        });
+        $('#situationtable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 lignes', '25 lignes', '50 lignes', 'afficher tous']
+            ],
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'imprimer'
+                }, {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }, 'excel',
+
+                {
+                    extend: 'colvis',
+                    text: "visibilité"
+                }
+            ],
+
+            "language": {
+
+
+                buttons: {
+                    pageLength: {
+                        _: "Afficher %d éléments",
+                        '-1': "Tout afficher"
+                    }
+                },
+
+                "paginate": {
+                    "previous": "&lt",
+                    "next": "&gt",
+
+                },
+                "info": "Affiche  _START_ à  _END_ de _TOTAL_ entrées",
+            }
+
+        });
+
+        $('#contrattable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 lignes', '25 lignes', '50 lignes', 'afficher tous']
+            ],
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'imprimer'
+                }, {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }, 'excel',
+
+                {
+                    extend: 'colvis',
+                    text: "visibilité"
+                }
+            ],
+
+            "language": {
+
+
+                buttons: {
+                    pageLength: {
+                        _: "Afficher %d éléments",
+                        '-1': "Tout afficher"
+                    }
+                },
+
+                "paginate": {
+                    "previous": "&lt",
+                    "next": "&gt",
+
+                },
+                "info": "Affiche  _START_ à  _END_ de _TOTAL_ entrées",
+            }
+
+        });
+        $('#missiontable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 lignes', '25 lignes', '50 lignes', 'afficher tous']
+            ],
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'imprimer'
+                }, {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }, 'excel',
+
+                {
+                    extend: 'colvis',
+                    text: "visibilité"
+                }
+            ],
+
+            "language": {
+
+
+                buttons: {
+                    pageLength: {
+                        _: "Afficher %d éléments",
+                        '-1': "Tout afficher"
+                    }
+                },
+
+                "paginate": {
+                    "previous": "&lt",
+                    "next": "&gt",
+
+                },
+                "info": "Affiche  _START_ à  _END_ de _TOTAL_ entrées",
+            }
+
+        });
+        $('#fonctionTable').DataTable({
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 lignes', '25 lignes', '50 lignes', 'afficher tous']
+            ],
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    text: 'imprimer'
+                }, {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL'
+                }, 'excel',
+
+                {
+                    extend: 'colvis',
+                    text: "visibilité"
+                }
+            ],
+
+            "language": {
+
+
+                buttons: {
+                    pageLength: {
+                        _: "Afficher %d éléments",
+                        '-1': "Tout afficher"
+                    }
+                },
+
+                "paginate": {
+                    "previous": "&lt",
+                    "next": "&gt",
+
+                },
+                "info": "Affiche  _START_ à  _END_ de _TOTAL_ entrées",
+            }
+
+        });
+
+    </script>
+{%  endblock %}

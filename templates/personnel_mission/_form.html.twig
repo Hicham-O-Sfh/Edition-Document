@@ -1,0 +1,93 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    {{ form_errors(form.libeleMissionFR) }}
+                    {{ form_label(form.libeleMissionFR, 'Mission ') }}
+                    {{ form_widget(form.libeleMissionFR,{'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.libeleMissionAR) }}
+
+                    {{ form_label(form.libeleMissionAR, ' المهمة') }}
+                    {{ form_widget(form.libeleMissionAR,{'attr': {'class': 'form-control arabic-direction'}}) }}
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.destination) }}
+                    {{ form_label(form.destination) }}
+                    {{ form_widget(form.destination,{'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+            <div class="col-md-6 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.moyenTransport) }}
+                    {{ form_label(form.moyenTransport) }}
+                    {{ form_widget(form.moyenTransport,{'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    {{ form_errors(form.dateDepart) }}
+                    {{ form_label(form.dateDepart, 'Date de départ') }}
+                    {{ form_widget(form.dateDepart,{'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.dateRetour) }}
+
+                    {{ form_label(form.dateRetour, 'Date de retour') }}
+                    {{ form_widget(form.dateRetour,{'attr': {'class': 'form-control'}}) }}
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-12">
+                {# <div class="form-group">
+                    <label for="">Nombre de jours</label>
+                    <input class="form-control text-center" value="" type="text" readonly>
+                </div> #}
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.observation) }}
+                    {{ form_label(form.observation) }}
+                    {{ form_widget(form.observation,{'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<button class="btn btn-outline-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

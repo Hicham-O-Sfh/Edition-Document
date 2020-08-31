@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}TypeContrat index{% endblock %} #}
+
+{% block body %}
+{# <h1>TypeContrat index</h1> #}
+<a href="{{ path('type_contrat_new') }}">Create new</a>
+<div class="w-100 table-responsive">
+    <table id="example" class="table table-bordered  table-striped" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LibelleFr</th>
+                <th>LibelleAr</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for type_contrat in type_contrats %}
+            <tr>
+                <td>{{ type_contrat.id }}</td>
+                <td>{{ type_contrat.libelleFr }}</td>
+                <td>{{ type_contrat.libelleAr }}</td>
+                <td>
+                    <a href="{{ path('type_contrat_show', {'id': type_contrat.id}) }}">show</a>
+                    <a href="{{ path('type_contrat_edit', {'id': type_contrat.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function () {
+            //Default data table
+
+
+            var table = $('#example').DataTable({
+
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'pdf', 'print', 'colvis'],
+                language: {
+                    buttons: {
+                        copy: 'copier',
+                        print: 'imprimer',
+                        colvis: "Visibilité de  colonnes",
+                        next: "suivant"
+
+                    }
+                }
+
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+
+        });
+    </script>
+{% endblock %}

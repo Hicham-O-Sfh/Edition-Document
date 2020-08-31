@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ModelDocument{% endblock %}
+
+{% block body %}
+    <h1>Edit ModelDocument</h1>
+
+    {{ include('model_document/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('model_document_index') }}">back to list</a>
+
+    {{ include('model_document/_delete_form.html.twig') }}
+{% endblock %}

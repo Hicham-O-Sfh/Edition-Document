@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ListAffectation index{% endblock %}
+
+{% block body %}
+<h1>ListAffectation index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>action</th>
+            <th>Id</th>
+            <th>LibelleFr</th>
+            <th>LibelleAr</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for list_affectation in list_affectations %}
+        <tr>
+            <td>
+                <a href="{{ path('list_affectation_show', {'id': list_affectation.id}) }}">show</a>
+                <a href="{{ path('list_affectation_edit', {'id': list_affectation.id}) }}">edit</a>
+            </td>
+            <td>{{ list_affectation.id }}</td>
+            <td>{{ list_affectation.libelleFr }}</td>
+            <td>{{ list_affectation.libelleAr }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('list_affectation_new') }}">Create new</a>
+{% endblock %}

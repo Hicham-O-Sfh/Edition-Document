@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Secteur{% endblock %}
+
+{% block body %}
+
+
+    {{ include('secteur/_form.html.twig') }}
+
+    <a href="{{ path('secteur_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,412 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paramétrage{% endblock %}
+
+{% block body %}
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link mx-auto" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Contrat
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="w-100 d-flex flex-row-reverse mb-2 pr-3">
+                    <a class="btn btn-outline-primary p-2" href="{{ path('type_contrat_new') }}">Nouveau contrat</a>
+                </div>
+                <div class="w-100 table-responsive">
+                    <table id="example" class="table table-bordered  table-striped" style="width: 100%;">
+                        <thead>
+                            <tr class="text-center">
+                                <th>action</th>
+                                <th>LibelleFr</th>
+                                <th>LibelleAr</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for type_contrat in type_contrats %}
+                            <tr class="text-center">
+                                <td>
+                                    <a href="{{ path('type_contrat_show', {'id': type_contrat.id}) }}" data-toggle="tooltip" title="Voir"><svg width="1em"
+                                            height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
+                                            <path fill-rule="evenodd"
+                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                        </svg></a> |
+                                    <a data-toggle="tooltip" title="Editer" href="{{ path('type_contrat_edit', {'id': type_contrat.id}) }}"><svg width="1em"
+                                            height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z" />
+                                            <path fill-rule="evenodd"
+                                                d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
+                                        </svg></a> | <a href="{{ path('contrat_delete',{'id': type_contrat.id}) }}"
+                                        onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer ce contrat?');"><svg
+                                            width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg></a>
+                                </td>
+                                <td>{{ type_contrat.libelleFr }}</td>
+                                <td>{{ type_contrat.libelleAr }}</td>
+                            </tr>
+                            {% else %}
+                            <tr class="text-center">
+                                <td colspan="4">no records found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    Motif départ
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div class="w-100 d-flex flex-row-reverse mb-2 pr-3">
+                    <a class="btn btn-outline-primary p-2" href="{{ path('motif_rejet_new') }}">Nouveau Motif</a>
+                </div>
+                <div class="w-100 table-responsive">
+                    <table id="example2" class="table table-bordered  table-striped" style="width: 100%;">
+                        <thead>
+                            <tr class="text-center">
+                                <th>action</th>
+                                <th>LibelleAr</th>
+                                <th>LibelleFr</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for motif_rejet in motif_rejets %}
+                            <tr class="text-center">
+                            <td>
+                                    <a href="{{ path('motif_rejet_show', {'id': motif_rejet.id}) }}"><svg width="1em"
+                                            height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
+                                            <path fill-rule="evenodd"
+                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                        </svg></a> |
+                                    <a href="{{ path('motif_rejet_edit', {'id': motif_rejet.id}) }}"><svg width="1em"
+                                            height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z" />
+                                            <path fill-rule="evenodd"
+                                                d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
+                                        </svg></a> | <a href="{{ path('motif_delete',{'id': motif_rejet.id}) }}"
+                                        onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer ce motif?');"><svg
+                                            width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg></a>
+                                </td>
+                                <td>{{ motif_rejet.libelleAr }}</td>
+                                <td>{{ motif_rejet.libelleFr }}</td>
+                            </tr>
+                            {% else %}
+                            <tr class="text-center">
+                                <td colspan="4">no records found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="false" aria-controls="collapseThree">
+                    Affectation
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <div class="w-100 d-flex flex-row-reverse mb-2 pr-3">
+                    <a class="btn btn-outline-primary p-2" href="{{ path('list_affectation_new') }}">Nouvelle affectation</a>
+                </div>
+                <div class="w-100 table-responsive">
+                    <table id="example3" class="table table-bordered  table-striped" style="width: 100%;">
+                        <thead>
+                            <tr class="text-center">
+                                <th>action</th>
+                                <th>LibelleFr</th>
+                                <th>LibelleAr</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for list_affectation in list_affectations %}
+                            <tr class="text-center">
+                            <td>
+                                    <a href="{{ path('list_affectation_show', {'id': list_affectation.id}) }}"><svg
+                                            width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
+                                            <path fill-rule="evenodd"
+                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                        </svg></a> |
+                                    <a href="{{ path('list_affectation_edit', {'id': list_affectation.id}) }}"><svg
+                                            width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z" />
+                                            <path fill-rule="evenodd"
+                                                d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
+                                        </svg></a> | <a href="{{ path('affec_delete',{'id': list_affectation.id}) }}"
+                                        onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cette affectation?');"><svg
+                                            width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                            <path fill-rule="evenodd"
+                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                        </svg></a>
+                                </td>
+                                <td>{{ list_affectation.libelleFr }}</td>
+                                <td>{{ list_affectation.libelleAr }}</td>
+                                
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="4">no records found</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header" id="headingFour">
+        <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Types de Congé
+            </button>
+        </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+        <div class="card-body">
+            <div class="w-100 d-flex flex-row-reverse mb-2 pr-3">
+                <a class="btn btn-outline-primary p-2" href="{{ path('nature_conge_new') }}">Nouveau congé</a>
+            </div>
+            <div class="w-100 table-responsive">
+                <table id="example4" class="table table-bordered  table-striped" style="width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                        <th>actions</th>
+                            <th>LibelleFr</th>
+                            <th>LibelleAr</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nature_conge in nature_conges %}
+                        <tr class="text-center">
+                        <td>
+                                <a href="{{ path('nature_conge_show', {'id': nature_conge.id}) }}"><svg width="1em"
+                                        height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></a> |
+                                <a href="{{ path('nature_conge_edit', {'id': nature_conge.id}) }}"><svg width="1em"
+                                        height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z" />
+                                        <path fill-rule="evenodd"
+                                            d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
+                                    </svg></a> | <a href="{{ path('congé_delete',{'id': nature_conge.id}) }}"
+                                    onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer ce congé?');"><svg
+                                        width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                        <path fill-rule="evenodd"
+                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                    </svg></a>
+                            </td>
+                            <td>{{ nature_conge.libelleFr }}</td>
+                            <td>{{ nature_conge.libelleAr }}</td>
+                            
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header" id="headingFive">
+        <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Fonction
+            </button>
+        </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+        <div class="card-body">
+            <div class="w-100 d-flex flex-row-reverse mb-2 pr-3">
+                <a class="btn btn-outline-primary p-2" href="{{ path('fonction_new') }}">Nouvelle fonction</a>
+            </div>
+            <div class="w-100 table-responsive">
+                <table id="example5" class="table table-bordered  table-striped" style="width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th>action</th>
+                            <th>LibelleFr</th>
+                            <th>LibelleAr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fonction in fonctions %}
+                        <tr class="text-center">
+                        <td>
+                                <a href="{{ path('fonction_show', {'id': fonction.id}) }}"><svg width="1em" height="1em"
+                                        viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    </svg></a> |
+                                <a href="{{ path('fonction_edit', {'id': fonction.id}) }}"><svg width="1em" height="1em"
+                                        viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z" />
+                                        <path fill-rule="evenodd"
+                                            d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z" />
+                                    </svg></a> | <a href="{{ path('fonction_delete',{'id': fonction.id}) }}"
+                                    onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cette fonction?');"><svg
+                                        width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                        <path fill-rule="evenodd"
+                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                    </svg></a>
+                            </td>
+                            <td>{{ fonction.libelleFr }}</td>
+                            <td>{{ fonction.libelleAr }}</td>
+                            
+                        </tr>
+                        {% else %}
+                        <tr class="text-center">
+                            <td colspan="4">no records found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(document).ready(function () {
+        //Default data table
+
+
+        var table = $('#example').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis'],
+            language: {
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                }
+            }
+
+        });
+        var table = $('#example2').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis', 'next'],
+            language: {
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                    next: "suivant"
+                }
+            }
+
+        });
+        var table = $('#example3').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis'],
+            language: {
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                }
+            }
+
+        });
+        var table = $('#example4').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis'],
+            language: {
+
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                }
+            }
+
+        });
+        var table = $('#example5').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis'],
+            language: {
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                }
+            }
+
+        });
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+
+    });
+</script>
+{% endblock %}

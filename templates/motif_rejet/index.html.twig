@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MotifRejet index{% endblock %}
+
+{% block body %}
+<h1>MotifRejet index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>action</th>
+            <th>Id</th>
+            <th>LibelleAr</th>
+            <th>LibelleFr</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for motif_rejet in motif_rejets %}
+        <tr>
+            <td>
+                <a href="{{ path('motif_rejet_show', {'id': motif_rejet.id}) }}">show</a>
+                <a href="{{ path('motif_rejet_edit', {'id': motif_rejet.id}) }}">edit</a>
+            </td>
+            <td>{{ motif_rejet.id }}</td>
+            <td>{{ motif_rejet.libelleAr }}</td>
+            <td>{{ motif_rejet.libelleFr }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('motif_rejet_new') }}">Create new</a>
+{% endblock %}

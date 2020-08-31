@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PersonnelDiplome{% endblock %}
+
+{% block body %}
+    <h1>Create new PersonnelDiplome</h1>
+
+    {{ include('personnel_diplome/_form.html.twig') }}
+
+    <a href="{{ path('personnel_diplome_index') }}">back to list</a>
+{% endblock %}

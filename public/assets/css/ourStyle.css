@@ -1,0 +1,14 @@
+.lbrtl {
+
+    text-align: right;
+}
+.arabic-direction{
+    direction: rtl;
+}
+
+.dt-buttons
+{
+
+    display: flex;
+    flex-wrap: wrap;
+}

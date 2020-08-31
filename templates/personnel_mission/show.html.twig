@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonnelMission{% endblock %}
+
+{% block body %}
+    <h1>PersonnelMission</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnel_mission.id }}</td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td>{{ personnel_mission.destination }}</td>
+            </tr>
+            <tr>
+                <th>MoyenTransport</th>
+                <td>{{ personnel_mission.moyenTransport }}</td>
+            </tr>
+            <tr>
+                <th>DateDepart</th>
+                <td>{{ personnel_mission.dateDepart ? personnel_mission.dateDepart|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateRetour</th>
+                <td>{{ personnel_mission.dateRetour ? personnel_mission.dateRetour|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Observation</th>
+                <td>{{ personnel_mission.observation }}</td>
+            </tr>
+            <tr>
+                <th>DecisionChef</th>
+                <td>{{ personnel_mission.decisionChef }}</td>
+            </tr>
+            <tr>
+                <th>DateDecisionChef</th>
+                <td>{{ personnel_mission.dateDecisionChef ? personnel_mission.dateDecisionChef|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ObservationDecisionChef</th>
+                <td>{{ personnel_mission.observationDecisionChef }}</td>
+            </tr>
+            <tr>
+                <th>MotifAnnulation</th>
+                <td>{{ personnel_mission.motifAnnulation }}</td>
+            </tr>
+            <tr>
+                <th>DateAnnulation</th>
+                <td>{{ personnel_mission.dateAnnulation ? personnel_mission.dateAnnulation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>LibeleMissionFR</th>
+                <td>{{ personnel_mission.libeleMissionFR }}</td>
+            </tr>
+            <tr>
+                <th>LibeleMissionAR</th>
+                <td>{{ personnel_mission.libeleMissionAR }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personnel_mission_index') }}">back to list</a>
+
+    <a href="{{ path('personnel_mission_edit', {'id': personnel_mission.id}) }}">edit</a>
+
+    {{ include('personnel_mission/_delete_form.html.twig') }}
+{% endblock %}

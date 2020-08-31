@@ -1,0 +1,40 @@
+{{ form_start(form) }}
+    <div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    {{ form_errors(form.dateDebutConge) }}
+                    {{ form_label(form.dateDebutConge, 'Date début de congé') }}
+                    {{ form_widget(form.dateDebutConge,{'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.dateFinConge) }}
+
+                    {{ form_label(form.dateFinConge, 'Date fin de congé') }}
+                    {{ form_widget(form.dateFinConge,{'attr': {'class': 'form-control'}}) }}
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-12">
+
+                <div class="form-group">
+                    {{ form_errors(form.natureConge) }}
+
+                    {{ form_label(form.natureConge, 'Nature de congé') }}
+                    {{ form_widget(form.natureConge,{'attr': {'class': 'form-control'}}) }}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    <button class="btn btn-outline-primary">Enregistrer</button>
+{{ form_end(form) }}

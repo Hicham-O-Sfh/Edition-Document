@@ -1,0 +1,205 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Missions{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+            <button class="btn btn-link">
+                Missions en cours du personnel dépendant
+            </button>
+        </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <div class="w-100 table-responsive">
+                <table id="example" class="table table-bordered  table-striped" style="width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th>action</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Mission</th>
+                            <th>Destination</th>
+                            <th>Moyen de transport</th>
+                            <th>Observation</th>
+                            <th>Date de départ</th>
+                            <th>Date de retour</th>
+                            <th>Nombre de jours</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for subworker in perso.Personnels %}
+                        {% for    pm in subworker.personnelMissions %}
+                        {% if (pm.decisionChef == "encours") %}
+                        <tr class="text-center">
+                            <td>
+                                <a data-toggle="tooltip" title="Valider"
+                                    href="{{path('mission_edit',{'id': pm.id})}}"><svg width="1em" height="1em"
+                                        viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        onclick="return confirm('Êtes-vous sûr de bien vouloir Valider cette mission?');">
+                                        <path fill-rule="evenodd"
+                                            d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                                        <path fill-rule="evenodd"
+                                            d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z" />
+                                    </svg></a> |
+                                <a data-toggle="tooltip" title="Rejeter"
+                                    href="{{path('personnel_mission_reject',{'id': pm.id})}}"><svg width="1em"
+                                        height="1em" viewBox="0 0 16 16" class="bi bi-x-octagon" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1L1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
+                                        <path fill-rule="evenodd"
+                                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                                        <path fill-rule="evenodd"
+                                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                                    </svg></a>
+
+                            </td>
+                            <td>{{ subworker.nomFr }}</td>
+                            <td>{{ subworker.prenomFr }}</td>
+                            <td>{{ pm.libeleMissionFR }}</td>
+                            <td>{{ pm.destination }}</td>
+                            <td>{{ pm.moyenTransport }}</td>
+                            <td>{{ pm.observation }}</td>
+                            <td>{{ pm.dateDepart ? pm.dateDepart|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{ pm.dateRetour ? pm.dateRetour|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{  date(pm.dateRetour ).diff(date(pm.dateDepart)).d}}
+                                jours</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td>no records found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+            <button class="btn btn-link">
+                Historique des Missions du personnel dépendant
+            </button>
+        </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <div class="w-100 table-responsive">
+                <table id="example1" class="table table-bordered  table-striped" style="width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                            {# <th>action</th> #}
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Mission</th>
+                            <th>Destination</th>
+                            <th>Moyen de transport</th>
+                            <th>Observation</th>
+                            <th>Date de départ</th>
+                            <th>Date de retour</th>
+                            <th>Nombre de jours</th>
+                            <th>Decision de Chef</th>
+                            <th>date Decision de Chef</th>
+                            <th>Observation de decsision de chef</th>
+                            <th>Motif rejet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for subworker in perso.Personnels %}
+                        {% for    pm in subworker.personnelMissions %}
+                        {% if (pm.decisionChef != "encours") %}
+                        <tr class="text-center">
+
+                            {# <td>
+                                <a data-toggle="tooltip" title="Valider" href=""><svg width="1em" height="1em"
+                                        viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        onclick="return confirm('Êtes-vous sûr de bien vouloir valider cette mission?');">
+                                        <path
+                                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                        <path fill-rule="evenodd"
+                                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                    </svg></a>
+                            </td> #}
+                            <td>{{ subworker.nomFr }}</td>
+                            <td>{{ subworker.prenomFr }}</td>
+                            <td>{{ pm.libeleMissionFR }}</td>
+                            <td>{{ pm.destination }}</td>
+                            <td>{{ pm.moyenTransport }}</td>
+                            <td>{{ pm.observation }}</td>
+                            <td>{{ pm.dateDepart ? pm.dateDepart|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{ pm.dateRetour ? pm.dateRetour|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{  date(pm.dateRetour ).diff(date(pm.dateDepart)).d}}
+                                jours</td>
+                            <td>{{ pm.decisionChef }}</td>
+                            <td>{{ pm.dateDecisionChef ? pm.dateDecisionChef|date('Y-m-d') : ''}}</td>
+                            <td>{{ pm.observationDecisionChef }}</td>
+                            <td>{{ pm.motifAnnulation }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td>no records found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    {
+        $(document).ready(function () {
+            //Default data table
+
+
+            var table = $('#example').DataTable({
+
+                lengthChange: false,
+                buttons: ['colvis'],
+                language: {
+                    buttons: {
+                        colvis: "Visibilité de  colonnes",
+                    }
+                }
+
+            });
+            var table = $('#example1').DataTable({
+
+                lengthChange: false,
+                buttons: ['colvis'],
+                language: {
+                    buttons: {
+                        colvis: "Visibilité de  colonnes",
+                    }
+                }
+
+            });
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+
+        });
+    }
+</script>
+{% endblock %}

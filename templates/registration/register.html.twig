@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Dashtreme - Multipurpose Bootstrap4 Admin Template</title>
+    <!-- loader-->
+    <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet"/>
+    <script src="{{ asset('assets/js/pace.min.js') }}"></script>
+    <!--favicon-->
+    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
+    <!-- Bootstrap core CSS-->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Custom Style-->
+    <link href="{{ asset('assets/css/app-style.css') }}" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+
+
+<!-- Start wrapper-->
+<div id="wrapper">
+
+    <div class="height-100v d-flex align-items-center justify-content-center">
+        <div class="card card-authentication1 mb-0">
+            <div class="card-body">
+                <div class="card-content p-2">
+                    <div class="text-center">
+                        <img src="assets/images/logo-icon.png" alt="logo icon">
+                    </div>
+                    <div class="card-title text-uppercase text-center py-3">Sign Up</div>
+
+                        {{ form_start(registrationForm) }}
+
+
+
+
+
+
+                        <div class="form-group">
+
+
+                        </div>
+                        <div class="form-group">
+                            <label   >Email  </label>
+                            <div class="position-relative has-icon-right">
+                                {{ form_widget(registrationForm.emailProfessionnel) }}
+                                <div class="form-control-position">
+                                    <i class="icon-envelope-open"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_errors(registrationForm.plainPassword ) }}
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="input-group" id="show_hide_password">
+                                    {{ form_widget(registrationForm.plainPassword ) }}
+                                    <div class="form-control-position">
+                                        <i class="icon-eye"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+<div class="row">
+
+    <div class="col-12">
+    <button type="submit" class="btn btn-primary btn-lg btn-block">
+        S'inscrire</button></div>
+   </div>
+
+
+                    {{ form_end(registrationForm) }}
+
+
+
+                </div>
+            </div>
+            <div class="card-footer text-center py-3">
+                <p class="text-dark mb-0">Vous avez déjà un compte?  <a href="{{ path('app_login') }}"> Se connecter ici</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+
+
+</div><!--wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="{{ asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/js/popper.min.js')}}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
+
+<!-- sidebar-menu js -->
+<script src="{{ asset('assets/js/sidebar-menu.js')}}"></script>
+
+<!-- Custom scripts -->
+<script src="{{ asset('assets/js/app-script.js')}}"></script>
+<script>
+
+    $(document).ready(function() {
+        $("#show_hide_password i").on('click', function(event) {
+            event.preventDefault();
+            if($('#show_hide_password input').attr("type") == "text"){
+                $('#show_hide_password input').attr('type', 'password');
+                $('#show_hide_password i').addClass( "fa-eye-slash" );
+                $('#show_hide_password i').removeClass( "fa-eye" );
+            }else if($('#show_hide_password input').attr("type") == "password"){
+                $('#show_hide_password input').attr('type', 'text');
+                $('#show_hide_password i').removeClass( "fa-eye-slash" );
+                $('#show_hide_password i').addClass( "fa-eye" );
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
+

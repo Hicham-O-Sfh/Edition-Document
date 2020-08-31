@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MouvementPersonnel{% endblock %}
+
+{% block body %}
+
+
+    {{ include('mouvement_personnel/_form.html.twig') }}
+
+    <a href="{{ path('mouvement_personnel_index') }}">retour</a>
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+        $(document).ready(function() {
+            $('.js-datepicker').datepicker();
+        });
+    </script>
+{%  endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NatureConge index{% endblock %}
+
+{% block body %}
+    <h1>NatureConge index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LibelleFr</th>
+                <th>LibelleAr</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for nature_conge in nature_conges %}
+            <tr>
+                <td>{{ nature_conge.id }}</td>
+                <td>{{ nature_conge.libelleFr }}</td>
+                <td>{{ nature_conge.libelleAr }}</td>
+                <td>
+                    <a href="{{ path('nature_conge_show', {'id': nature_conge.id}) }}">show</a>
+                    <a href="{{ path('nature_conge_edit', {'id': nature_conge.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('nature_conge_new') }}">Create new</a>
+{% endblock %}

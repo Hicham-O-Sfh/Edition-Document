@@ -1,0 +1,194 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mission{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+            <button class="btn btn-link">
+                Missions en cours
+            </button>
+        </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <div>
+                <div class="d-flex  mb-2 pr-3">
+                    <a class="ml-auto p-2 btn btn-outline-primary" href="{{ path('personnel_mission_new') }}">Nouvelle
+                        mission</a>
+
+                </div>
+            </div>
+            <div class="w-100 table-responsive">
+
+                <table id="example" class="table table-bordered  table-striped" style="width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th>action</th>
+                            <th>Mission</th>
+                            <th>Destination</th>
+                            <th>Moyen de transport</th>
+                            <th>Observation</th>
+                            <th>Date de départ</th>
+                            <th>Date de retour</th>
+                            <th>Nombre de jours</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for personnel_mission in personnel_missions %}
+                        {% if (personnel_mission.decisionChef == "encours") %}
+                        <tr class="text-center">
+                            <td>
+
+                                <a data-toggle="tooltip" title="Editer"
+                                    href="{{ path('personnel_mission_edit', {'id': personnel_mission.id}) }}">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                    </svg>
+                                </a> |
+                                <a data-toggle="tooltip" title="Supprimer"
+                                    href="{{ path('persMission_delete', {'id': personnel_mission.id}) }}"
+                                    onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cette mission?');"><svg <svg
+                                        width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash"
+                                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                        <path fill-rule="evenodd"
+                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                    </svg></a>
+
+                            </td>
+                            <td>{{ personnel_mission.libeleMissionFR }}</td>
+                            <td>{{ personnel_mission.destination }}</td>
+                            <td>{{ personnel_mission.moyenTransport }}</td>
+                            <td>{{ personnel_mission.observation }}</td>
+                            <td>{{ personnel_mission.dateDepart ? personnel_mission.dateDepart|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{ personnel_mission.dateRetour ? personnel_mission.dateRetour|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{  date(personnel_mission.dateRetour ).diff(date(personnel_mission.dateDepart)).d}}
+                                jours</td>
+                        </tr>
+                        {% endif %}
+                        {% else %}
+                        <tr>
+                            <td>no records found</td>
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {# <a href="{{ path('type_contrat_index') }}">back to list</a> #}
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="mx-auto p-2">
+            {# {{ include('type_contrat/_delete_form.html.twig') }} #}
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+            <button class="btn btn-link">
+                Historique de mes Missions
+            </button>
+        </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <div class="w-100 table-responsive">
+                <table id="example1" class="table table-bordered  table-striped" style="width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Mission</th>
+                            <th>Destination</th>
+                            <th>Moyen de transport</th>
+                            <th>Observation</th>
+                            <th>Date de départ</th>
+                            <th>Date de retour</th>
+                            <th>Nombre de jours</th>
+                            <th>Decision de chef</th>
+                            <th>Observation du decision deChef</th>
+                            <th>Date de decision de Chef</th>
+                            <th>Motif d'annulation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for personnel_mission in personnel_missions %}
+                        {% if personnel_mission.decisionChef != "encours"%}
+                        <tr class="text-center">
+                            <td>{{ personnel_mission.libeleMissionFR }}</td>
+                            <td>{{ personnel_mission.destination }}</td>
+                            <td>{{ personnel_mission.moyenTransport }}</td>
+                            <td>{{ personnel_mission.observation }}</td>
+                            <td>{{ personnel_mission.dateDepart ? personnel_mission.dateDepart|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{ personnel_mission.dateRetour ? personnel_mission.dateRetour|date('Y-m-d') : '' }}
+                            </td>
+                            <td>{{  date(personnel_mission.dateRetour ).diff(date(personnel_mission.dateDepart)).d}}
+                                jours</td>
+                            <td>{{ personnel_mission.decisionChef }}</td>
+                            <td>{{ personnel_mission.observationDecisionChef }}</td>
+
+                            <td>{{ personnel_mission.dateDecisionChef ? personnel_mission.dateDecisionChef|date('Y-m-d') : '' }}
+                            </td>
+
+                            <td>{{ personnel_mission.motifAnnulation }}</td>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% else %}
+                        <tr class="text-left">
+                            <td class="text-left">
+                                Aucun enregistrement trouvé</td>
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(document).ready(function () {
+        //Default data table
+
+
+        var table = $('#example').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis'],
+            language: {
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                }
+            }
+
+        });
+        var table = $('#example1').DataTable({
+
+            lengthChange: false,
+            buttons: ['colvis'],
+            language: {
+                buttons: {
+                    colvis: "Visibilité de  colonnes",
+                }
+            }
+
+        });
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+
+    });
+</script>
+{% endblock %}

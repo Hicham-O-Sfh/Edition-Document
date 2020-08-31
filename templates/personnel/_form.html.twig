@@ -1,0 +1,757 @@
+{{ form_start(form) }}
+
+<style>
+    .lbrtl {
+
+        text-align: right;
+    }
+
+    .arabic-direction {
+        direction: rtl;
+    }
+
+</style>
+
+<div class="row mb-2">
+
+    <div class="col-6">
+        <div class="d-flex">
+
+            <a href="{{ path('personnel_index') }}" class="btn btn-outline-primary">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-return-left" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M5.854 5.646a.5.5 0 0 1 0 .708L3.207 9l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z"></path>
+                    <path fill-rule="evenodd"
+                          d="M13.5 2.5a.5.5 0 0 1 .5.5v4a2.5 2.5 0 0 1-2.5 2.5H3a.5.5 0 0 1 0-1h8.5A1.5 1.5 0 0 0 13 7V3a.5.5 0 0 1 .5-.5z"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="d-flex justify-content-end ">
+            <a href="{{ path('personnel_new') }}" class="btn btn-success">Nouveau</a>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="accordion">
+
+
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button type="button" class="btn btn-link" data-toggle=" " data-target="1#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne">
+                    Etat Civil
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class=" " aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+
+                {# etat civil #}
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.nomFr) }}
+                                    {{ form_label(form.nomFr) }}
+                                    {{ form_widget(form.nomFr,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.prenomFr) }}
+
+                                    {{ form_label(form.prenomFr) }}
+                                    {{ form_widget(form.prenomFr,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.nomAr) }}
+                                    {{ form_label(form.nomAr) }}
+                                    {{ form_widget(form.nomAr,{'attr': {'class': 'form-control arabic-direction'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.prenomAr) }}
+                                    {{ form_label(form.prenomAr) }}
+                                    {{ form_widget(form.prenomAr,{'attr': {'class': 'form-control arabic-direction'}}) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {# row #}
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.numCin) }}
+                                    {{ form_label(form.numCin) }}
+                                    {{ form_widget(form.numCin,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.validiteCin) }}
+                                    {{ form_label(form.validiteCin) }}
+                                    {{ form_widget(form.validiteCin,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.sexe) }}
+                                    {{ form_label(form.sexe) }}
+                                    {{ form_widget(form.sexe,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.nationalite) }}
+                                    {{ form_label(form.nationalite) }}
+
+                                    {% if action == "new" %}
+                                        {{ form_widget(form.nationalite,{'attr': {'class': 'form-control', 'value': 'Marocaine'}}) }}
+
+                                    {% else %}
+
+                                        {{ form_widget(form.nationalite,{'attr': {'class': 'form-control' }}) }}
+                                    {% endif %}
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.dateNaissance) }}
+                                    {{ form_label(form.dateNaissance) }}
+                                    {{ form_widget(form.dateNaissance,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.lieuNaissance) }}
+                                    {{ form_label(form.lieuNaissance) }}
+                                    {{ form_widget(form.lieuNaissance,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+
+                            {# situation familiale #}
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.situationFamiliale) }}
+                                    {{ form_label(form.situationFamiliale) }}
+                                    {{ form_widget(form.situationFamiliale,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.adresseFr) }}
+                                    {{ form_label(form.adresseFr) }}
+                                    {{ form_widget(form.adresseFr,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.adresseAr) }}
+                                    {{ form_label(form.adresseAr) }}
+                                    {{ form_widget(form.adresseAr,{'attr': {'class': 'form-control arabic-direction '}}) }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row" id="personnelconjiont"
+                             {% if form.situationFamiliale.vars.value == "Célibataire" %}style="display: none;" {% endif %}>
+
+
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.nomConjointFr) }}
+                                    {{ form_label(form.nomConjointFr) }}
+                                    {{ form_widget(form.nomConjointFr,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.prenomConjointFr) }}
+                                    {{ form_label(form.prenomConjointFr) }}
+                                    {{ form_widget(form.prenomConjointFr,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.nomConjointAr) }}
+                                    {{ form_label(form.nomConjointAr) }}
+                                    {{ form_widget(form.nomConjointAr,{'attr': {'class': 'form-control arabic-direction'}}) }}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.PrenomConjointAr) }}
+                                    {{ form_label(form.PrenomConjointAr) }}
+                                    {{ form_widget(form.PrenomConjointAr,{'attr': {'class': 'form-control arabic-direction'}}) }}
+                                </div>
+
+                            </div>
+
+                            {# nombre enfant #}
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {{ form_errors(form.nombreEnfants) }}
+                                    {{ form_label(form.nombreEnfants) }}
+                                    {{ form_widget(form.nombreEnfants,{'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+
+                                <div class="form-group">
+                                    {% if action =="edit" %}
+                                        <div class="viewer">
+                                            <img style=" width: 100px;height: 100px;"
+                                                 src="{{ asset('uploads/')~form.vars.value.photo }}" alt="">
+                                        </div>
+                                    {% endif %}
+
+                                    {{ form_errors(form.file) }}
+                                    {{ form_label(form.file) }}
+                                    {{ form_widget(form.file,{required: '','attr': {'class': 'form-control', 'novalidate': 'novalidate'  }}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                {% if action == "edit" %}
+
+
+                    <div class="row">
+
+                    <div class="col-md-12">
+                        <table id="docTable" class="dataTable table table-bordered table-striped" style="width: 100%;">
+                            <thead>
+                              <th>
+                                      <button type="button" class=" btn btn-outline-primary" data-toggle="modal"
+                                              data-target="#documentModal">
+                                        +
+                                      </button>
+                                  </th>
+                                  </th>
+                            <th>Document Externe</th>
+
+
+                            </thead>
+                            <tbody>
+
+
+                            {% for document in personnel.personnelDocumentExternes %}
+                            <tr>
+
+<td></td>
+                                <td>
+                                    <a href="{{ asset('uploads/')~document.cheminDoc }}"
+                                       target="_blank">{{ document.titre }}</a>
+                                </td> {% endfor %}
+                            </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="row">
+
+
+
+
+                        </div>
+
+
+                        </table>
+
+
+                    </div>
+
+                    </div>{% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    {# situation administrative #}
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button type="button" class="btn btn-link " data-toggle="" data-target="1#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                    Situation Administrative
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class=" " aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.matricule) }}
+                            {{ form_label(form.matricule) }}
+                            {{ form_widget(form.matricule,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.numCnss) }}
+                            {{ form_label(form.numCnss) }}
+                            {{ form_widget(form.numCnss,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.numCimr) }}
+                            {{ form_label(form.numCimr) }}
+                            {{ form_widget(form.numCimr,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.dateEntree) }}
+                            {{ form_label(form.dateEntree) }}
+                            {{ form_widget(form.dateEntree,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+                </div>
+
+                {# row #}
+
+                <div class="row">
+
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.dateTitularisation) }}
+                            {{ form_label(form.dateTitularisation) }}
+                            {{ form_widget(form.dateTitularisation,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.typeContrat) }}
+                            {{ form_label(form.typeContrat) }}
+                            {{ form_widget(form.typeContrat,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+
+
+
+                    </div>
+
+                </div>
+
+
+                {# row fonction table #}
+                {% if action == "edit" %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table id="fonctionTable" class="dataTable table table-bordered table-striped"
+                                       style="width: 100%;">
+                                    <thead>
+                                    <th>
+
+
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class=" btn btn-outline-primary" data-toggle="modal"
+                                                data-target="#newfonctionmodal">
+                                            +
+                                        </button>
+                                    </th>
+                                    <th>Fonction</th>
+                                    <th>Affectation</th>
+                                    <th>Date Début</th>
+                                    <th>Date fin</th>
+                                    <th>durée</th>
+                                    <th>Observation</th>
+
+                                    </thead>
+                                    <tbody>
+
+                                    {% for fonction in personnel.personnelFonctions %}
+                                        <tr>
+                                            <td></td>
+                                            <td>{{ fonction.fonction? fonction.fonction.libelleFr: "vide"}}</td>
+                                            <td>{{ fonction.lieuAffectation? fonction.lieuAffectation.libelleFr : "vide"}}</td>
+                                            <td>{{ fonction.dateDebut?fonction.dateDebut|date('d/m/Y') : "vide" }}</td>
+                                            <td>{{ fonction.dateFin?fonction.dateFin|date('d/m/Y'): "en cour" }}</td>
+                                            <td>{{  date(fonction.dateFin).diff(date(fonction.dateDebut)).m}}  mois</td>
+                                            <td>{{ fonction.observation }}</td>
+
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.dateDepart) }}
+                            {{ form_label(form.dateDepart) }}
+                            {{ form_widget(form.dateDepart,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.motif) }}
+                            {{ form_label(form.motif) }}
+                            {{ form_widget(form.motif,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% if action == "edit" %}
+
+
+
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                                    data-target="1#collapseThree"
+                                    aria-expanded="false" aria-controls="collapseThree">
+                                Diplômes
+
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class=" " aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="diplomeTable" class="table table-bordered  table-striped" style="width: 100%;">
+                                    <thead>
+                                    <th>
+                                        <button type="button" class=" btn btn-outline-primary" data-toggle="modal"
+                                                data-target="#diplomeModal">
+                                            +
+                                        </button>
+                                    </th>
+                                    <th>N°</th>
+                                    <th>Désignation</th>
+                                    <th>Date Obtention</th>
+                                    <th>Etablissement</th>
+                                    <th>Specialité</th>
+                                    <th>Nom</th>
+                                    <th>Lien</th>
+
+
+                                    </thead>
+                                    <tbody>
+                                    {% for diplome in personnel.personnelDiplomes %}
+
+
+                                        <tr>
+                                            <td><a href="{{ path('personnel_diplome_edit', {'id': diplome.id}) }}">edit</a></td>
+                                            <td>{{ diplome.id }}</td>
+                                            <td>{{ diplome.designation }}</td>
+                                            <td>{{ diplome.dateObtention|date('Y') }}</td>
+                                            <td>{{ diplome.etablissement }}</td>
+                                            <td>{{ diplome.specialite }}</td>
+                                            <td>{{ diplome.diplome }}</td>
+                                            <td><a target="_blank" href="{{ asset('uploads/')~ diplome.cheminDoc }}">
+                                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye"
+                                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd"
+                                                              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
+                                                        <path fill-rule="evenodd"
+                                                              d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                                    </svg>
+                                                </a></td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+
+                            <div class="row">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+    {% endif %}
+    <div class="card">
+        <div class="card-header" id="headingfor">
+            <h5 class="mb-0">
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="1#collapsefor"
+                        aria-expanded="false" aria-controls="collapsefor">
+                    Contact
+
+                </button>
+            </h5>
+        </div>
+        <div id="collapsefor" class=" " aria-labelledby="headingfor" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.telPersonnel) }}
+                            {{ form_label(form.telPersonnel) }}
+                            {{ form_widget(form.telPersonnel,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.telProfessionnel) }}
+                            {{ form_label(form.telProfessionnel) }}
+                            {{ form_widget(form.telProfessionnel,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.emailPersonnel) }}
+                            {{ form_label(form.emailPersonnel) }}
+                            {{ form_widget(form.emailPersonnel,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.emailProfessionnel) }}
+                            {{ form_label(form.emailProfessionnel) }}
+                            {{ form_widget(form.emailProfessionnel,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {# user info  #}
+
+    {# fonction#}
+
+
+    <div class="card">
+        <div class="card-header" id="headingseven">
+            <h5 class="mb-0">
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="1#collabsefive"
+                        aria-expanded="false" aria-controls="collabsefive">
+                   Affectation
+
+                </button>
+            </h5>
+        </div>
+
+
+        <div id="collabsefive" class=" " aria-labelledby="headingseven" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+
+
+                                    <div class="col-md-3 col-sm-12">
+                                        {{ form_errors(form.fonctions) }}
+                                        {{ form_label(form.fonctions) }}
+                                        {{ form_widget(form.fonctions,{'attr': {'class': 'form-control'}}) }}
+
+                                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+                        {{ form_errors(form.affectations) }}
+                        {{ form_label(form.affectations) }}
+                        {{ form_widget(form.affectations,{'attr': {'class': 'form-control'}}) }}
+
+                    </div>
+
+                    <div class="col-12 row mt-3">
+                    <div class="col-md-6 col-sm-12">
+                        {{ form_errors(form.secteur) }}
+                        {{ form_label(form.secteur) }}
+                        {{ form_widget(form.secteur,{'attr': {'class': 'form-control'}}) }}
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        {{ form_errors(form.departement) }}
+                        {{ form_label(form.departement) }}
+                        {{ form_widget(form.departement,{'attr': {'class': 'form-control'}}) }}
+
+                    </div>
+
+                        <div class="col-md-6 col-sm-12" style="display: none;">
+                            <label for="personnel_groupement" >groupement</label>
+                            <input type="text" class="form-control" id="personnel_groupement">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {# SAlair #}
+
+    <div class="card">
+        <div class="card-header" id="headingsix">
+            <h5 class="mb-0">
+                <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="1#collapsesix"
+                        aria-expanded="false" aria-controls="collapsesix">
+                    Salaire
+
+                </button>
+            </h5>
+        </div>
+
+
+        <div id="collapsesix" class=" " aria-labelledby="headingsix" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.banque) }}
+                            {{ form_label(form.banque) }}
+                            {{ form_widget(form.banque,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.numRib) }}
+                            {{ form_label(form.numRib) }}
+                            {{ form_widget(form.numRib,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-12">
+
+                        <div class="form-group">
+
+                            {{ form_errors(form.salaire) }}
+                            {{ form_label(form.salaire) }}
+                            {{ form_widget(form.salaire,{'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<button class="btn btn-success">{{ button_label|default('enregistrer') }}</button></div>
+<div hidden>
+    {{ form_row(form.personnelFonctions) }}
+    {{ form_row(form.photo) }}
+</div>
+{{ form_end(form) }}
