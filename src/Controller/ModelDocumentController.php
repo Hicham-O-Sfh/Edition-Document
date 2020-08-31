@@ -90,7 +90,7 @@ class ModelDocumentController extends AbstractController
             return $this->redirectToRoute('model_document_index');
         }
 
-        return $this->render('model_document/new.html.twig', [
+        return $this->render('model_document/add.html.twig', [
             'model_document' => $modelDocument,
             'documentModelForm' => $form->createView(),
         ]);

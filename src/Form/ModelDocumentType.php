@@ -17,9 +17,12 @@ class ModelDocumentType extends AbstractType
             ->add('intitule', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('details')
             ->add(
-                'content',
-                CKEditorType::class
-            );
+                'content', CKEditorType::class, array(
+                'config' => array(
+                    'uiColor' => '#ffffff',
+                    //...
+                ),
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
