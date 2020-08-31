@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ModelDocument;
 use App\Repository\ModelDocumentRepository;
 use App\Repository\PersonnelRepository;
+use App\Form\ModelDocumentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -60,35 +61,39 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/add", name="add")
+     * @Route("/add", name="add" , methods={"GET","POST"})
      */
-    public function add(Request $req)
+    public function add(Request $request): Response
     {
-
         //ModelDocument
+        // if ($req->request->count() > 0) {
+        //     $models = new ModelDocument();
+        //     $models->setDateCreation(new \DateTime());
+        //     $models->setDetails($req->request->get('modeldetails'));
+        //     $models->setContent(htmlentities($req->request->get('content')));
+        //     $models->setIntitule($req->request->get('modelname'));
 
-        if ($req->request->count() > 0) {
-            $models = new ModelDocument();
-            $models->setDateCreation(new \DateTime());
-            $models->setDetails($req->request->get('modeldetails'));
-            $models->setContent(htmlentities($req->request->get('content')));
-            $models->setIntitule($req->request->get('modelname'));
+        //     $entityManager = $this->getDoctrine()->getManager();
+        //     $entityManager->persist($models);
+        //     $entityManager->flush();
+        // }
+
+        $modelDocument = new ModelDocument();
+        $form = $this->createForm(ModelDocumentType::class, $modelDocument);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($models);
+            $entityManager->persist($modelDocument);
             $entityManager->flush();
-            // Add for valdation 
-            //  $this->addFlash("success","Element Ajouter");
-            return $this->render('model_document/add.html.twig');
+
+            return $this->redirectToRoute('model_document_index');
         }
-        //!to do validation 
-        //   else if($req->request->get('editor1')===""){
-        //       $this->addFlash("danger","Element nom Ajouter");
-        //       return $this->render('test/index.html.twig');
-        //   }
 
-
-
-        return $this->render('model_document/add.html.twig');
+        return $this->render('model_document/new.html.twig', [
+            'model_document' => $modelDocument,
+            'documentModelForm' => $form->createView(),
+        ]);
     }
 
     // /**

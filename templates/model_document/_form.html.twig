@@ -1,4 +1,43 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{{ form_start(documentModelForm) }}
+<div class="card-header"><i class="fa fa-table"></i> Document </div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                {{ form_row(documentModelForm.intitule) }}
+            </div>
+            <br>
+            <div>
+                {{ form_row(documentModelForm.details) }}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row m-2">
+                <div class="d-flex justify-content-center p-1">
+                    <button class=" btn btn-outline-primary" id="bnom"
+                        name="<span class='nom'> @{Nom&prenom} </span>">Nom & Prenom
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center p-1">
+                    <button class=" btn btn-outline-primary" id="bdate"
+                        name="<span class='date' > @{Date} </span>">date</button>
+
+                </div>
+                <div class="d-flex justify-content-center p-1">
+                    <button class=" btn btn-outline-primary" id="bnum"
+                        name="<span class='num'> @{num} </span>">num</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-3">
+            {{ form_row(documentModelForm.content) }}
+            
+            <div class="d-flex justify-content-end p-1">
+                <input class=" btn btn-outline-primary" type="submit" value="Ajouter" />
+            </div>
+        </div>
+    </div>
+</div>
+{# {{ form_widget(documentModelForm) }}
+<button class="btn">{{ button_label|default('Save') }}</button> #}
+{{ form_end(documentModelForm) }}
