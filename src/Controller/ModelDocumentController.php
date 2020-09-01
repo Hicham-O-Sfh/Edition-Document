@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 /**
  * @Route("/model/document")
@@ -65,34 +66,32 @@ class ModelDocumentController extends AbstractController
      */
     public function add(Request $request): Response
     {
-        //ModelDocument
-        // if ($req->request->count() > 0) {
-        //     $models = new ModelDocument();
-        //     $models->setDateCreation(new \DateTime());
-        //     $models->setDetails($req->request->get('modeldetails'));
-        //     $models->setContent(htmlentities($req->request->get('content')));
-        //     $models->setIntitule($req->request->get('modelname'));
-
-        //     $entityManager = $this->getDoctrine()->getManager();
-        //     $entityManager->persist($models);
-        //     $entityManager->flush();
-        // }
-
         $modelDocument = new ModelDocument();
         $form = $this->createForm(ModelDocumentType::class, $modelDocument);
         $form->handleRequest($request);
+        $entityManager = $this->getDoctrine()->getManager();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $modelDocument->setDateCreation(new \DateTime());
             $entityManager->persist($modelDocument);
             $entityManager->flush();
 
             return $this->redirectToRoute('model_document_index');
         }
 
+        $conn =  $entityManager->getConnection();
+        $columns = $conn->fetchAll("
+        SELECT column_name as colName
+        FROM information_schema.columns 
+        WHERE table_schema = 'si_anoc_bd_test' 
+            AND table_name = 'personnel'
+            AND column_name IN ('email_professionnel', 'num_cin', 'matricule', 'nom_fr', 'prenom_fr', 'nom_ar', 'prenom_ar', 'nom_conjoint_ar', 'prenom_conjoint_ar', 'sexe', 'tel_professionnel', 'est_personnel')
+        ");
+
         return $this->render('model_document/add.html.twig', [
             'model_document' => $modelDocument,
             'documentModelForm' => $form->createView(),
+            'columns' => $columns,
         ]);
     }
 

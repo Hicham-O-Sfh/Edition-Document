@@ -9,7 +9,7 @@
     <meta name="author" content="" />
 
     <title>{% block title %}ANOC{% endblock %}</title>
-     
+
     <!-- loader-->
 
     <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet" />
@@ -54,7 +54,7 @@
         <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
             <div class="brand-logo">
                 <a href="index.html">
-                    <img src="assets/images/logo-icon.png" class="logo-icon" alt="">
+                    {# <img src="assets/images/logo-icon.png" class="logo-icon" alt=""> #}
                     <h5 class="logo-text">SI-ANOC</h5>
                 </a>
             </div>
@@ -66,9 +66,9 @@
                             alt=""></div>
                     {% endif %}
                     <div class="media-body">
-                    {% if app.user %}
+                        {% if app.user %}
                         <h6 class="side-user-name">{{app.user.prenomFr}} {{app.user.nomFr }}</h6>
-                    {% endif %}
+                        {% endif %}
                     </div>
                 </div>
                 <div id="user-dropdown" class="collapse">
@@ -288,7 +288,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="sidebar-submenu">
-                                <li><a href="{{path('model_document_index')}}"><i class="zmdi zmdi-dot-circle-alt"></i> Modèles
+                                <li><a href="{{path('model_document_index')}}"><i class="zmdi zmdi-dot-circle-alt"></i>
+                                        Modèles
                                         documents</a></li>
                                 <li><a href="form-input-group.html"><i class="zmdi zmdi-dot-circle-alt"></i> Liste
                                         Edition
@@ -301,10 +302,12 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="sidebar-submenu">
-                                <li><a href="{{ path('active_salaries') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Salariés
+                                <li><a href="{{ path('active_salaries') }}"><i class="zmdi zmdi-dot-circle-alt"></i>
+                                        Salariés
                                         actifs</a>
                                 </li>
-                                <li><a href="{{ path('went_salaries') }}"><i class="zmdi zmdi-dot-circle-alt"></i> Salariés
+                                <li><a href="{{ path('went_salaries') }}"><i class="zmdi zmdi-dot-circle-alt"></i>
+                                        Salariés
                                         sortants</a></li>
                             </ul>
                         </li>
@@ -566,21 +569,22 @@
                 </li> #}
 
                     <li class="nav-item">
-                    {% if app.user %}
+                        {% if app.user %}
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
                             <span class="user-profile"><img src="{{ asset('uploads/')~app.user.photo }}"
                                     class="img-circle" alt=""></span>
                         </a>
                         {%endif%}
                         <ul class="dropdown-menu dropdown-menu-right">
-                        {% if app.user %}
+                            {% if app.user %}
                             <li class="dropdown-item user-details">
                                 <a href="">
                                     <div class="media">
                                         <div class="avatar"><img class="align-self-start mr-3"
                                                 src="{{ asset('uploads/')~app.user.photo }}" alt=""></div>
                                         <div class="media-body">
-                                            <h6 class="mt-2 user-title">{{ app.user.prenomFr }} {{ app.user.nomFr }}</h6>
+                                            <h6 class="mt-2 user-title">{{ app.user.prenomFr }} {{ app.user.nomFr }}
+                                            </h6>
                                             <p class="user-subtitle">{{ app.user.emailProfessionnel }}</p>
                                         </div>
                                     </div>
@@ -594,7 +598,8 @@
                             <li class="dropdown-item"><a href="{{ path('personnel_mission_index') }}"><i
                                         class="fa fa-th"></i> Mission</a></li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item"><a href="{{ path('personnel_conge_index') }}"><i class="fa fa-tasks"></i> Congé</a></li>
+                            <li class="dropdown-item"><a href="{{ path('personnel_conge_index') }}"><i
+                                        class="fa fa-tasks"></i> Congé</a></li>
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-item"><a href=""><i class="fa fa-file-o"></i> Document</a></li>
                             <li class="dropdown-divider"></li>
@@ -693,7 +698,7 @@
     <!-- sidebar-menu js -->
     <script src="{{ asset('assets/js/sidebar-menu.js') }}"></script>
     <!-- loader scripts -->
-    <script src="{{ asset('assets/js/jquery.loading-indicator.js') }}"></script>
+    {# <script src="{{ asset('assets/js/jquery.loading-indicator.js') }}"></script> #}
     <!-- Custom scripts -->
     <script src="{{ asset('assets/js/app-script.js') }}"></script>
     <!-- Chart js -->
@@ -709,7 +714,7 @@
     <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js') }}"></script>
-    <script  src="//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.21/i18n/French.json"></script>
     {% block javascripts %}
 
 

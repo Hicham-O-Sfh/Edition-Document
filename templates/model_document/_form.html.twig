@@ -13,25 +13,42 @@
         </div>
         <div class="col-6">
             <div class="row m-2">
-                <div class="d-flex justify-content-center p-1">
-                    <button class=" btn btn-outline-primary" id="bnom"
-                        name="<span class='nom'> @{Nom&prenom} </span>">Nom & Prenom
+                <div class="d-flex justify-content-center m-2">
+                    <button class=" btn btn-outline-primary" id="bnom" name="<span class='nom'> @{Nom&prenom} </span>">
+                        <i class="far fa-id-badge"></i>
+                        Nom & Prenom
                     </button>
                 </div>
-                <div class="d-flex justify-content-center p-1">
-                    <button class=" btn btn-outline-primary" id="bdate"
-                        name="<span class='date' > @{Date} </span>">date</button>
-
+                <div class="d-flex justify-content-center m-2">
+                    <button class=" btn btn-outline-primary" id="bEmail" name="<span class='Email'> @{Email} </span>">
+                        <i class="fas fa-at"></i>
+                        Email
+                    </button>
                 </div>
-                <div class="d-flex justify-content-center p-1">
-                    <button class=" btn btn-outline-primary" id="bnum"
-                        name="<span class='num'> @{num} </span>">num</button>
+                <div class="d-flex justify-content-center m-2">
+                    <button class=" btn btn-outline-primary" id="bCIN" name="<span class='CIN'> @{CIN} </span>">
+                        <i class="fas fa-address-card"></i>
+                        CIN
+                    </button>
                 </div>
+                <div class="d-flex justify-content-center m-2">
+                    <button class=" btn btn-outline-primary" id="bnum" name="<span class='num'> @{num} </span>">
+                        <i class="fas fa-phone"></i>
+                        téléphone
+                    </button>
+                </div>
+                {% for column in columns %}
+                <div class="d-flex justify-content-center m-2">
+                    <button class=" btn btn-outline-primary" id="test" name="test">
+                        {{ column.colName }}
+                    </button>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="col-12 mt-3">
             {{ form_row(documentModelForm.content) }}
-            
+
             <div class="d-flex justify-content-end p-1">
                 <input class=" btn btn-outline-primary" type="submit" value="Ajouter" />
             </div>

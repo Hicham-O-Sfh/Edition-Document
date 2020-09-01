@@ -2,7 +2,9 @@
 
 {% block title %}ModelDocument index{% endblock %}
 
+
 {% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
 
 <div class="mb-2">
     <div class="d-flex">
@@ -23,50 +25,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            {% include "model_document/_form.html.twig" %}
-            {# <form action="{{ path('add') }}" method="POST">
-                <div class="card-header"><i class="fa fa-table"></i> Document </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div>
-                                <label for="modelName">Intitule</label>
-                                <input type="text" class="form-control" placeholder="Intitule" name="modelName"
-                                    id="modelName">
-                            </div>
-                            <br>
-                            <div>
-                                <label for="modelDetails">Details</label>
-                                <textarea class="form-control" name="modelDetails" id="modelDetails" rows="5"
-                                    cols="80"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="row m-2">
-                                <div class="d-flex justify-content-center p-1">
-                                    <button class=" btn btn-outline-primary" id="bnom"
-                                        name="<span class='nom'> @{Nom&prenom} </span>">Nom & Prenom
-                                    </button>
-                                </div>
-                                <div class="d-flex justify-content-center p-1">
-                                    <button class=" btn btn-outline-primary" id="bdate"
-                                        name="<span class='date' > @{Date} </span>">date</button>
-
-                                </div>
-                                <div class="d-flex justify-content-center p-1">
-                                    <button class=" btn btn-outline-primary" id="bnum"
-                                        name="<span class='num'> @{num} </span>">num</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 mt-3">
-                            <textarea name="content" id="content" rows="10" cols="80"></textarea>
-                            <div class="d-flex justify-content-end p-1">
-                                <input class=" btn btn-outline-primary" type="submit" value="Ajouter" />
-                            </div>
-                        </div>
-                    </div>
-            </form> #}
+            {% include "model_document/_form.html.twig" with {'columns': columns}  %}
         </div>
     </div>
 </div>
@@ -74,25 +33,27 @@
 
 {% block javascripts %}
 <script>
-    //Name et Prenom               
     document.getElementById('bnom').addEventListener("click", function (e) {
         e.preventDefault();
         setcontent(e.target.name);
     });
-    // Date
-    document.getElementById('bdate').addEventListener("click", function (e) {
+    document.getElementById('bEmail').addEventListener("click", function (e) {
         e.preventDefault();
         setcontent(e.target.name);
     });
-    //Num 
     document.getElementById('bnum').addEventListener("click", function (e) {
         e.preventDefault();
         setcontent(e.target.name);
     });
 
-    {# function setcontent(v) {
+    function setcontent(v) {
         var element = CKEDITOR.dom.element.createFromHtml(v);
-        data = CKEDITOR.instances.content.insertElement(element);
-    } #}
+        console.log(v);
+        CKEDITOR.instance['cke_1_contents'].insertElement(str);
+        //CKEDITOR.instances['content'].setData(element);
+
+        //CKEDITOR.instances[0].insertHtml(element);
+        //CKEDITOR.instances[0].content.insertElement(element);
+    }
 </script>
 {% endblock %}
