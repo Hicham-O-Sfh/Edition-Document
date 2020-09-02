@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ModelDocument;
+use App\Entity\Personnel;
 use App\Repository\ModelDocumentRepository;
 use App\Repository\PersonnelRepository;
 use App\Form\ModelDocumentType;
@@ -37,11 +38,12 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/phpmyadmin")
+     * @Route("/ajaxGetUserById/{id}", name="ajaxGetUserById" , methods={"GET"})
      */
-    public function redirectToPanel()
+    public function ajaxGetUserById(Personnel $personnel)
     {
-        return $this->redirect('http://localhost/phpmyadmin');
+        // $pers =  $serializer->serialize($personnel, 'json');
+        return new JsonResponse($personnel->getId());
     }
 
     /**
@@ -49,6 +51,7 @@ class ModelDocumentController extends AbstractController
      */
     public function make(ModelDocumentRepository $modelDocuments, PersonnelRepository $users)
     {
+
         return $this->render(
             'model_document/make.html.twig',
             [

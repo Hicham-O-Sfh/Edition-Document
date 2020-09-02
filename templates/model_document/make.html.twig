@@ -6,9 +6,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
 <style>
     #preview {
+        text-align: center;
         border: solid 2px;
         border-radius: 11px;
-        padding: 25px;
+        padding: 10px 10%;
     }
 </style>
 
@@ -53,11 +54,11 @@
                     <div class="col-6">
                         <div class="form-inline">
                             <div class="form-group">
-                                <label for="users">
+                                <label for="userSelect">
                                     <i class="fas fa-user-alt"></i> &nbsp;
                                     Choix de la personne :
                                 </label>
-                                <select class="form-control orm-group mx-sm-4" id="users" name="users">
+                                <select class="form-control orm-group mx-sm-4" id="userSelect" name="userSelect">
                                     <option value="-1" selected disabled>-Sélectionner-</option>
                                     {% for user in users %}
                                     <option value="{{user.id}}">{{user.nomFr}} {{user.prenomFr}}</option>
@@ -70,26 +71,55 @@
 
                 </div>
             </div>
-            <div class="row m-2">
-                <button class="btn btn-outline-primary" id="clearBtn">
-                    <i class="fas fa-paint-brush"></i>
-                    Tout Effacer
+            <div class="d-flex justify-content-end p-1">
+                <button class="btn btn-outline-success" id="printBtn">
+                    <i class="fas fa-print"></i>
+                    Imprimer
                 </button>
             </div>
 
-            <div name="preview" id="preview">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur sequi fugit, sapiente vero
-                architecto assumenda odio doloremque nihil blanditiis, sunt possimus. Officia, labore animi repellat,
-                ipsum iusto, alias pariatur recusandae enim debitis soluta ad expedita dolor tempora sint facere! Quam
-                voluptate cupiditate quae nisi ipsum reiciendis repudiandae maiores, hic architecto.
+            <div name="preview" id="preview" class="preview">
+                Veuillez sélectionner un type de
+                <strong style="color:black">
+                    <i class="fas fa-paste"></i>
+                    Modéle
+                </strong>
+                dans la liste déroulante
+                des modéles déja
+                pré-inscrits et
+                enregistrés,
+                <br>
+                ensuite veuillez choisir une
+                <strong style="color:black">
+                    <i class="fas fa-user-alt"></i>
+                    Personne
+                </strong> parmis la liste des employés.
+                Le contenu du document sera remplit aussit&ocirc;t que possible dépendant de votre état de
+                connexion
+                ...
             </div>
         </div>
     </div>
 </div>
 
+
 {% endblock %}
 {% block javascripts %}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="{{ asset('assets/js/printThis.js') }}"></script>
+<script type="text/javascript">
+    var j = jQuery.noConflict(true);
+    j('#printBtn').on("click", function () {
+        j('.preview').printThis({
+            base: "https://jasonday.github.io/printThis/"
+        });
+    });
+</script>
 <script>
+    // aprés la selection du modéle dans la liste déroulante
     $(document).ready(function () {
         $("#modelSelect").on("change", function (event) {
             $.ajax({
@@ -99,6 +129,25 @@
                 async: true,
                 success: function (documentHtml) {
                     document.getElementById("preview").innerHTML = documentHtml;
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('Erreur de requéte Ajax ....');
+                }
+            });
+        });
+    });
+</script>
+<script>
+    // aprés la selection du user dans la liste déroulante 
+    $(document).ready(function () {
+        $("#userSelect").on("change", function (event) {
+            $.ajax({
+                url: '/model/document/ajaxGetUserById/' + $(this).val(),
+                type: 'GET',
+                dataType: 'json',
+                async: true,
+                success: function (personnel) {
+                    console.log(personnel);
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     alert('Erreur de requéte Ajax ....');

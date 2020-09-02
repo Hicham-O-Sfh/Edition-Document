@@ -6,46 +6,20 @@
             <div>
                 {{ form_row(documentModelForm.intitule) }}
             </div>
-            <br>
+
             <div>
-                {{ form_row(documentModelForm.details) }}
+                <label for="infos">Infos à inserer</label>
+                <select class="form-control" id="infoSelect">
+                    <option value="-1" disabled selected>-Veuillez Sélectionner</option>
+                    {% for column in columns %}
+                    <option value="[{{ column.colName }}]" name="[{{ column.colName }}]">{{ column.colName }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
         <div class="col-6">
-            <div class="row m-2">
-                <div class="d-flex justify-content-center m-2">
-                    <button class=" btn btn-outline-primary" id="bnom"
-                        name="<span id='nomSpan' class='nomSpan'>[Nom et prénom]</span>">
-                        <i class="far fa-id-badge"></i>
-                        Nom & Prenom
-                    </button>
-                </div>
-                <div class="d-flex justify-content-center m-2">
-                    <button class=" btn btn-outline-primary" id="bEmail" name="<span class='Email'> [Email] </span>">
-                        <i class="fas fa-at"></i>
-                        Email
-                    </button>
-                </div>
-                <div class="d-flex justify-content-center m-2">
-                    <button class=" btn btn-outline-primary" id="bCIN" name="<span class='CIN'> [CIN] </span>">
-                        <i class="fas fa-address-card"></i>
-                        CIN
-                    </button>
-                </div>
-                <div class="d-flex justify-content-center m-2">
-                    <button class=" btn btn-outline-primary" id="bnum" name="<span class='num'> [num] </span>">
-                        <i class="fas fa-phone"></i>
-                        téléphone
-                    </button>
-                </div>
-                {% for column in columns %}
-                <div class="d-flex justify-content-center m-2">
-                    <button class=" btn btn-outline-primary">
-                        {{ column.colName }}
-                    </button>
-                </div>
-                {% endfor %}
-            </div>
+            {{ form_row(documentModelForm.details) }}
+
         </div>
         <div class="col-12 mt-3">
             {{ form_row(documentModelForm.content) }}
@@ -56,6 +30,4 @@
         </div>
     </div>
 </div>
-{# {{ form_widget(documentModelForm) }}
-<button class="btn">{{ button_label|default('Save') }}</button> #}
 {{ form_end(documentModelForm) }}
