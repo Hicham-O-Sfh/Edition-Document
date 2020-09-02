@@ -4,6 +4,13 @@
 
 {% block body %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+<style>
+    #preview {
+        border: solid 2px;
+        border-radius: 11px;
+        padding: 25px;
+    }
+</style>
 
 <div class="d-flex">
     <a href="{{ path('model_document_index') }}" class="btn btn-outline-primary">
@@ -24,43 +31,57 @@
         <div class="card">
             <div class="card-header"><i class="fa fa-table"></i> Document </div>
             <div class="card-body">
+                <div class="row">
+
+                    <div class="col-6">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="modelSelect">
+                                    <i class="fas fa-paste"></i> &nbsp;
+                                    Choix du Model :
+                                </label>
+                                <select class="form-control orm-group mx-sm-4" id="modelSelect" name="modelSelect">
+                                    <option value="-1" selected disabled>-Sélectionner-</option>
+                                    {% for doc in documents %}
+                                    <option value="{{doc.id}}">{{doc.intitule}} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <label for="users">
+                                    <i class="fas fa-user-alt"></i> &nbsp;
+                                    Choix de la personne :
+                                </label>
+                                <select class="form-control orm-group mx-sm-4" id="users" name="users">
+                                    <option value="-1" selected disabled>-Sélectionner-</option>
+                                    {% for user in users %}
+                                    <option value="{{user.id}}">{{user.nomFr}} {{user.prenomFr}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
 
-                <label for="Model">Choix de model</label>
-                {# //! Boucle et Choix de Models  #}
-                <select name="models" onchange="Choix_model(this)">
-                    <option value="-1">Sélectionner documents model</option>
-                    {% for doc in documents %}
-                    <option value="{{doc.id}}">{{doc.intitule}} </option>
-                    {% endfor %}
-                </select>
-
-
-                {# ! Boucle pour les users #}
-                <label for="Model">Choix de user</label>
-                <select name="users" id="users" onChange="bind_user(this)" multiple>
-                    <option value="-1">Sélectionner User</option>
-                    {% for user in users %}
-                    <option value="{{user.id}}">{{user.nomFr}} {{user.prenomFr}}</option>
-                    {% endfor %}
-
-                </select>
-                </tbody>
-                </table>
-            </div>
-            <div class="col">
-                <div class="row m-2">
-                    <button class=" btn btn-outline-primary" id="clear">
-                        <i class="fas fa-paint-brush"></i>
-                        Tout Effacer
-                    </button>
                 </div>
-                <textarea name="editor1" id="editor1" rows="10" cols="80" required>
-            </textarea>
-                <script>
-                    CKEDITOR.replace('editor1');
-                </script>
-                </form>
+            </div>
+            <div class="row m-2">
+                <button class="btn btn-outline-primary" id="clearBtn">
+                    <i class="fas fa-paint-brush"></i>
+                    Tout Effacer
+                </button>
+            </div>
+
+            <div name="preview" id="preview">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur sequi fugit, sapiente vero
+                architecto assumenda odio doloremque nihil blanditiis, sunt possimus. Officia, labore animi repellat,
+                ipsum iusto, alias pariatur recusandae enim debitis soluta ad expedita dolor tempora sint facere! Quam
+                voluptate cupiditate quae nisi ipsum reiciendis repudiandae maiores, hic architecto.
             </div>
         </div>
     </div>
@@ -68,54 +89,22 @@
 
 {% endblock %}
 {% block javascripts %}
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    let users, models;
-    // get all data on load
-
-
-    axios({
-            method: "get",
-            url: "http://127.0.0.1:8000/model/document/getdataall"
-        }).then(function (res) {
-            models = res.data.models[0];
-            users = res.data.models[1];
-        })
-        .catch(err => console.log(err))
-
-    function Choix_model(parms) {
-
-        let id = parms.value;
-        if (id == -1) {
-            CKEDITOR.instances.editor1.setData('');
-            return;
-        }
-
-        for (let i = 0; i < models.length; i++) {
-            if (id == models[i].id) {
-                CKEDITOR.instances.editor1.setData(models[i].content);
-            }
-        }
-    }
-
-    function bind_user(parms) {
-        let id = parms.value;
-        if (id == -1)
-            return;
-        let data = CKEDITOR.instances.editor1.getData();
-        for (let i = 0; i < users.length; i++) {
-            if (id == users[i].id) {
-                let name = users[i].nomFr + " " + users[i].prenomFr;
-
-                data = data.replace("@{Nom&amp;prenom}", name);
-                data = data.replace("@{Date}", users[i].dateNaissance);
-                data = data.replace("@{num}", users[i].id);
-                console.log(data);
-            }
-
-
-        }
-        CKEDITOR.instances.editor1.setData(data);
-    }
+    $(document).ready(function () {
+        $("#modelSelect").on("change", function (event) {
+            $.ajax({
+                url: '/model/document/ajaxGetModelById/' + $(this).val(),
+                type: 'GET',
+                dataType: 'json',
+                async: true,
+                success: function (documentHtml) {
+                    document.getElementById("preview").innerHTML = documentHtml;
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('Erreur de requéte Ajax ....');
+                }
+            });
+        });
+    });
 </script>
 {% endblock %}

@@ -35,7 +35,7 @@
 <script>
     document.getElementById('bnom').addEventListener("click", function (e) {
         e.preventDefault();
-        setcontent(e.target.name);
+        setcontent(this.name);
     });
     document.getElementById('bEmail').addEventListener("click", function (e) {
         e.preventDefault();
@@ -46,14 +46,9 @@
         setcontent(e.target.name);
     });
 
-    function setcontent(v) {
-        var element = CKEDITOR.dom.element.createFromHtml(v);
-        console.log(v);
-        CKEDITOR.instance['cke_1_contents'].insertElement(str);
-        //CKEDITOR.instances['content'].setData(element);
-
-        //CKEDITOR.instances[0].insertHtml(element);
-        //CKEDITOR.instances[0].content.insertElement(element);
+    function setcontent(element) {
+        var myElement = CKEDITOR.dom.element.createFromHtml(element);
+        CKEDITOR.instances.model_document_content.insertHtml(myElement.$.outerHTML);
     }
 </script>
 {% endblock %}

@@ -169,7 +169,7 @@ class Personnel implements UserInterface
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $estPersonnel= 1;
+    private $estPersonnel = 1;
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
@@ -254,7 +254,7 @@ class Personnel implements UserInterface
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $utiliseApplication = 1 ;
+    private $utiliseApplication = 1;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -282,7 +282,7 @@ class Personnel implements UserInterface
     private $histoPersonnels;
 
 
-    
+
     public function __construct()
     {
         $this->personnelDiplomes = new ArrayCollection();
@@ -294,8 +294,6 @@ class Personnel implements UserInterface
         $this->personnelDocumentExternes = new ArrayCollection();
         $this->personnels = new ArrayCollection();
         $this->histoPersonnels = new ArrayCollection();
-
-
     }
 
 
@@ -653,7 +651,7 @@ class Personnel implements UserInterface
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->getNomFr()." ".$this->getPrenomFr();
+        return $this->getNomFr() . " " . $this->getPrenomFr();
     }
 
     public function getTypeContrat(): ?TypeContrat
@@ -1154,10 +1152,4 @@ class Personnel implements UserInterface
 
         return $this;
     }
-
-
-
-
-
-
 }
