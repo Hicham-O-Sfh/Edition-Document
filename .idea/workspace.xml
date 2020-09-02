@@ -26,31 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd1069dc-e324-4656-b775-54b08e4717f2" name="Default Changelist" comment="fixup! updates">
+      <change beforePath="$PROJECT_DIR$/.idea/ANOC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANOC.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/personnel_fonction_add.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/personnel_fonction_add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PersonnelCongeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonnelCongeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PersonnelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonnelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Departement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Departement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Personnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Personnel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PersonnelCongeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PersonnelCongeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PersonnelType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PersonnelType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/PersonnelAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/PersonnelAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mouvement_personnel/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mouvement_personnel/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mouvement_personnel/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mouvement_personnel/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/mouvement_personnel/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mouvement_personnel/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/parametrage_spe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/parametrage_spe/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel_conge/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_conge/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personnel_mission/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personnel_mission/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ModelDocumentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ModelDocumentType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/model_document/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model_document/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/model_document/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model_document/add.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +40,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -172,6 +155,9 @@
       <path value="$PROJECT_DIR$/vendor/psr/link" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gAkJTt4le0qpUPJrZuB50iA8KO" />
@@ -187,7 +173,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="bd1069dc-e324-4656-b775-54b08e4717f2" name="Default Changelist" comment="" />
@@ -228,11 +217,17 @@
       <workItem from="1598530393308" duration="3418000" />
       <workItem from="1598558601238" duration="427000" />
       <workItem from="1598647303622" duration="1151000" />
+      <workItem from="1598911193435" duration="715000" />
+      <workItem from="1598955172753" duration="632000" />
+      <workItem from="1598966804338" duration="80000" />
+      <workItem from="1599040297615" duration="1154000" />
+      <workItem from="1599041646298" duration="2211000" />
+      <workItem from="1599061114239" duration="236000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -269,6 +264,7 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -299,7 +295,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixup! updates" />
@@ -326,10 +321,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1598647278239" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1597575970209">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="542" y="141" key="FileChooserDialogImpl" timestamp="1598966882487">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597575970209" />
+    <state x="542" y="141" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1598966882487" />
     <state x="129" y="55" key="MergeDialog" timestamp="1598259452274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -359,6 +355,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598648297490" />
+    <state x="496" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1599061115122">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="496" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1599061115122" />
     <state x="288" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598366481869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -367,6 +367,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="82" y="0" width="1007" height="715" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1597825266313" />
+    <state x="496" y="162" width="607" height="536" key="find.popup" timestamp="1598916260465">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="496" y="162" width="607" height="536" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1598916260465" />
     <state x="552" y="276" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1598259443624">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

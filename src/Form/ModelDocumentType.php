@@ -26,7 +26,7 @@ class ModelDocumentType extends AbstractType
                 'details',
                 TextareaType::class,
                 [
-                    'attr' => ['rows' => 4],
+                    'attr' => ['rows' => 5],
                     'required'   => true,
                 ]
             )

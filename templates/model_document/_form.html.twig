@@ -6,13 +6,20 @@
             <div>
                 {{ form_row(documentModelForm.intitule) }}
             </div>
-            <br>
+
             <div>
-                {{ form_row(documentModelForm.details) }}
+                <label for="infos">Infos à inserer</label>
+                <select class="form-control" id="infoSelect">
+                    {% for column in columns %}
+                        <option value="[{{ column.colName }}]" name="[{{ column.colName }}]">{{ column.colName }}</option>
+                    {% endfor %}
+                </select>
             </div>
         </div>
         <div class="col-6">
-            <div class="row m-2">
+                {{ form_row(documentModelForm.details) }}
+
+                <!--
                 <div class="d-flex justify-content-center m-2">
                     <button class=" btn btn-outline-primary" id="bnom"
                         name="<span id='nomSpan' class='nomSpan'>[Nom et prénom]</span>">
@@ -38,14 +45,8 @@
                         téléphone
                     </button>
                 </div>
-                {% for column in columns %}
-                <div class="d-flex justify-content-center m-2">
-                    <button class=" btn btn-outline-primary">
-                        {{ column.colName }}
-                    </button>
-                </div>
-                {% endfor %}
-            </div>
+                -->
+
         </div>
         <div class="col-12 mt-3">
             {{ form_row(documentModelForm.content) }}
@@ -56,6 +57,4 @@
         </div>
     </div>
 </div>
-{# {{ form_widget(documentModelForm) }}
-<button class="btn">{{ button_label|default('Save') }}</button> #}
 {{ form_end(documentModelForm) }}

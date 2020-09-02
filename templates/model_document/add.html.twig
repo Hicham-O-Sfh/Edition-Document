@@ -33,22 +33,20 @@
 
 {% block javascripts %}
 <script>
-    document.getElementById('bnom').addEventListener("click", function (e) {
-        e.preventDefault();
-        setcontent(this.name);
-    });
-    document.getElementById('bEmail').addEventListener("click", function (e) {
-        e.preventDefault();
-        setcontent(e.target.name);
-    });
-    document.getElementById('bnum').addEventListener("click", function (e) {
-        e.preventDefault();
-        setcontent(e.target.name);
-    });
 
+      $(document).ready(function(){
+          $("#infoSelect").on("change", function (event) {
+              //alert( $(this).val());
+              event.preventDefault();
+              setcontent($(this).val());
+          });
+          
     function setcontent(element) {
         var myElement = CKEDITOR.dom.element.createFromHtml(element);
-        CKEDITOR.instances.model_document_content.insertHtml(myElement.$.outerHTML);
+        CKEDITOR.instances.model_document_content.insertHtml(element);
+      //  CKEDITOR.instances.model_document_content.insertHtml(myElement.$.outerHTML);
     }
+    });
+
 </script>
 {% endblock %}
