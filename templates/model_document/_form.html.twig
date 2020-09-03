@@ -1,5 +1,5 @@
 {{ form_start(documentModelForm) }}
-<div class="card-header"><i class="fa fa-table"></i> Document </div>
+<div class="card-header"><i class="fa fa-table"></i> Créer un document </div>
 <div class="card-body">
     <div class="row">
         <div class="col-6">
@@ -7,7 +7,8 @@
                 {{ form_label(documentModelForm.intitule, 'Intitulé ') }}
                 {{ form_widget(documentModelForm.intitule) }}
             </div>
-
+        </div>
+        <div class="col-6">
             <div>
                 <label for="infos">Infos à inserer</label>
                 <select class="form-control" id="infoSelect">
@@ -19,7 +20,8 @@
             </div>
         </div>
         <div class="col-12 mt-3">
-            {{ form_row(documentModelForm.content) }}
+            {{ form_label(documentModelForm.content, 'Contenu ') }}
+            {{ form_widget(documentModelForm.content) }}
 
             <div class="d-flex justify-content-end p-1">
                 <input class=" btn btn-outline-primary" type="submit" value="Ajouter" />
