@@ -1152,4 +1152,9 @@ class Personnel implements UserInterface
 
         return $this;
     }
+
+    public function objectToArray(): Collection
+    {
+        return $this->toArray();
+    }
 }

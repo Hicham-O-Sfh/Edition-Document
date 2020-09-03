@@ -30,11 +30,6 @@ class ModelDocument
     private $dateCreation;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $details;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
@@ -76,17 +71,6 @@ class ModelDocument
     public function setDateCreation(?\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
-
-        return $this;
-    }
-    public function getDetails(): ?string
-    {
-        return $this->details;
-    }
-
-    public function setDetails(?string $details): self
-    {
-        $this->details = $details;
 
         return $this;
     }

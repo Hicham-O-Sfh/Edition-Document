@@ -147,7 +147,11 @@
                 dataType: 'json',
                 async: true,
                 success: function (personnel) {
-                    console.log(personnel);
+                    // $("#ajax-data_prenom-nom").html(personnel); // réussi ❤
+                    //console.log(personnel);
+                    var new_document = document.getElementById("preview").innerHTML
+                        .replace('[Prénom, Nom]', personnel);
+                    document.getElementById("preview").innerHTML = new_document // réussi ❤ 
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     alert('Erreur de requéte Ajax ....');

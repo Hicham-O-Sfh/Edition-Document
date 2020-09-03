@@ -23,14 +23,6 @@ class ModelDocumentType extends AbstractType
                 ]
             )
             ->add(
-                'details',
-                TextareaType::class,
-                [
-                    'attr' => ['rows' => 5],
-                    'required'   => true,
-                ]
-            )
-            ->add(
                 'content',
                 CKEditorType::class,
                 [
