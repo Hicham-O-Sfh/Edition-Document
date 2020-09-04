@@ -41,6 +41,8 @@
     <link href="{{ asset('assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet"
         type="text/css">
     <link href="{{ asset('assets/css/ourStyle.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
 
 </head>
 
@@ -284,16 +286,31 @@
 
                         <li>
                             <a href="javaScript:void();" class="waves-effect">
-                                <i class="zmdi zmdi-format-list-bulleted"></i> <span>Editions</span>
+                                <i class="fas fa-paste"></i>
+                                <span>Editions</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="sidebar-submenu">
-                                <li><a href="{{path('model_document_index')}}"><i class="zmdi zmdi-dot-circle-alt"></i>
-                                        Modèles
-                                        documents</a></li>
-                                <li><a href="form-input-group.html"><i class="zmdi zmdi-dot-circle-alt"></i> Liste
+                                <li>
+                                    <a href="{{path('CreerUnModele')}}">
+                                        <i class="zmdi zmdi-dot-circle-alt"></i>
+                                        Modèles de
+                                        documents
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{path('CreerUnDocument')}}">
+                                        <i class="zmdi zmdi-dot-circle-alt"></i>
+                                        Liste des
                                         Edition
-                                    </a></li>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{path('model_document_index')}}">
+                                        <i class="zmdi zmdi-dot-circle-alt"></i>
+                                        test
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li>

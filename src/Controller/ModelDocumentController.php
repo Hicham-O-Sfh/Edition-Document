@@ -24,17 +24,33 @@ class ModelDocumentController extends AbstractController
      */
     public function index(ModelDocumentRepository $modelDocumentRepository): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+        $conn =  $entityManager->getConnection();
+        $columns = $conn->fetchAll("
+        SELECT column_name as colName
+        FROM information_schema.columns 
+        WHERE table_schema = 'si_anoc_bd_test' 
+            AND table_name = 'personnel'
+            AND column_name IN ('email_professionnel', 'num_cin', 'matricule', 'nom_fr', 'prenom_fr', 'nom_ar', 'prenom_ar', 'nom_conjoint_ar', 'prenom_conjoint_ar', 'sexe', 'tel_professionnel', 'est_personnel')
+        ");
+
         return $this->render('model_document/index.html.twig', [
             'model_documents' => $modelDocumentRepository->findAll(),
+            'columns' => $columns
         ]);
     }
+
 
     /**
      * @Route("/ajaxGetModelById/{id}", name="ajaxGetModelById" , methods={"GET"})
      */
     public function ajaxGetModelById(ModelDocument $modelDocument)
     {
-        return new JsonResponse($modelDocument->getContent());
+        $modelData = array(
+            'intitule' => $modelDocument->getIntitule(),
+            'documentHtml' => $modelDocument->getContent()
+        );
+        return new JsonResponse($modelData);
     }
 
     /**
@@ -52,7 +68,7 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/Creer-Un-Document", name="model_document_make")
+     * @Route("/Creer-Un-Document", name="CreerUnDocument")
      */
     public function make(ModelDocumentRepository $modelDocuments, PersonnelRepository $users)
     {
@@ -67,9 +83,9 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/Creer-Un-Modele", name="add" , methods={"GET","POST"})
+     * @Route("/Creer-Un-Modele", name="CreerUnModele" , methods={"GET","POST"})
      */
-    public function add(Request $request): Response
+    public function CreerUnModele(Request $request): Response
     {
         $modelDocument = new ModelDocument();
         $form = $this->createForm(ModelDocumentType::class, $modelDocument);
@@ -100,35 +116,25 @@ class ModelDocumentController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/{id}", name="model_document_show", methods={"GET"})
-    //  */
-    // public function show(ModelDocument $modelDocument): Response
-    // {
-    //     return $this->render('model_document/show.html.twig', [
-    //         'model_document' => $modelDocument,
-    //     ]);
-    // }
+    /**
+     * @Route("/{id}/edit", name="model_document_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, ModelDocument $modelDocument): Response
+    {
+        $form = $this->createForm(ModelDocumentType::class, $modelDocument);
+        $form->handleRequest($request);
 
-    // /**
-    //  * @Route("/{id}/edit", name="model_document_edit", methods={"GET","POST"})
-    //  */
-    // public function edit(Request $request, ModelDocument $modelDocument): Response
-    // {
-    //     $form = $this->createForm(ModelDocumentType::class, $modelDocument);
-    //     $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
 
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('model_document_index');
+        }
 
-    //         return $this->redirectToRoute('model_document_index');
-    //     }
-
-    //     return $this->render('model_document/edit.html.twig', [
-    //         'model_document' => $modelDocument,
-    //         'form' => $form->createView(),
-    //     ]);
-    // }
+        return $this->render('model_document/edit.html.twig', [
+            'model_document' => $modelDocument,
+            'documentModelForm' => $form->createView(),
+        ]);
+    }
 
     // /**
     //  * @Route("/{id}", name="model_document_delete", methods={"DELETE"})

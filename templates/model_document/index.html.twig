@@ -3,22 +3,153 @@
 {% block title %}ModelDocument index{% endblock %}
 
 {% block body %}
-    
+<style>
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 600;
+        color: inherit;
+    }
 
-         <div class="row">
-         <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header"><i class="fa fa-table"></i> Model Document </div>
-                <div class="card-body">
-            <div class=" mb-2 d-flex justify-content-center">
-                <a class=" btn btn-outline-primary" href="{{path('add')}}"> Ajouter Document </a>
-            </div>
-        <div class=" mb-2 d-flex justify-content-center">
-                <a class=" btn btn-outline-primary" href="{{path('model_document_make')}}"> Utiliser Document </a>
-            </div>
+    #mceu_33 {
+        display: none;
+    }
+</style>
 
- </div>
-     </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-10">
+                        <img src="https://img.icons8.com/ios/50/000000/ingredients-list.png" style="width:30px;" />
+                        Liste des modéles
+                    </div>
+                    <div class="col-2">
+                        <div class="d-flex justify-content-end">
+                            <a href="{{path('CreerUnModele')}}">
+                                <button class="btn btn-outline-info">
+                                    <i class="fas fa-plus-square"></i>
+                                    Ajouter
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="list-group overflow-auto">
+                            {% for model in model_documents %}
+                            <a data-toggle="list" href="#form-edition" role="tab" id="{{model.id}}"
+                                class="lienAjax list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">{{ model.intitule }}</h6>
+                                    <small>3 jours</small>
+                                </div>
+                                <small>Crée par nom_créateur</small>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="card">
+                            <form action="" method="POST" class="tab-pane fade show" id="form-edition">
+                                <div class="card-header">
+                                    <img src="https://img.icons8.com/ios/50/000000/add-rule.png" style="width: 30px;" />
+                                    Créer un modéle
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div>
+                                                <label for="intituleAjax">Intitulé</label>
+                                                <input class="form-control" type="text" name="intituleAjax"
+                                                    id="intituleAjax" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div>
+                                                <label for="infoSelect">Infos à inserer</label>
+                                                <select class="form-control" id="infoSelect">
+                                                    <option value="-1" disabled selected>-Veuillez Sélectionner-
+                                                    </option>
+                                                    {% for column in columns %}
+                                                    <option value="[{{ column.colName }}]"
+                                                        name="[{{ column.colName }}]">{{ column.colName }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="contenuAjax">Contenu</label>
+                                            <textarea class="form-control" name="contenuAjax" id="contenuAjax" cols="30"
+                                                rows="10" required></textarea>
+
+                                            <div class="d-flex justify-content-end p-1">
+                                                <button class="btn btn-outline-primary">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                    Mettre à jour le modéle
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+{% endblock %}
 
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('assets/js/tinymce.min.js') }}"></script>
+<script>
+    tinymce.init({
+        selector: '#contenuAjax',
+        plugins: 'code preview image',
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#infoSelect").on("change", function (event) {
+            tinymce.activeEditor.execCommand('mceInsertContent', false, $(this).val());
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $(".lienAjax").on("click", function () {
+            $.ajax({
+                url: '/model/document/ajaxGetModelById/' + this.id,
+                type: 'GET',
+                dataType: 'json',
+                async: true,
+                success: function (model) {
+                    $("#intituleAjax").val(model.intitule);
+                    tinymce.activeEditor.setContent(model.documentHtml, {
+                        format: 'raw'
+                    });
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('Erreur de requéte Ajax ....');
+                }
+            });
+        })
+    });
+</script>
 {% endblock %}

@@ -1,5 +1,8 @@
 {{ form_start(documentModelForm) }}
-<div class="card-header"><i class="fa fa-table"></i> Créer un document </div>
+<div class="card-header">
+    <img src="https://img.icons8.com/ios/50/000000/add-rule.png" style="width: 30px;" />
+    Créer un modéle
+</div>
 <div class="card-body">
     <div class="row">
         <div class="col-6">
@@ -10,9 +13,9 @@
         </div>
         <div class="col-6">
             <div>
-                <label for="infos">Infos à inserer</label>
+                <label for="infoSelect">Infos à inserer</label>
                 <select class="form-control" id="infoSelect">
-                    <option value="-1" disabled selected>-Veuillez Sélectionner</option>
+                    <option value="-1" disabled selected>-Veuillez Sélectionner-</option>
                     {% for column in columns %}
                     <option value="[{{ column.colName }}]" name="[{{ column.colName }}]">{{ column.colName }}</option>
                     {% endfor %}
