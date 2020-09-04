@@ -112,7 +112,7 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="model_document_edit", methods={"GET","POST"})
+     * @Route("/Modifier-Un-Document/{id}", name="ModifierUnDocument", methods={"POST"})
      */
     public function edit(Request $request, ModelDocument $modelDocument): Response
     {
