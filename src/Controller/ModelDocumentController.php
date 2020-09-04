@@ -55,11 +55,17 @@ class ModelDocumentController extends AbstractController
 
     /**
      * @Route("/ajaxGetUserById/{id}", name="ajaxGetUserById" , methods={"GET"})
+     * @param Personnel $personnel
+     * @return JsonResponse
      */
     public function ajaxGetUserById(Personnel $personnel)
     {
-        // $pers =  $serializer->serialize($personnel, 'json');
-        return new JsonResponse($personnel->getId());
+        $entityManager = $this->getDoctrine()->getManager();
+        $conn =  $entityManager->getConnection();
+        $id = $personnel->getId();
+        $infoPersonnel = $conn->fetchAll("SELECT * FROM Personnel WHERE id = $id");
+
+        return new JsonResponse($infoPersonnel);
     }
 
     /**
