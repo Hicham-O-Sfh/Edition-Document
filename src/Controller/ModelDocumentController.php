@@ -24,8 +24,19 @@ class ModelDocumentController extends AbstractController
      */
     public function index(ModelDocumentRepository $modelDocumentRepository): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+        $conn =  $entityManager->getConnection();
+        $columns = $conn->fetchAll("
+        SELECT column_name as colName
+        FROM information_schema.columns 
+        WHERE table_schema = 'si_anoc_bd_test' 
+            AND table_name = 'personnel'
+            AND column_name IN ('email_professionnel', 'num_cin', 'matricule', 'nom_fr', 'prenom_fr', 'nom_ar', 'prenom_ar', 'nom_conjoint_ar', 'prenom_conjoint_ar', 'sexe', 'tel_professionnel', 'est_personnel')
+        ");
+
         return $this->render('model_document/index.html.twig', [
             'model_documents' => $modelDocumentRepository->findAll(),
+            'columns' => $columns
         ]);
     }
 
@@ -47,7 +58,7 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/Creer-Un-Document", name="model_document_make")
+     * @Route("/Creer-Un-Document", name="CreerUnDocument")
      */
     public function make(ModelDocumentRepository $modelDocuments, PersonnelRepository $users)
     {
@@ -62,9 +73,9 @@ class ModelDocumentController extends AbstractController
     }
 
     /**
-     * @Route("/Creer-Un-Modele", name="add" , methods={"GET","POST"})
+     * @Route("/Creer-Un-Modele", name="CreerUnModele" , methods={"GET","POST"})
      */
-    public function add(Request $request): Response
+    public function CreerUnModele(Request $request): Response
     {
         $modelDocument = new ModelDocument();
         $form = $this->createForm(ModelDocumentType::class, $modelDocument);
