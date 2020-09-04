@@ -142,9 +142,9 @@
                         //personnel is an array of arrays..
                         $.each((value), function(i, val)
                         {
-                           //console.log(i +" => "+val);
+                           //console.log(i +" => "+val); /<TERM>/g
                             new_document = document.getElementById("preview").innerHTML
-                                .replace("["+i+"]", val);
+                                .replace(new RegExp(escapeRegExp("["+i+"]"), 'g'), val);
                             document.getElementById("preview").innerHTML = new_document // réussi ❤
                         });
                     });
@@ -155,5 +155,8 @@
             });
         });
     });
+    function escapeRegExp(string) {
+        return string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+    }
 </script>
 {% endblock %}
