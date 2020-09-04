@@ -12,12 +12,12 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20200831203538 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return '';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE commune (id INT AUTO_INCREMENT NOT NULL, province_id INT DEFAULT NULL, commune_ar VARCHAR(255) DEFAULT NULL, commune_fr VARCHAR(255) DEFAULT NULL, INDEX IDX_E2E2D1EEE946114A (province_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -70,7 +70,7 @@ final class Version20200831203538 extends AbstractMigration
         $this->addSql('ALTER TABLE secteur ADD CONSTRAINT FK_8045251F7F05C301 FOREIGN KEY (animateur_id) REFERENCES personnel (id)');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE personnel DROP FOREIGN KEY FK_A6BCF3DECCF9E01E');

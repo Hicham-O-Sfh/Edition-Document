@@ -40,12 +40,17 @@ class ModelDocumentController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/ajaxGetModelById/{id}", name="ajaxGetModelById" , methods={"GET"})
      */
     public function ajaxGetModelById(ModelDocument $modelDocument)
     {
-        return new JsonResponse($modelDocument->getContent());
+        $modelData = array(
+            'intitule' => $modelDocument->getIntitule(),
+            'documentHtml' => $modelDocument->getContent()
+        );
+        return new JsonResponse($modelData);
     }
 
     /**

@@ -115,8 +115,8 @@
                 type: 'GET',
                 dataType: 'json',
                 async: true,
-                success: function (documentHtml) {
-                    document.getElementById("preview").innerHTML = documentHtml;
+                success: function (model) {
+                    document.getElementById("preview").innerHTML = model.documentHtml;
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     alert('Erreur de requéte Ajax ....');
