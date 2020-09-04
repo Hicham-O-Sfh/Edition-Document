@@ -111,35 +111,25 @@ class ModelDocumentController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/{id}", name="model_document_show", methods={"GET"})
-    //  */
-    // public function show(ModelDocument $modelDocument): Response
-    // {
-    //     return $this->render('model_document/show.html.twig', [
-    //         'model_document' => $modelDocument,
-    //     ]);
-    // }
+    /**
+     * @Route("/{id}/edit", name="model_document_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, ModelDocument $modelDocument): Response
+    {
+        $form = $this->createForm(ModelDocumentType::class, $modelDocument);
+        $form->handleRequest($request);
 
-    // /**
-    //  * @Route("/{id}/edit", name="model_document_edit", methods={"GET","POST"})
-    //  */
-    // public function edit(Request $request, ModelDocument $modelDocument): Response
-    // {
-    //     $form = $this->createForm(ModelDocumentType::class, $modelDocument);
-    //     $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
 
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('model_document_index');
+        }
 
-    //         return $this->redirectToRoute('model_document_index');
-    //     }
-
-    //     return $this->render('model_document/edit.html.twig', [
-    //         'model_document' => $modelDocument,
-    //         'form' => $form->createView(),
-    //     ]);
-    // }
+        return $this->render('model_document/edit.html.twig', [
+            'model_document' => $modelDocument,
+            'documentModelForm' => $form->createView(),
+        ]);
+    }
 
     // /**
     //  * @Route("/{id}", name="model_document_delete", methods={"DELETE"})

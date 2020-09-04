@@ -15,7 +15,7 @@
             <div>
                 <label for="infoSelect">Infos à inserer</label>
                 <select class="form-control" id="infoSelect">
-                    <option value="-1" disabled selected>-Veuillez Sélectionner</option>
+                    <option value="-1" disabled selected>-Veuillez Sélectionner-</option>
                     {% for column in columns %}
                     <option value="[{{ column.colName }}]" name="[{{ column.colName }}]">{{ column.colName }}</option>
                     {% endfor %}
