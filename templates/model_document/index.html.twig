@@ -94,10 +94,10 @@
                                         <div class="col-12 mt-3">
                                             <label for="contenuAjax">Contenu</label>
                                             <textarea class="form-control" name="contenuAjax" id="contenuAjax" cols="30"
-                                                rows="10" required></textarea>
+                                                rows="10"></textarea>
 
                                             <div class="d-flex justify-content-end p-1">
-                                                <button class="btn btn-outline-primary">
+                                                <button class="btn btn-outline-primary" id="updateBtn">
                                                     <i class="fas fa-pencil-alt"></i>
                                                     Mettre à jour le modéle
                                                 </button>
@@ -118,6 +118,7 @@
 {% block javascripts %}
 <script type="text/javascript" src="{{ asset('assets/js/tinymce.min.js') }}"></script>
 <script>
+    // chargement de TinyMce (editeur de texte)
     tinymce.init({
         selector: '#contenuAjax',
         plugins: 'code preview image',
@@ -125,6 +126,7 @@
     });
 </script>
 <script>
+    //insertion dynamique des champs
     $(document).ready(function () {
         $("#infoSelect").on("change", function (event) {
             tinymce.activeEditor.execCommand('mceInsertContent', false, $(this).val());
@@ -132,14 +134,20 @@
     });
 </script>
 <script>
+    //importation des données du modél sélctionnée 
     $(document).ready(function () {
         $(".lienAjax").on("click", function () {
+            var id_model = this.id;
             $.ajax({
                 url: '/model/document/ajaxGetModelById/' + this.id,
                 type: 'GET',
                 dataType: 'json',
                 async: true,
                 success: function (model) {
+                    $("#form-edition").attr(
+                        'action',
+                        '/model/document/Modifier-Un-Document/' + id_model
+                    );
                     $("#intituleAjax").val(model.intitule);
                     tinymce.activeEditor.setContent(model.documentHtml, {
                         format: 'raw'
