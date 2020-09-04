@@ -62,7 +62,8 @@ class ModelDocumentController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
         $conn =  $entityManager->getConnection();
-        $infoPersonnel = $conn->fetchAll("SELECT * FROM Personnel WHERE id = $personnel->getId()");
+        $id = $personnel->getId();
+        $infoPersonnel = $conn->fetchAll("SELECT * FROM Personnel WHERE id = $id");
 
         return new JsonResponse($infoPersonnel);
     }

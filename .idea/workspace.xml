@@ -26,14 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd1069dc-e324-4656-b775-54b08e4717f2" name="Default Changelist" comment="fixup! updates">
-      <change beforePath="$PROJECT_DIR$/.idea/ANOC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANOC.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ModelDocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModelDocumentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/model_document/make.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model_document/make.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +221,7 @@
       <workItem from="1599167928055" duration="2325000" />
       <workItem from="1599228133403" duration="341000" />
       <workItem from="1599229414133" duration="1330000" />
-      <workItem from="1599233156971" duration="3160000" />
+      <workItem from="1599233156971" duration="3431000" />
     </task>
     <servers />
   </component>
