@@ -122,19 +122,18 @@ class ModelDocumentController extends AbstractController
      */
     public function edit(Request $request, ModelDocument $modelDocument): Response
     {
-        $form = $this->createForm(ModelDocumentType::class, $modelDocument);
-        $form->handleRequest($request);
+        $entityManager = $this->getDoctrine()->getManager();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        // $modelDocument = $this->getDoctrine()
+        //     ->getRepository(ModelDocument::class)
+        //     ->find($);
+        $modelDocument->setContent($request->get('contenuAjax'));
+        $modelDocument->setIntitule($request->get('intituleAjax'));
+        $entityManager->persist($modelDocument);
 
-            return $this->redirectToRoute('model_document_index');
-        }
+        $entityManager->flush();
 
-        return $this->render('model_document/edit.html.twig', [
-            'model_document' => $modelDocument,
-            'documentModelForm' => $form->createView(),
-        ]);
+        return $this->redirectToRoute('model_document_index');
     }
 
     // /**

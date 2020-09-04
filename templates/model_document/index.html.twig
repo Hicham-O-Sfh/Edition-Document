@@ -94,7 +94,7 @@
                                         <div class="col-12 mt-3">
                                             <label for="contenuAjax">Contenu</label>
                                             <textarea class="form-control" name="contenuAjax" id="contenuAjax" cols="30"
-                                                rows="10" required></textarea>
+                                                rows="10"></textarea>
 
                                             <div class="d-flex justify-content-end p-1">
                                                 <button class="btn btn-outline-primary" id="updateBtn">
@@ -137,14 +137,17 @@
     //importation des données du modél sélctionnée 
     $(document).ready(function () {
         $(".lienAjax").on("click", function () {
+            var id_model = this.id;
             $.ajax({
                 url: '/model/document/ajaxGetModelById/' + this.id,
                 type: 'GET',
                 dataType: 'json',
                 async: true,
                 success: function (model) {
-                    alert(model.id);
-                    $("#form-edition").attr('action', '/Modifier-Un-Document/' + model.id);
+                    $("#form-edition").attr(
+                        'action',
+                        '/model/document/Modifier-Un-Document/' + id_model
+                    );
                     $("#intituleAjax").val(model.intitule);
                     tinymce.activeEditor.setContent(model.documentHtml, {
                         format: 'raw'
