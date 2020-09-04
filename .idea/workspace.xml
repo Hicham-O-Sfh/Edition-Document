@@ -29,9 +29,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/ANOC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ANOC.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ModelDocumentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ModelDocumentType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/model_document/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model_document/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/model_document/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model_document/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ModelDocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ModelDocumentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/model_document/make.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model_document/make.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,8 +158,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
-      <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
-      <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gAkJTt4le0qpUPJrZuB50iA8KO" />
@@ -223,6 +223,11 @@
       <workItem from="1599040297615" duration="1154000" />
       <workItem from="1599041646298" duration="2211000" />
       <workItem from="1599061114239" duration="236000" />
+      <workItem from="1599126660176" duration="3764000" />
+      <workItem from="1599167928055" duration="2325000" />
+      <workItem from="1599228133403" duration="341000" />
+      <workItem from="1599229414133" duration="1330000" />
+      <workItem from="1599233156971" duration="3160000" />
     </task>
     <servers />
   </component>
@@ -355,10 +360,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1598648297490" />
-    <state x="496" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1599061115122">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="426" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1599233156703">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="496" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1599061115122" />
+    <state x="426" y="215" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1599233156703" />
+    <state x="496" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1599126661862" />
     <state x="288" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598366481869">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

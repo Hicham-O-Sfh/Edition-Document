@@ -146,12 +146,20 @@
                 type: 'GET',
                 dataType: 'json',
                 async: true,
-                success: function (personnel) {
-                    // $("#ajax-data_prenom-nom").html(personnel); // réussi ❤
-                    //console.log(personnel);
-                    var new_document = document.getElementById("preview").innerHTML
-                        .replace('[Prénom, Nom]', personnel);
-                    document.getElementById("preview").innerHTML = new_document // réussi ❤ 
+                success: function (personnel)
+                {
+                    var new_document;
+                    $.each((personnel), function(index, value)
+                    {
+                        //personnel is an array of arrays..
+                        $.each((value), function(i, val)
+                        {
+                           //console.log(i +" => "+val);
+                            new_document = document.getElementById("preview").innerHTML
+                                .replace("["+i+"]", val);
+                            document.getElementById("preview").innerHTML = new_document // réussi ❤
+                        });
+                    });
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     alert('Erreur de requéte Ajax ....');
